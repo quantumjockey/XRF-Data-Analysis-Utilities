@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
-using TheseColorsDontRun.ViewModel;
+using TheseColorsDontRun.ViewModel.Workspaces;
 
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
