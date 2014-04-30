@@ -57,9 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Utilities\ColorFromRamp.cs" />
     <Compile Include="ViewModel\Windows\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\ColorRampWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\DataRenderingWorkspaceViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\RgbLimiterWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\SampleWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\XrfPixelViewModel.cs" />
     <Compile Include="App.xaml.cs">
@@ -70,14 +68,8 @@
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Workspaces\ColorRampWorkspace.xaml.cs">
-      <DependentUpon>ColorRampWorkspace.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Workspaces\DataRenderingWorkspace.xaml.cs">
       <DependentUpon>DataRenderingWorkspace.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Workspaces\RgbLimiterWorkspace.xaml.cs">
-      <DependentUpon>RgbLimiterWorkspace.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Workspaces\SampleWorkspace.xaml.cs">
       <DependentUpon>SampleWorkspace.xaml</DependentUpon>
@@ -121,6 +113,10 @@
       <Project>{3995f027-97c3-4b83-8a64-ddd36e1a43a2}</Project>
       <Name>CompUhaul</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Visual C# Application Source\Libraries\TheseColorsDontRun\TheseColorsDontRun\TheseColorsDontRun.csproj">
+      <Project>{f6d15a69-9342-463a-82cc-8b5186deac60}</Project>
+      <Name>TheseColorsDontRun</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\Visual C# Application Source\Libraries\WpfHelper\WpfHelper\WpfHelper.csproj">
       <Project>{473a9def-8948-42a0-b127-aab5bcbc5790}</Project>
       <Name>WpfHelper</Name>
@@ -136,19 +132,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Workspaces\ColorRampWorkspace.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Workspaces\DataRenderingWorkspace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Workspaces\DataRenderingWorkspaceResources.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Workspaces\RgbLimiterWorkspace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
