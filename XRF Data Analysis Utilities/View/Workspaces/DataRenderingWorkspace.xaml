@@ -24,21 +24,19 @@
                                     <Label>cts</Label>
                                 </StackPanel>
                             </StackPanel>
-                            <Border BorderBrush="Gray" BorderThickness="2" Margin="4">
-                                <ContentControl Content="{Binding Path=RenderedImage, UpdateSourceTrigger=PropertyChanged}" Height="400" Width="400" RenderOptions.BitmapScalingMode="NearestNeighbor" SnapsToDevicePixels="True"/>
-                            </Border>
-                        </StackPanel>
-                        <StackPanel Margin="4" Orientation="Horizontal">
-                            <ContentControl Content="{Binding Path=ColorRamp, UpdateSourceTrigger=PropertyChanged}"/>
-                            <Grid>
-                                <Label Content="{Binding Path=ElementData.MaxCounts}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                                <Label Content="{Binding Path=ElementData.MinCounts}"  HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-                            </Grid>
+                            <StackPanel Orientation="Horizontal">
+                                <Border BorderBrush="Gray" BorderThickness="2" Margin="4">
+                                    <ContentControl Content="{Binding Path=RenderedImage, UpdateSourceTrigger=PropertyChanged}" RenderOptions.BitmapScalingMode="NearestNeighbor" SnapsToDevicePixels="True"/>
+                                </Border>
+                                <StackPanel Margin="4">
+                                    <Label Content="{Binding Path=ElementData.MaxCounts}" HorizontalAlignment="Left"/>
+                                    <ContentControl Content="{Binding Path=ColorRamp, UpdateSourceTrigger=PropertyChanged}"/>
+                                    <Label Content="{Binding Path=ElementData.MinCounts}"  HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </Border>
-
-                <ContentControl Content="{Binding Path=RgbLimits}" DockPanel.Dock="Bottom" Margin="5"/>
 
             </DockPanel>
 
@@ -57,7 +55,7 @@
                   CanUserResizeColumns="False"
                       CanUserResizeRows="False" 
                               DockPanel.Dock="Top"
-                              Height="520"
+                              Height="Auto"
                       ItemsSource="{Binding Path=CompleteDataListing}"
                       SelectedItem="{Binding Path=SelectedPixel, UpdateSourceTrigger=PropertyChanged}"
                       SelectionChanged="DataGrid_SelectionChanged">

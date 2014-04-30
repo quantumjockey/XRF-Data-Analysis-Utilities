@@ -55,7 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Utilities\ColorFromRamp.cs" />
     <Compile Include="ViewModel\Windows\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\DataRenderingWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\SampleWorkspaceViewModel.cs" />

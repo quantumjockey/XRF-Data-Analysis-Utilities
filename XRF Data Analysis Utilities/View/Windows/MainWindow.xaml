@@ -1,14 +1,13 @@
 ﻿<Window x:Class="XRF_Data_Analysis_Utilities.View.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        ResizeMode="CanMinimize"
-        SizeToContent="WidthAndHeight"
+        ResizeMode="CanResize"
         Title="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ResourceDictionary Source="MainWindowResources.xaml"/>
     </Window.Resources>
-    <DockPanel MinHeight="600" MinWidth="1000">
+    <DockPanel MinHeight="600" MinWidth="900">
         <Menu DockPanel.Dock="Top">
             <MenuItem>
                 <MenuItem.Header>File</MenuItem.Header>

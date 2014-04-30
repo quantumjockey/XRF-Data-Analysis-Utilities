@@ -1,4 +1,7 @@
-﻿using CompUhaul.Dialogs;
+﻿///////////////////////////////////////
+#region Namespace Directives
+
+using CompUhaul.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +18,9 @@ using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model;
 using XRF_Data_Analysis_Utilities.Files;
 using XRF_Data_Analysis_Utilities.ViewModel.Workspaces;
+
+#endregion
+///////////////////////////////////////
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
 {
@@ -120,9 +126,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
         ////////////////////////////////////////
         #region Constructor
 
-        /// <summary>
-        /// 
-        /// </summary>
+
         public MainWindowViewModel()
         {
             Title = Assembly.GetExecutingAssembly().GetName().Name.ToString() + " - version " + Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -136,26 +140,20 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
         ////////////////////////////////////////
         #region Action Methods
 
-        /// <summary>
-        /// 
-        /// </summary>
+
         private void ExportCanvasToImage()
         {
             ExportImageToFile.FileName = GenerateImageDestinationFilename(SelectedSample.SelectedXRFImage);
             ExportImageToFile.ShowDialog();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+
         private void ExitApplication()
         {
             App.Current.Shutdown();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+
         private void OpenDataFile()
         {
             OpenDumpFile.ShowDialog();
@@ -166,11 +164,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
         ////////////////////////////////////////
         #region Events
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         void ExportImageToFile_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MemoryStream fileDataStream = GenerateTiffFromCanvas(SelectedSample.SelectedXRFImage.RenderedImage, 96, 1.0);
@@ -178,11 +172,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
             OpenFileInExplorer(ExportImageToFile.FileName);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         void OpenDumpFile_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
             xrfSample sample = DumpFileHandler.GetSampleData(OpenDumpFile.FileName);

@@ -1,4 +1,7 @@
-﻿using System;
+﻿///////////////////////////////////////
+#region Namespace Directives
+
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -9,6 +12,9 @@ using WpfHelper.Initialization;
 using XRF_Data_Analysis_Utilities.View.Windows;
 using XRF_Data_Analysis_Utilities.ViewModel.Windows;
 
+#endregion
+///////////////////////////////////////
+
 namespace XRF_Data_Analysis_Utilities
 {
     /// <summary>
@@ -16,10 +22,15 @@ namespace XRF_Data_Analysis_Utilities
     /// </summary>
     public partial class App : Application
     {
+        ////////////////////////////////////////
+        #region Constructor
+
         public App()
         {
             WindowInitializer _window = new WindowInitializer(new MainWindow(), new MainWindowViewModel());
             _window.Show();
         }
+
+        #endregion
     }
 }

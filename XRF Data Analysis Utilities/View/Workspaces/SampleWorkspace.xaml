@@ -28,7 +28,7 @@
             </StackPanel>
         </StackPanel>
         <ContentControl Content="{Binding Path=SelectedXRFImage, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" />
-        <StackPanel DockPanel.Dock="Left" Margin="5">
+        <StackPanel DockPanel.Dock="Right" Margin="5">
             <Label>Available Frames</Label>
             <ListBox DisplayMemberPath="ElementData.Name" 
                      Height="400" HorizontalContentAlignment="Center" 

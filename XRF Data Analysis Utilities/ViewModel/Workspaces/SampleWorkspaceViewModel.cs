@@ -1,4 +1,7 @@
-﻿using CompUhaul.Dialogs;
+﻿///////////////////////////////////////
+#region Namespace Directives
+
+using CompUhaul.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,6 +18,9 @@ using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model;
 using XRF_Data_Analysis_Utilities.Files;
 using XRF_Data_Analysis_Utilities.ViewModel.Workspaces;
+
+#endregion
+///////////////////////////////////////
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 {

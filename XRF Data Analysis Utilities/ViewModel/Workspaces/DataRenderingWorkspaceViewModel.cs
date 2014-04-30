@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using WpfHelper.PropertyChanged;
-using WpfHelper.ViewModel;
-using WpfHelper.ViewModel.Workspaces;
-using XRF_Data_Analysis_Utilities.Model;
-using XRF_Data_Analysis_Utilities.Utilities;
+﻿///////////////////////////////////////
+#region Namespace Directives
 
+using System;
+using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using TheseColorsDontRun.Extensions;
 using TheseColorsDontRun.ViewModel.Workspaces;
+using WpfHelper.PropertyChanged;
+using WpfHelper.ViewModel;
+using WpfHelper.ViewModel.Workspaces;
+using XRF_Data_Analysis_Utilities.Model;
+
+#endregion
+///////////////////////////////////////
 
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
@@ -60,12 +65,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
         }
 
-        public RgbLimiterWorkspaceViewModel RgbLimits
-        {
-            get;
-            set;
-        }
-
         public pixel SelectedPixel
         {
             get
@@ -84,11 +83,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Constructor
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="elementName"></param>
-        /// <param name="sample"></param>
         public DataRenderingWorkspaceViewModel(string _elementName, ref xrfSample _sample)
         {
             ElementData = _sample.GetElementData(_elementName);
@@ -101,18 +95,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Supporting Methods
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="xScale"></param>
-        /// <param name="yScale"></param>
-        /// <param name="_renderedImage"></param>
-        /// <param name="_data"></param>
-        /// <param name="_maxR"></param>
-        /// <param name="_maxG"></param>
-        /// <param name="_maxB"></param>
+
         private void AddPixel(double x, double y, double xScale, double yScale, ref Canvas _renderedImage, ref pixel _data, int _maxR, int _maxG, int _maxB)
         {
             XrfPixelViewModel xrfPix = new XrfPixelViewModel(_data, xScale, yScale);
@@ -123,23 +106,17 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             _renderedImage.Children.Add(xrfPix.Graphic);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+
         private void InitializeDataMapping()
         {
-            RgbLimits = new RgbLimiterWorkspaceViewModel();
-            RgbLimits.PropertyChanged += RgbLimits_PropertyChanged;
+            Color[] rampColors = new Color[]{ Colors.White, Colors.Blue, Colors.Red, Colors.Yellow };
 
-            ColorRamp = new ColorRampWorkspaceViewModel();
+            ColorRamp = new ColorRampWorkspaceViewModel(rampColors);
             ColorRamp.PropertyChanged += ColorRamp_PropertyChanged;
 
             RefreshImage();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         private void ListAllPixelsForGridDisplay()
         {
             CompleteDataListing = new ObservableCollection<pixel>();
@@ -152,15 +129,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="imageGrid"></param>
-        /// <param name="imageSize"></param>
-        /// <param name="maxR"></param>
-        /// <param name="maxG"></param>
-        /// <param name="maxB"></param>
-        /// <returns></returns>
+
         private Canvas RenderImage(pixel[][] imageGrid, double imageSize, int maxR, int maxG, int maxB)
         {
             Canvas _effectiveImage = new Canvas();
@@ -186,12 +155,10 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             return _effectiveImage;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+
         private void RefreshImage()
         {
-            RenderedImage = RenderImage(ElementData.ImageData, 400.0, RgbLimits.MaxRedChannel, RgbLimits.MaxGreenChannel, RgbLimits.MaxBlueChannel);
+            RenderedImage = RenderImage(ElementData.ImageData, 500.0, 255, 255, 255);
         }
 
         #endregion
@@ -199,29 +166,21 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Event Handling
         
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         void Graphic_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Rectangle pix = sender as Rectangle;
 
             for (int i = 0; i < CompleteDataListing.Count; i++)
             {
-                if (pix.Tag == CompleteDataListing[i].Tag)
+                if ((string)pix.Tag == (string)CompleteDataListing[i].Tag)
                 {
                     SelectedPixel = CompleteDataListing[i];
                 }
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         void RgbLimits_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (RenderedImage != null)
@@ -230,11 +189,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         void ColorRamp_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (RenderedImage != null)
