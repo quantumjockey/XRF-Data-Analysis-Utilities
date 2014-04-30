@@ -117,6 +117,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             RefreshImage();
         }
 
+
         private void ListAllPixelsForGridDisplay()
         {
             CompleteDataListing = new ObservableCollection<pixel>();
