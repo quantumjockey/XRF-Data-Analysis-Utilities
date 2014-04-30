@@ -1,0 +1,8 @@
+﻿<UserControl x:Class="XRF_Data_Analysis_Utilities.View.Workspaces.ColorRampWorkspace"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border BorderBrush="Gray" BorderThickness="2" Height="404">
+        <Slider Background="{Binding Path=Brush, UpdateSourceTrigger=PropertyChanged}" Height="400" Orientation="Vertical" Value="{Binding Path=SliderValue, UpdateSourceTrigger=PropertyChanged}"/>
+    </Border>
+</UserControl>
+    

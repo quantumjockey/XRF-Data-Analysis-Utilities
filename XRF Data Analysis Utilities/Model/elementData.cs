@@ -1,0 +1,130 @@
+﻿///////////////////////////////////////
+#region Namespace Directives
+
+using System;
+
+#endregion
+///////////////////////////////////////
+
+namespace XRF_Data_Analysis_Utilities.Model
+{
+    public class elementData
+    {
+        ////////////////////////////////////////
+        #region Properties
+
+        public pixel[][] ImageData
+        {
+            get;
+            set;
+        }
+
+        public int MaxCounts
+        {
+            get;
+            set;
+        }
+
+        public int MinCounts
+        {
+            get;
+            set;
+        }
+
+        public string Name
+        {
+            get;
+            set;
+        }
+
+        #endregion
+
+        ////////////////////////////////////////
+        #region Constructor
+
+        public elementData(int beamHeight, int beamWidth, int index, string name, double[][][] sortedData)
+        {
+            Name = name;
+            DetermineMaxima(beamHeight, beamWidth, index, sortedData);
+            ImageData = ExtractElementRelatedPixelData(beamHeight, beamWidth, index, sortedData);      
+        }
+
+        #endregion
+
+        ////////////////////////////////////////
+        #region Supporting Methods
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        private double CalculateTemperature(int value)
+        {
+            return (double)(value - MinCounts) / (double)(MaxCounts - MinCounts);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="elementIndex"></param>
+        /// <param name="sample"></param>
+        private void DetermineMaxima(int beamHeight, int beamWidth, int index, double[][][] sortedData)
+        {
+            MaxCounts = 0;
+            MinCounts = 9 * 1000000;
+
+            for (int i = 0; i < beamHeight; i++)
+            {
+                for (int j = 0; j < beamWidth; j++)
+                {
+                    int counts = (int)sortedData[i][j][index];
+
+                    if (counts > MaxCounts)
+                    {
+                        MaxCounts = counts;
+                    }
+
+                    if (counts < MinCounts)
+                    {
+                        MinCounts = counts;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="beamHeight"></param>
+        /// <param name="beamWidth"></param>
+        /// <param name="index"></param>
+        /// <param name="sortedData"></param>
+        /// <returns></returns>
+        private pixel[][] ExtractElementRelatedPixelData(int beamHeight, int beamWidth, int index, double[][][] sortedData)
+        {
+            pixel[][] pixelData = new pixel[beamHeight][];
+
+            for (int i = 0; i < beamHeight; i++)
+            {
+                pixelData[i] = new pixel[beamWidth];
+                for (int j = 0; j < beamWidth; j++)
+                {
+                    double[] row = sortedData[i][j];
+                    double xActual = row[2];
+                    double yActual = row[3];
+                    double xGoal = row[0];
+                    double yGoal = row[1];
+                    int counts = (int)row[index];
+                    double temperature = CalculateTemperature(counts);
+
+                    pixelData[i][j] = new pixel(xActual, yActual, xGoal, yGoal, counts, temperature);
+                }
+            }
+
+            return pixelData;
+        }
+
+        #endregion
+    }
+}

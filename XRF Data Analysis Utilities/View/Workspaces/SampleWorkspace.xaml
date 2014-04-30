@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="XRF_Data_Analysis_Utilities.View.Workspaces.SampleWorkspace"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <ResourceDictionary Source="SampleWorkspaceResources.xaml"/>
+    </UserControl.Resources>
+    <DockPanel Background="White">
+        <StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="0,0,-8,0">Instrument:</Label>
+                <Label Content="{Binding Path=SampleData.Instrument}" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Beamline Resolution:</Label>
+                <Label Content="{Binding Path=BeamWidth}" FontWeight="Bold" Margin="-8,0,-8,0"/>
+                <Label FontWeight="Bold">x</Label>
+                <Label Content="{Binding Path=BeamHeight}" FontWeight="Bold" Margin="-8,0,-8,0"/>
+                <Label FontWeight="Bold">px</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="0,0,-8,0">Pattern:</Label>
+                <Label Content="{Binding Path=SampleData.Motors.Pattern}" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="0,0,-8,0">Exposure:</Label>
+                <Label Content="{Binding Path=SampleData.Exposure}" Margin="0,0,-8,0" FontWeight="Bold"/>
+                <Label FontWeight="Bold">s</Label>
+            </StackPanel>
+        </StackPanel>
+        <ContentControl Content="{Binding Path=SelectedXRFImage, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" />
+        <StackPanel DockPanel.Dock="Left" Margin="5">
+            <Label>Available Frames</Label>
+            <ListBox DisplayMemberPath="ElementData.Name" 
+                     Height="400" HorizontalContentAlignment="Center" 
+                     ItemsSource="{Binding Path=XRFImages, UpdateSourceTrigger=PropertyChanged}" 
+                     SelectedItem="{Binding Path=SelectedXRFImage, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+    </DockPanel>
+</UserControl>
