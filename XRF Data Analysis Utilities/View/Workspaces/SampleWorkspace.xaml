@@ -47,7 +47,7 @@
                     <Label Margin="10,0,0,0">Total Pixels:</Label>
                     <Label Content="{Binding Path=SampleData.TotalPixels}" Margin="-8,0,0,0"/>
                 </StackPanel>
-                <DataGrid AutoGenerateColumns="False" 
+                <DataGrid AutoGenerateColumns="True" 
                   AlternatingRowBackground="LightGray"
                   CanUserAddRows="False"
                   CanUserDeleteRows="False"

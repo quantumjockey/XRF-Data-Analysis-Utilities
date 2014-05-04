@@ -49,11 +49,11 @@ namespace XRF_Data_Analysis_Utilities.Model
         ////////////////////////////////////////
         #region Constructor
 
-        public xrfSample(string[] labels, string[][] metaData, double[][] pixelData)
+        public xrfSample(string[] pixelLabels, string[][] metaData, double[][] pixelData)
         {
-            Motors = new motorGroup();
+            Motors = ExtractMotorData(metaData, pixelLabels);
             ParseMetaData(metaData);
-            this.Labels = labels;
+            this.Labels = pixelLabels;
             RawPixelData = SortPixelData(pixelData);
             GetBeamHeightAndWidth();
             PixelData = ConvertRawDataToObjects(Labels, RawPixelData);
@@ -83,6 +83,39 @@ namespace XRF_Data_Analysis_Utilities.Model
             }
 
             return convertedData;
+        }
+
+        private motorGroup ExtractMotorData(string[][] _data, string[] _labels)
+        {
+            motorGroup motors = new motorGroup();
+
+            int startIndex = 0;
+            int endIndex = (new List<string>(_labels)).IndexOf("Deadtime (%)");
+            int range = endIndex - startIndex;
+            int numberOfMotors = range / 2;
+
+            //for (int i = startIndex; i < numberOfMotors; i++)
+            //{
+            //    MotorValues[i] = new double[2];
+
+            //    int goalPosIndex = i;
+            //    int actPosIndex = i + 2;
+            //    int longLength = (_labels[goalPosIndex].Length > _labels[actPosIndex].Length) ? _labels[goalPosIndex].Length : _labels[actPosIndex].Length;
+
+            //    for (int j = longLength; j >= 0; j--)
+            //    {
+            //        if (_labels[goalPosIndex].Substring(0, j) == _labels[actPosIndex].Substring(0, j))
+            //        {
+            //            MotorNames[i] = _labels[goalPosIndex].Substring(0, j);
+            //            break;
+            //        }
+            //    }
+
+            //    MotorValues[i][0] = _data[goalPosIndex];
+            //    MotorValues[i][1] = _data[actPosIndex];
+            //}
+
+            return motors;
         }
 
 

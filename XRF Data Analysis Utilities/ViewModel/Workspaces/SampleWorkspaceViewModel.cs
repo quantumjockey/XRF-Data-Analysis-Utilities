@@ -37,7 +37,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Properties and Indexers
 
-        public ObservableCollection<double[]> CompletePixelsList
+        public ObservableCollection<xrfPixel> CompletePixelsList
         {
             get;
             set;
@@ -98,7 +98,8 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         {
             base.Header = header;
             this.IsActive = true;
-            ListAllPixelsForGridDisplay(ref sample);
+            //ListAllPixelsForGridDisplay(ref sample);
+            ListAllPixelObjectsForGridDisplay(ref sample);
             XRFImages = new WorkspaceViewModelCollection();
             SampleData = sample;
             PopulateImagesList(ref sample);
@@ -111,12 +112,25 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Supporting Methods
 
 
-        private void ListAllPixelsForGridDisplay(ref xrfSample sample)
+        //private void ListAllPixelsForGridDisplay(ref xrfSample sample)
+        //{
+        //    CompletePixelsList = new ObservableCollection<double[]>();
+        //    foreach (double[][] row in sample.RawPixelData)
+        //    {
+        //        foreach (double[] column in row)
+        //        {
+        //            CompletePixelsList.Add(column);
+        //        }
+        //    }
+        //}
+
+
+        private void ListAllPixelObjectsForGridDisplay(ref xrfSample sample)
         {
-            CompletePixelsList = new ObservableCollection<double[]>();
-            foreach (double[][] row in sample.RawPixelData)
+            CompletePixelsList = new ObservableCollection<xrfPixel>();
+            foreach (xrfPixel[] row in sample.PixelData)
             {
-                foreach (double[] column in row)
+                foreach (xrfPixel column in row)
                 {
                     CompletePixelsList.Add(column);
                 }
