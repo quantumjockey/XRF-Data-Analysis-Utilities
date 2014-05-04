@@ -21,6 +21,8 @@ namespace XRF_Data_Analysis_Utilities.Model
 
         public string[] Labels { get; set; }
 
+        public xrfPixel[][] PixelData { get; set; }
+
         public double[][][] RawPixelData { get; set; }
 
         public int TotalPixels
@@ -54,12 +56,34 @@ namespace XRF_Data_Analysis_Utilities.Model
             this.Labels = labels;
             RawPixelData = SortPixelData(pixelData);
             GetBeamHeightAndWidth();
+            PixelData = ConvertRawDataToObjects(Labels, RawPixelData);
         }
 
         #endregion
 
         ////////////////////////////////////////
         #region Supporting Methods
+
+
+        private xrfPixel[][] ConvertRawDataToObjects(string[] labels, double[][][] rawData)
+        {
+            int height = rawData.Length;
+            int width = rawData[0].Length;
+
+            xrfPixel[][] convertedData = new xrfPixel[height][];
+
+            for (int i = 0; i < height; i++)
+            {
+                convertedData[i] = new xrfPixel[width];
+
+                for (int j = 0; j < width; j++)
+                {
+                    convertedData[i][j] = new xrfPixel(rawData[i][j], labels);
+                }
+            }
+
+            return convertedData;
+        }
 
 
         private void GetBeamHeightAndWidth()
