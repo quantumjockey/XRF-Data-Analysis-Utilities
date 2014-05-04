@@ -6,7 +6,7 @@ using System;
 #endregion
 ///////////////////////////////////////
 
-namespace XRF_Data_Analysis_Utilities.Model
+namespace XRF_Data_Analysis_Utilities.Model.Structures
 {
     public struct pixel
     {

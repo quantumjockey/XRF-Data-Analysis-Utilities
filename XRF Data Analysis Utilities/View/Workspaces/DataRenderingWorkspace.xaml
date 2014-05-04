@@ -5,120 +5,36 @@
         <ResourceDictionary Source="DataRenderingWorkspaceResources.xaml"/>
     </UserControl.Resources>
     <Border Background="White" BorderBrush="Black" BorderThickness="1" Padding="4">
-        <DockPanel>
-            <DockPanel DockPanel.Dock="Left">
 
-                <Border BorderBrush="Gray" BorderThickness="1" DockPanel.Dock="Top" Margin="0,0,5,0">
-                    <StackPanel Margin="5" Orientation="Horizontal">
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Margin="0,0,-8,0">Element:</Label>
-                                    <Label Content="{Binding Path=ElementData.Name}" FontWeight="Bold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label>Range:</Label>
-                                    <Label Content="{Binding Path=ElementData.MinCounts}" Margin="-8,0,-8,0"/>
-                                    <Label>-</Label>
-                                    <Label Content="{Binding Path=ElementData.MaxCounts}" Margin="-8,0,-8,0"/>
-                                    <Label>cts</Label>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Border BorderBrush="Gray" BorderThickness="2" Margin="4">
-                                    <ContentControl Content="{Binding Path=RenderedImage, UpdateSourceTrigger=PropertyChanged}" RenderOptions.BitmapScalingMode="NearestNeighbor" SnapsToDevicePixels="True"/>
-                                </Border>
-                                <StackPanel Margin="4">
-                                    <Label Content="{Binding Path=ElementData.MaxCounts}" HorizontalAlignment="Left"/>
-                                    <ContentControl Content="{Binding Path=ColorRamp, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <Label Content="{Binding Path=ElementData.MinCounts}"  HorizontalAlignment="Left"/>
-                                </StackPanel>
-                            </StackPanel>
+        <Border BorderBrush="Gray" BorderThickness="1" DockPanel.Dock="Top">
+            <StackPanel Margin="5" Orientation="Horizontal">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="0,0,-8,0">Element:</Label>
+                            <Label Content="{Binding Path=ElementData.Name}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label>Range:</Label>
+                            <Label Content="{Binding Path=ElementData.MinCounts}" Margin="-8,0,-8,0"/>
+                            <Label>-</Label>
+                            <Label Content="{Binding Path=ElementData.MaxCounts}" Margin="-8,0,-8,0"/>
+                            <Label>cts</Label>
                         </StackPanel>
                     </StackPanel>
-                </Border>
-
-            </DockPanel>
-
-            <Border BorderBrush="Gray" BorderThickness="1" DockPanel.Dock="Right">
-                <DockPanel Margin="5">
-                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                        <Label FontWeight="Bold">Tabulated Pixel Data</Label>
-                        <Label Margin="10,0,0,0">Total Pixels:</Label>
-                        <Label Content="{Binding Path=CompleteDataListing.Count}" Margin="-8,0,0,0"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Border BorderBrush="Gray" BorderThickness="2" Margin="4">
+                            <ContentControl Content="{Binding Path=RenderedImage, UpdateSourceTrigger=PropertyChanged}" RenderOptions.BitmapScalingMode="NearestNeighbor" SnapsToDevicePixels="True"/>
+                        </Border>
+                        <StackPanel Margin="4">
+                            <Label Content="{Binding Path=ElementData.MaxCounts}" HorizontalAlignment="Left"/>
+                            <ContentControl Content="{Binding Path=ColorRamp, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Content="{Binding Path=ElementData.MinCounts}"  HorizontalAlignment="Left"/>
+                        </StackPanel>
                     </StackPanel>
-                    <DataGrid AutoGenerateColumns="False" 
-                  AlternatingRowBackground="LightGray"
-                  CanUserAddRows="False"
-                  CanUserDeleteRows="False"
-                  CanUserReorderColumns="False"
-                  CanUserResizeColumns="False"
-                      CanUserResizeRows="False" 
-                              DockPanel.Dock="Top"
-                              Height="Auto"
-                      ItemsSource="{Binding Path=CompleteDataListing}"
-                      SelectedItem="{Binding Path=SelectedPixel, UpdateSourceTrigger=PropertyChanged}"
-                      SelectionChanged="DataGrid_SelectionChanged">
-                        <DataGrid.Columns>
-                            <DataGridTemplateColumn Header="Actual X" IsReadOnly="True" SortMemberPath="Actual.X">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel HorizontalAlignment="Center">
-                                            <Label Content="{Binding Path=Actual.X}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="Actual Y" IsReadOnly="True" SortMemberPath="Actual.Y">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel HorizontalAlignment="Center">
-                                            <Label Content="{Binding Path=Actual.Y}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="Goal X" IsReadOnly="True" SortMemberPath="Goal.X">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel HorizontalAlignment="Center">
-                                            <Label Content="{Binding Path=Goal.X}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="Goal Y" IsReadOnly="True" SortMemberPath="Goal.Y">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel HorizontalAlignment="Center">
-                                            <Label Content="{Binding Path=Goal.Y}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="Counts" IsReadOnly="True" SortMemberPath="Counts">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel HorizontalAlignment="Center">
-                                            <Label Content="{Binding Path=Counts}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="Temperature" IsReadOnly="True" SortMemberPath="Temperature">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel HorizontalAlignment="Center">
-                                            <Label Content="{Binding Path=Temperature}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </DockPanel>
-            </Border>
+                </StackPanel>
+            </StackPanel>
+        </Border>
 
-        </DockPanel>
     </Border>
 </UserControl>

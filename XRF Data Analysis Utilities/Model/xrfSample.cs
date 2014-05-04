@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using XRF_Data_Analysis_Utilities.Model.Components;
 
 #endregion
 ///////////////////////////////////////
@@ -20,7 +21,15 @@ namespace XRF_Data_Analysis_Utilities.Model
 
         public string[] Labels { get; set; }
 
-        public double[][][] SortedPixelData { get; set; }
+        public double[][][] RawPixelData { get; set; }
+
+        public int TotalPixels
+        {
+            get
+            {
+                return RawPixelData.Length * RawPixelData[0].Length;
+            }
+        }
 
         #endregion
 
@@ -43,7 +52,7 @@ namespace XRF_Data_Analysis_Utilities.Model
             Motors = new motorGroup();
             ParseMetaData(metaData);
             this.Labels = labels;
-            SortedPixelData = SortPixelData(pixelData);
+            RawPixelData = SortPixelData(pixelData);
             GetBeamHeightAndWidth();
         }
 
@@ -52,61 +61,24 @@ namespace XRF_Data_Analysis_Utilities.Model
         ////////////////////////////////////////
         #region Supporting Methods
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        private double[][][] SortPixelData(double[][] pixelData)
-        {
-            List<double[][]> rows = new List<double[][]>();
-            List<double[]> row = new List<double[]>();
 
-            int i = 1;
-
-            row.Add(pixelData[0]);
-
-            while (i < pixelData.Length)
-            {
-                if (pixelData[i][1] != pixelData[i - 1][1])
-                {
-                    rows.Add(row.ToArray());
-                    row.Clear();
-                }
-
-                row.Add(pixelData[i]);
-                i++;
-            }
-
-            return rows.ToArray();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         private void GetBeamHeightAndWidth()
         {
-            BeamHeight = SortedPixelData.Length;
-            BeamWidth = SortedPixelData[0].Length;
+            BeamHeight = RawPixelData.Length;
+            BeamWidth = RawPixelData[0].Length;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="elementName"></param>
-        /// <returns></returns>
+
         public elementData GetElementData(string elementName)
         {
             int elementIndex = (new List<string>(Labels)).IndexOf(elementName);
 
-            elementData vehicle = new elementData(BeamHeight, BeamWidth, elementIndex, elementName, SortedPixelData);
+            elementData vehicle = new elementData(BeamHeight, BeamWidth, elementIndex, elementName, RawPixelData);
 
             return vehicle;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="data"></param>
+
         private void ParseMetaData(string[][] data)
         {
             foreach (string[] item in data)
@@ -135,6 +107,31 @@ namespace XRF_Data_Analysis_Utilities.Model
                         break;
                 }
             }
+        }
+
+
+        private double[][][] SortPixelData(double[][] pixelData)
+        {
+            List<double[][]> rows = new List<double[][]>();
+            List<double[]> row = new List<double[]>();
+
+            int i = 1;
+
+            row.Add(pixelData[0]);
+
+            while (i < pixelData.Length)
+            {
+                if (pixelData[i][1] != pixelData[i - 1][1])
+                {
+                    rows.Add(row.ToArray());
+                    row.Clear();
+                }
+
+                row.Add(pixelData[i]);
+                i++;
+            }
+
+            return rows.ToArray();
         }
 
         #endregion

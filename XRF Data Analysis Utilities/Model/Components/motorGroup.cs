@@ -7,7 +7,7 @@ using System.Collections.Generic;
 #endregion
 ///////////////////////////////////////
 
-namespace XRF_Data_Analysis_Utilities.Model
+namespace XRF_Data_Analysis_Utilities.Model.Components
 {
     public class motorGroup
     {
@@ -43,9 +43,6 @@ namespace XRF_Data_Analysis_Utilities.Model
         ////////////////////////////////////////
         #region Constructor
 
-        /// <summary>
-        /// 
-        /// </summary>
         public motorGroup()
         {
             Devices = new List<motorSettings>();

@@ -55,10 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\xrfPixel.cs" />
     <Compile Include="ViewModel\Windows\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\DataRenderingWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\SampleWorkspaceViewModel.cs" />
-    <Compile Include="ViewModel\XrfPixelViewModel.cs" />
+    <Compile Include="ViewModel\PixelViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -75,11 +76,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\coordinate.cs" />
+    <Compile Include="Model\Structures\coordinate.cs" />
     <Compile Include="Model\elementData.cs" />
-    <Compile Include="Model\motorGroup.cs" />
-    <Compile Include="Model\motorSettings.cs" />
-    <Compile Include="Model\pixel.cs" />
+    <Compile Include="Model\Components\motorGroup.cs" />
+    <Compile Include="Model\Components\motorSettings.cs" />
+    <Compile Include="Model\Structures\pixel.cs" />
     <Compile Include="Model\xrfSample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

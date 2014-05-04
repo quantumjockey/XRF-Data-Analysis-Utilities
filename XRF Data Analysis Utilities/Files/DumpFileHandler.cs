@@ -17,11 +17,7 @@ namespace XRF_Data_Analysis_Utilities.Files
         ////////////////////////////////////////
         #region Data Retrieval
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="_fullPath"></param>
-        /// <returns></returns>
+
         public static xrfSample GetSampleData(string _fullPath)
         {
             string fileContent = ReadContentFromFile(_fullPath);
@@ -34,11 +30,7 @@ namespace XRF_Data_Analysis_Utilities.Files
         ////////////////////////////////////////
         #region Data Parsing
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="fileContent"></param>
-        /// <returns></returns>
+
         private static xrfSample ParseFileData(string fileContent)
         {
             int columnLengthCutOff = 4;
@@ -65,11 +57,7 @@ namespace XRF_Data_Analysis_Utilities.Files
         ////////////////////////////////////////
         #region Private Methods
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="rawData"></param>
-        /// <returns></returns>
+
         private static double[][] ConvertPixelDataToDouble(string[][] rawData, int startIndex)
         {
             List<double[]> convertedData = new List<double[]>();
@@ -91,12 +79,7 @@ namespace XRF_Data_Analysis_Utilities.Files
             return convertedData.ToArray();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="rawData"></param>
-        /// <param name="arrayLengthBoundary"></param>
-        /// <returns></returns>
+
         private static string[][] ExtractMetaData(string[][] rawData, int arrayLengthBoundary)
         {
             List<string[]> metaData = new List<string[]>();
@@ -112,11 +95,7 @@ namespace XRF_Data_Analysis_Utilities.Files
             return metaData.ToArray();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="rawData"></param>
-        /// <returns></returns>
+
         private static string[][] ExtractRawPixelData(string[][] rawData, int arrayLengthBoundary)
         {
             List<string[]> pixelData = new List<string[]>();
@@ -132,11 +111,7 @@ namespace XRF_Data_Analysis_Utilities.Files
             return pixelData.ToArray();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="datacolumns"></param>
-        /// <returns></returns>
+
         private static string[] FilterDataCellContent(string[] dataColumns)
         {
             List<string> filteredSet = new List<string>();
@@ -152,23 +127,13 @@ namespace XRF_Data_Analysis_Utilities.Files
             return filteredSet.ToArray();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="_labels"></param>
-        /// <param name="_metaData"></param>
-        /// <param name="_pixelData"></param>
-        /// <returns></returns>
+
         private static xrfSample GenerateSampleObject(string[] _labels, string[][] _metaData, double[][] _pixelData)
         {
             return new xrfSample(_labels, _metaData, _pixelData);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="_filePath"></param>
-        /// <returns></returns>
+
         private static string ReadContentFromFile(string _filePath)
         {
             string _content = String.Empty;
@@ -192,11 +157,7 @@ namespace XRF_Data_Analysis_Utilities.Files
             return _content;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="fileData"></param>
-        /// <returns></returns>
+
         private static string[] SeparateFileDataByLine(string fileData)
         {
             string[] linesInFile = fileData.Split('\n', '\r');
@@ -214,11 +175,7 @@ namespace XRF_Data_Analysis_Utilities.Files
             return filteredData.ToArray();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="linesInFile"></param>
-        /// <returns></returns>
+
         private static string[][] SeparateLineDataByColumn(string[] linesInFile)
         {
             List<string[]> dataParsingVehicle = new List<string[]>();

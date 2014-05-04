@@ -6,9 +6,9 @@ using System;
 #endregion
 ///////////////////////////////////////
 
-namespace XRF_Data_Analysis_Utilities.Model
+namespace XRF_Data_Analysis_Utilities.Model.Components
 {
-    public struct motorSettings
+    public class motorSettings
     {
         ////////////////////////////////////////
         #region Members
@@ -50,7 +50,6 @@ namespace XRF_Data_Analysis_Utilities.Model
         /// <param name="_start"></param>
         /// <param name="_stop"></param>
         public motorSettings(double _increment, string _name, double _start, double _stop)
-            : this()
         {
             this.Increment = _increment;
             this.Name = _name;

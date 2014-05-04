@@ -6,7 +6,7 @@ using System;
 #endregion
 ///////////////////////////////////////
 
-namespace XRF_Data_Analysis_Utilities.Model
+namespace XRF_Data_Analysis_Utilities.Model.Structures
 {
     public struct coordinate
     {
@@ -30,11 +30,7 @@ namespace XRF_Data_Analysis_Utilities.Model
         ////////////////////////////////////////
         #region Constructor
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="_x"></param>
-        /// <param name="_y"></param>
+
         public coordinate(double _x, double _y)
             : this()
         {

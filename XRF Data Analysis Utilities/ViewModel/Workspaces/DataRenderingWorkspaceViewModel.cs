@@ -13,6 +13,7 @@ using WpfHelper.PropertyChanged;
 using WpfHelper.ViewModel;
 using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model;
+using XRF_Data_Analysis_Utilities.Model.Structures;
 
 #endregion
 ///////////////////////////////////////
@@ -35,12 +36,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Properties
 
         public ColorRampWorkspaceViewModel ColorRamp
-        {
-            get;
-            set;
-        }
-
-        public ObservableCollection<pixel> CompleteDataListing
         {
             get;
             set;
@@ -87,7 +82,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         {
             ElementData = _sample.GetElementData(_elementName);
             InitializeDataMapping();
-            ListAllPixelsForGridDisplay();
         }
 
         #endregion
@@ -98,11 +92,10 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         private void AddPixel(double x, double y, double xScale, double yScale, ref Canvas _renderedImage, ref pixel _data, int _maxR, int _maxG, int _maxB)
         {
-            XrfPixelViewModel xrfPix = new XrfPixelViewModel(_data, xScale, yScale);
+            PixelViewModel xrfPix = new PixelViewModel(_data, xScale, yScale);
             Canvas.SetTop(xrfPix.Graphic, y);
             Canvas.SetLeft(xrfPix.Graphic, x);
             xrfPix.Graphic.Fill = new SolidColorBrush(ColorRamp.Ramp.GetRelativeColor(_data.Temperature, _maxR, _maxG, _maxB, false));
-            xrfPix.Graphic.MouseDown += Graphic_MouseDown;
             _renderedImage.Children.Add(xrfPix.Graphic);
         }
 
@@ -115,19 +108,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             ColorRamp.PropertyChanged += ColorRamp_PropertyChanged;
 
             RefreshImage();
-        }
-
-
-        private void ListAllPixelsForGridDisplay()
-        {
-            CompleteDataListing = new ObservableCollection<pixel>();
-            foreach (pixel[] row in ElementData.ImageData)
-            {
-                foreach (pixel column in row)
-                {
-                    CompleteDataListing.Add(column);
-                }
-            }
         }
 
 
@@ -166,21 +146,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         ////////////////////////////////////////
         #region Event Handling
-        
-
-        void Graphic_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            Rectangle pix = sender as Rectangle;
-
-            for (int i = 0; i < CompleteDataListing.Count; i++)
-            {
-                if ((string)pix.Tag == (string)CompleteDataListing[i].Tag)
-                {
-                    SelectedPixel = CompleteDataListing[i];
-                }
-            }
-        }
-
 
         void RgbLimits_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {

@@ -37,13 +37,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Properties and Indexers
 
-        public int BeamHeight
-        {
-            get;
-            set;
-        }
-
-        public int BeamWidth
+        public ObservableCollection<double[]> CompletePixelsList
         {
             get;
             set;
@@ -102,10 +96,9 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         public SampleWorkspaceViewModel(string header, ref xrfSample sample)
         {
-            this.BeamHeight = sample.BeamHeight;
-            this.BeamWidth = sample.BeamWidth;
             base.Header = header;
             this.IsActive = true;
+            ListAllPixelsForGridDisplay(ref sample);
             XRFImages = new WorkspaceViewModelCollection();
             SampleData = sample;
             PopulateImagesList(ref sample);
@@ -116,6 +109,20 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         ////////////////////////////////////////
         #region Supporting Methods
+
+
+        private void ListAllPixelsForGridDisplay(ref xrfSample sample)
+        {
+            CompletePixelsList = new ObservableCollection<double[]>();
+            foreach (double[][] row in sample.RawPixelData)
+            {
+                foreach (double[] column in row)
+                {
+                    CompletePixelsList.Add(column);
+                }
+            }
+        }
+
 
         private void PopulateImagesList(ref xrfSample sample)
         {

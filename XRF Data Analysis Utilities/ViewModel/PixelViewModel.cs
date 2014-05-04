@@ -1,25 +1,24 @@
-﻿using System;
+﻿///////////////////////////////////////
+#region Namespace Directives
+
+using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using XRF_Data_Analysis_Utilities.Model;
+using XRF_Data_Analysis_Utilities.Model.Structures;
 
-//using System.Windows.Controls;
+#endregion
+///////////////////////////////////////
 
 namespace XRF_Data_Analysis_Utilities.ViewModel
 {
-    public class XrfPixelViewModel
+    public class PixelViewModel
     {
         ////////////////////////////////////////
         #region Properties
-
-        public pixel MetaData
-        {
-            get;
-            private set;
-        }
 
         public Rectangle Graphic
         {
@@ -32,12 +31,11 @@ namespace XRF_Data_Analysis_Utilities.ViewModel
         ////////////////////////////////////////
         #region Constructor
 
-        public XrfPixelViewModel(pixel _data, double _xScale, double _yScale)
+        public PixelViewModel(pixel _data, double _xScale, double _yScale)
         {
             Graphic = InitializeRectangle(_yScale, _xScale);
             Graphic.Tag = _data.Tag;
             Graphic.ToolTip = GenerateToolTip(_data);
-            MetaData = _data;
         }
 
         #endregion

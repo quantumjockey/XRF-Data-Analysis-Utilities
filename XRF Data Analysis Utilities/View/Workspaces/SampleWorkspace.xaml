@@ -12,9 +12,9 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label>Beamline Resolution:</Label>
-                <Label Content="{Binding Path=BeamWidth}" FontWeight="Bold" Margin="-8,0,-8,0"/>
+                <Label Content="{Binding Path=SampleData.BeamWidth}" FontWeight="Bold" Margin="-8,0,-8,0"/>
                 <Label FontWeight="Bold">x</Label>
-                <Label Content="{Binding Path=BeamHeight}" FontWeight="Bold" Margin="-8,0,-8,0"/>
+                <Label Content="{Binding Path=SampleData.BeamHeight}" FontWeight="Bold" Margin="-8,0,-8,0"/>
                 <Label FontWeight="Bold">px</Label>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -27,13 +27,40 @@
                 <Label FontWeight="Bold">s</Label>
             </StackPanel>
         </StackPanel>
-        <ContentControl Content="{Binding Path=SelectedXRFImage, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" />
-        <StackPanel DockPanel.Dock="Right" Margin="5">
-            <Label>Available Frames</Label>
-            <ListBox DisplayMemberPath="ElementData.Name" 
-                     Height="400" HorizontalContentAlignment="Center" 
+
+        <TabControl DockPanel.Dock="Left" 
                      ItemsSource="{Binding Path=XRFImages, UpdateSourceTrigger=PropertyChanged}" 
-                     SelectedItem="{Binding Path=SelectedXRFImage, UpdateSourceTrigger=PropertyChanged}"/>
-        </StackPanel>
+                     SelectedItem="{Binding Path=SelectedXRFImage, UpdateSourceTrigger=PropertyChanged}">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentPresenter Content="{Binding Path=ElementData.Name}" 
+                              Margin="2"
+                              VerticalAlignment="Center"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+        </TabControl>
+
+        <Border BorderBrush="Gray" BorderThickness="1" DockPanel.Dock="Right">
+            <DockPanel Margin="5">
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                    <Label FontWeight="Bold">Tabulated Pixel Data</Label>
+                    <Label Margin="10,0,0,0">Total Pixels:</Label>
+                    <Label Content="{Binding Path=SampleData.TotalPixels}" Margin="-8,0,0,0"/>
+                </StackPanel>
+                <DataGrid AutoGenerateColumns="False" 
+                  AlternatingRowBackground="LightGray"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="False"
+                      CanUserResizeRows="False" 
+                              DockPanel.Dock="Top"
+                              Height="Auto"
+                      ItemsSource="{Binding Path=CompletePixelsList}">
+                      <!--SelectedItem="{Binding Path=SelectedPixel, UpdateSourceTrigger=PropertyChanged}">-->
+                </DataGrid>
+            </DockPanel>
+        </Border>
+        
     </DockPanel>
 </UserControl>
