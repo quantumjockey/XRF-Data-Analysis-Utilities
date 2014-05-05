@@ -57,7 +57,8 @@
     </ApplicationDefinition>
     <Compile Include="Model\xrfPixel.cs" />
     <Compile Include="ViewModel\Windows\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\DataRenderingWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\Workspaces\DataManipulationWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\Workspaces\XrfImageWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\SampleWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\PixelViewModel.cs" />
     <Compile Include="App.xaml.cs">
@@ -65,18 +66,21 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Files\DumpFileHandler.cs" />
+    <Compile Include="ViewModel\Workspaces\SingleElementWorkspaceViewModel.cs" />
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Workspaces\DataRenderingWorkspace.xaml.cs">
-      <DependentUpon>DataRenderingWorkspace.xaml</DependentUpon>
+    <Compile Include="View\Workspaces\DataManipulationWorkspace.xaml.cs">
+      <DependentUpon>DataManipulationWorkspace.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Workspaces\SampleWorkspace.xaml.cs">
       <DependentUpon>SampleWorkspace.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Workspaces\XrfImageWorkspace.xaml.cs">
+      <DependentUpon>XrfImageWorkspace.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Structures\coordinate.cs" />
     <Compile Include="Model\elementData.cs" />
     <Compile Include="Model\Components\motorGroup.cs" />
     <Compile Include="Model\Components\motorSettings.cs" />
@@ -132,11 +136,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Workspaces\DataRenderingWorkspace.xaml">
+    <Page Include="View\Workspaces\DataManipulationWorkspace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Workspaces\DataRenderingWorkspaceResources.xaml">
+    <Page Include="View\Workspaces\DataManipulationWorkspaceResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Workspaces\XrfImageWorkspaceResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Workspaces\SampleWorkspaceResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Workspaces\XrfImageWorkspace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -16,21 +16,13 @@ using System.Windows.Shapes;
 namespace XRF_Data_Analysis_Utilities.View.Workspaces
 {
     /// <summary>
-    /// Interaction logic for DataRenderingWorkspace.xaml
+    /// Interaction logic for DataManipulationWorkspace.xaml
     /// </summary>
-    public partial class DataRenderingWorkspace : UserControl
+    public partial class DataManipulationWorkspace : UserControl
     {
-        public DataRenderingWorkspace()
+        public DataManipulationWorkspace()
         {
             InitializeComponent();
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if ((sender as DataGrid).SelectedItem != null)
-            {
-                (sender as DataGrid).ScrollIntoView((sender as DataGrid).SelectedItem);
-            }
         }
     }
 }

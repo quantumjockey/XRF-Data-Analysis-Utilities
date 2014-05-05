@@ -62,12 +62,12 @@ namespace XRF_Data_Analysis_Utilities.Model
         #region Constructor
 
 
-        public xrfPixel(double[] data, string[] labels)
+        public xrfPixel(double[] data, string[] labels,string tag)
         {
             ExtractElementCounts(new List<double>(data), new List<string>(labels));
             ExtractMotorData(new List<double>(data), new List<string>(labels));
             ParsePixelData(data, labels);
-            Tag = Guid.NewGuid().ToString();
+            Tag = tag;
         }
 
         #endregion

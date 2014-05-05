@@ -49,10 +49,11 @@ namespace XRF_Data_Analysis_Utilities.Model
         ////////////////////////////////////////
         #region Constructor
 
+
         public xrfSample(string[] pixelLabels, string[][] metaData, double[][] pixelData)
         {
-            Motors = ExtractMotorData(metaData, pixelLabels);
-            ParseMetaData(metaData);
+            Motors = ExtractMotorData(metaData);
+            ParseRemainingMetaData(metaData);
             this.Labels = pixelLabels;
             RawPixelData = SortPixelData(pixelData);
             GetBeamHeightAndWidth();
@@ -78,44 +79,48 @@ namespace XRF_Data_Analysis_Utilities.Model
 
                 for (int j = 0; j < width; j++)
                 {
-                    convertedData[i][j] = new xrfPixel(rawData[i][j], labels);
+                    convertedData[i][j] = new xrfPixel(rawData[i][j], labels, Guid.NewGuid().ToString());
                 }
             }
 
             return convertedData;
         }
 
-        private motorGroup ExtractMotorData(string[][] _data, string[] _labels)
+
+        private motorGroup ExtractMotorData(string[][] _data)
         {
             motorGroup motors = new motorGroup();
 
-            int startIndex = 0;
-            int endIndex = (new List<string>(_labels)).IndexOf("Deadtime (%)");
-            int range = endIndex - startIndex;
-            int numberOfMotors = range / 2;
+            string _pattern;
+            double _delayAfterMovement, _stayAtEnd;
 
-            //for (int i = startIndex; i < numberOfMotors; i++)
-            //{
-            //    MotorValues[i] = new double[2];
+            _pattern = _data[0][0];
 
-            //    int goalPosIndex = i;
-            //    int actPosIndex = i + 2;
-            //    int longLength = (_labels[goalPosIndex].Length > _labels[actPosIndex].Length) ? _labels[goalPosIndex].Length : _labels[actPosIndex].Length;
+            motors.Devices.Add(GetDeviceData(_data, 2));
+            motors.Devices.Add(GetDeviceData(_data, 6));
 
-            //    for (int j = longLength; j >= 0; j--)
-            //    {
-            //        if (_labels[goalPosIndex].Substring(0, j) == _labels[actPosIndex].Substring(0, j))
-            //        {
-            //            MotorNames[i] = _labels[goalPosIndex].Substring(0, j);
-            //            break;
-            //        }
-            //    }
+            Double.TryParse(_data[10][1], out _delayAfterMovement);
+            Double.TryParse(_data[11][1], out _stayAtEnd);
 
-            //    MotorValues[i][0] = _data[goalPosIndex];
-            //    MotorValues[i][1] = _data[actPosIndex];
-            //}
+            motors.DelayAfterMovement = _delayAfterMovement;
+            motors.Pattern = _pattern;
+            motors.StayAtEnd = _stayAtEnd;
 
             return motors;
+        }
+
+
+        private motorSettings GetDeviceData(string[][] _data, int _startIndex)
+        {
+            string _name;
+            double _increment, _start, _stop;
+
+            _name = _data[_startIndex][1];
+            Double.TryParse(_data[_startIndex + 1][1], out _start);
+            Double.TryParse(_data[_startIndex + 2][1], out _stop);
+            Double.TryParse(_data[_startIndex + 3][1], out _increment);
+
+            return new motorSettings(_increment, _name, _start, _stop);
         }
 
 
@@ -136,27 +141,14 @@ namespace XRF_Data_Analysis_Utilities.Model
         }
 
 
-        private void ParseMetaData(string[][] data)
+        private void ParseRemainingMetaData(string[][] data)
         {
             foreach (string[] item in data)
             {
-                if (item.Length == 1)
-                {
-                    Motors.Pattern = item[0];
-                }
-
                 switch (item[0])
                 {
                     case "Instrument":
                         this.Instrument = item[1];
-                        break;
-
-                    case "Delay After Move (s)":
-                        Motors.DelayAfterMovement = Convert.ToDouble(item[1]);
-                        break;
-
-                    case "Stay at End":
-                        Motors.StayAtEnd = Convert.ToDouble(item[1]);
                         break;
 
                     case "Exposure (s)":

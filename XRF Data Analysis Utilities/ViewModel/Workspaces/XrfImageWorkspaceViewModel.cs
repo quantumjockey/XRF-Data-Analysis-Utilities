@@ -18,17 +18,15 @@ using XRF_Data_Analysis_Utilities.Model.Structures;
 #endregion
 ///////////////////////////////////////
 
-
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 {
-    public class DataRenderingWorkspaceViewModel : WorkspaceViewModel
+    public class XrfImageWorkspaceViewModel : SingleElementWorkspaceViewModel
     {
         ////////////////////////////////////////
         #region Generic Fields
 
         // Workspace-Specific
         private Canvas _renderedImage;
-        private pixel _selectedPixel;
 
         #endregion
 
@@ -36,12 +34,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Properties
 
         public ColorRampWorkspaceViewModel ColorRamp
-        {
-            get;
-            set;
-        }
-
-        public elementData ElementData
         {
             get;
             set;
@@ -60,27 +52,14 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
         }
 
-        public pixel SelectedPixel
-        {
-            get
-            {
-                return _selectedPixel;
-            }
-            set
-            {
-                _selectedPixel = value;
-                OnPropertyChanged("SelectedPixel");
-            }
-        }
-
         #endregion
 
         ////////////////////////////////////////
         #region Constructor
 
-        public DataRenderingWorkspaceViewModel(string _elementName, ref xrfSample _sample)
+        public XrfImageWorkspaceViewModel(string _elementName, ref xrfSample _sample)
+            : base(_elementName, ref _sample)
         {
-            ElementData = _sample.GetElementData(_elementName);
             InitializeDataMapping();
         }
 
@@ -96,6 +75,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             Canvas.SetTop(xrfPix.Graphic, y);
             Canvas.SetLeft(xrfPix.Graphic, x);
             xrfPix.Graphic.Fill = new SolidColorBrush(ColorRamp.Ramp.GetRelativeColor(_data.Temperature, _maxR, _maxG, _maxB, false));
+            xrfPix.Graphic.MouseDown += Graphic_MouseDown;
             _renderedImage.Children.Add(xrfPix.Graphic);
         }
 
@@ -139,7 +119,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         private void RefreshImage()
         {
-            RenderedImage = RenderImage(ElementData.ImageData, 500.0, 255, 255, 255);
+            RenderedImage = RenderImage(ElementData.ImageGridData, 500.0, 255, 255, 255);
         }
 
         #endregion
@@ -147,12 +127,11 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Event Handling
 
-        void RgbLimits_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+
+        void Graphic_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (RenderedImage != null)
-            {
-                RefreshImage();
-            }
+            Rectangle pix = sender as Rectangle;
+            base.SelectPixelByTag(pix.Tag.ToString());
         }
 
 

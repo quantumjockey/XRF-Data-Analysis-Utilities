@@ -4,6 +4,7 @@
     <UserControl.Resources>
         <ResourceDictionary Source="SampleWorkspaceResources.xaml"/>
     </UserControl.Resources>
+  
     <DockPanel Background="White">
         <StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
             <StackPanel Orientation="Horizontal">
@@ -28,39 +29,17 @@
             </StackPanel>
         </StackPanel>
 
-        <TabControl DockPanel.Dock="Left" 
-                     ItemsSource="{Binding Path=XRFImages, UpdateSourceTrigger=PropertyChanged}" 
-                     SelectedItem="{Binding Path=SelectedXRFImage, UpdateSourceTrigger=PropertyChanged}">
+        <TabControl DockPanel.Dock="Bottom" 
+                    ItemsSource="{Binding Path=ImageWorkspaces, UpdateSourceTrigger=PropertyChanged}" 
+                    SelectedItem="{Binding Path=SelectedImageWorkspace, UpdateSourceTrigger=PropertyChanged}"
+                    TabStripPlacement="Bottom">
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <ContentPresenter Content="{Binding Path=ElementData.Name}" 
-                              Margin="2"
-                              VerticalAlignment="Center"/>
+                    <ContentPresenter Content="{Binding Path=Header}" Margin="2" VerticalAlignment="Center"/>
                 </DataTemplate>
             </TabControl.ItemTemplate>
         </TabControl>
 
-        <Border BorderBrush="Gray" BorderThickness="1" DockPanel.Dock="Right">
-            <DockPanel Margin="5">
-                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                    <Label FontWeight="Bold">Tabulated Pixel Data</Label>
-                    <Label Margin="10,0,0,0">Total Pixels:</Label>
-                    <Label Content="{Binding Path=SampleData.TotalPixels}" Margin="-8,0,0,0"/>
-                </StackPanel>
-                <DataGrid AutoGenerateColumns="True" 
-                  AlternatingRowBackground="LightGray"
-                  CanUserAddRows="False"
-                  CanUserDeleteRows="False"
-                  CanUserReorderColumns="False"
-                  CanUserResizeColumns="False"
-                      CanUserResizeRows="False" 
-                              DockPanel.Dock="Top"
-                              Height="Auto"
-                      ItemsSource="{Binding Path=CompletePixelsList}">
-                      <!--SelectedItem="{Binding Path=SelectedPixel, UpdateSourceTrigger=PropertyChanged}">-->
-                </DataGrid>
-            </DockPanel>
-        </Border>
-        
     </DockPanel>
+
 </UserControl>

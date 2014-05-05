@@ -73,7 +73,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
             set
             {
                 _selectedSample = value;
-                if (_selectedSample != null && _selectedSample.SelectedXRFImage != null)
+                if (_selectedSample != null && _selectedSample.SelectedImageWorkspace != null && (_selectedSample.SelectedImageWorkspace as DataManipulationWorkspaceViewModel).SelectedXRFImage != null)
                 {
                     CanExport = true;
                 }
@@ -143,7 +143,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
 
         private void ExportCanvasToImage()
         {
-            ExportImageToFile.FileName = GenerateImageDestinationFilename(SelectedSample.SelectedXRFImage);
+            ExportImageToFile.FileName = GenerateImageDestinationFilename((_selectedSample.SelectedImageWorkspace as DataManipulationWorkspaceViewModel).SelectedXRFImage);
             ExportImageToFile.ShowDialog();
         }
 
@@ -167,7 +167,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
 
         void ExportImageToFile_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MemoryStream fileDataStream = GenerateTiffFromCanvas(SelectedSample.SelectedXRFImage.RenderedImage, 96, 1.0);
+            MemoryStream fileDataStream = GenerateTiffFromCanvas((_selectedSample.SelectedImageWorkspace as DataManipulationWorkspaceViewModel).SelectedXRFImage.RenderedImage, 96, 1.0);
             WriteStreamToFile(fileDataStream, ExportImageToFile.FileName);
             OpenFileInExplorer(ExportImageToFile.FileName);
         }
@@ -185,7 +185,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
         ////////////////////////////////////////
         #region Private Methods
 
-        private string GenerateImageDestinationFilename(DataRenderingWorkspaceViewModel selected)
+        private string GenerateImageDestinationFilename(XrfImageWorkspaceViewModel selected)
         {
             return "XRF_Image_" + selected.ElementData.Name
                 + "_" + selected.ElementData.MinCounts + "-" + selected.ElementData.MaxCounts

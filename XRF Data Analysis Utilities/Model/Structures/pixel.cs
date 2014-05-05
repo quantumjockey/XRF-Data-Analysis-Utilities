@@ -2,6 +2,7 @@
 #region Namespace Directives
 
 using System;
+using System.Windows;
 
 #endregion
 ///////////////////////////////////////
@@ -13,13 +14,13 @@ namespace XRF_Data_Analysis_Utilities.Model.Structures
         ////////////////////////////////////////
         #region Coordinate
 
-        public coordinate Actual
+        public Point Actual
         {
             get;
             private set;
         }
 
-        public coordinate Goal
+        public Point Goal
         {
             get;
             private set;
@@ -53,11 +54,12 @@ namespace XRF_Data_Analysis_Utilities.Model.Structures
         ////////////////////////////////////////
         #region Constructor
 
+
         public pixel(double _xActual, double _yActual, double _xGoal, double _yGoal, int _counts, double _temperature)
             : this()
         {
-            this.Actual = new coordinate(_xActual, _yActual);
-            this.Goal = new coordinate(_xGoal, _yGoal);
+            this.Actual = new Point(_xActual, _yActual);
+            this.Goal = new Point(_xGoal, _yGoal);
             this.Counts = _counts;
             this.Temperature = _temperature;
             this.Tag = Guid.NewGuid().ToString();

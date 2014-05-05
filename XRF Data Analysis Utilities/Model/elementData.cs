@@ -14,40 +14,25 @@ namespace XRF_Data_Analysis_Utilities.Model
         ////////////////////////////////////////
         #region Properties
 
-        public pixel[][] ImageData
-        {
-            get;
-            set;
-        }
+        public pixel[][] ImageGridData { get; set; }
 
-        public int MaxCounts
-        {
-            get;
-            set;
-        }
+        public int MaxCounts { get; set; }
 
-        public int MinCounts
-        {
-            get;
-            set;
-        }
+        public int MinCounts { get; set; }
 
-        public string Name
-        {
-            get;
-            set;
-        }
+        public string Name { get; set; }
 
         #endregion
 
         ////////////////////////////////////////
         #region Constructor
 
+
         public elementData(int beamHeight, int beamWidth, int index, string name, double[][][] sortedData)
         {
             Name = name;
             DetermineMaxima(beamHeight, beamWidth, index, sortedData);
-            ImageData = ExtractElementRelatedPixelData(beamHeight, beamWidth, index, sortedData);      
+            ImageGridData = ExtractElementRelatedPixelData(beamHeight, beamWidth, index, sortedData);      
         }
 
         #endregion
