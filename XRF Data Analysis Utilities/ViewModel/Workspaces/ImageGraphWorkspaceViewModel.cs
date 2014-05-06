@@ -160,18 +160,60 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             int newHeight = (heightTemp >= 1) ? heightTemp : 1;
             int newWidth = (widthTemp >= 1) ? widthTemp : 1;
 
+            ///////////////////////////////// NOTE TO SELF - REVIEW THIS (BELOW) MESS WHEN AWAKE //////////////////////////////
             // determine new center
-            int tempX = (newWidth / 2);
-            int tempY = (newHeight / 2);
-            int newCenterX = ((selectedCenterX - tempX) >= 0) && ((selectedCenterX + tempX) < width) ? selectedCenterX : tempX;
-            int newCenterY = ((selectedCenterY - tempY) >= 0) && ((selectedCenterY + tempY) < height) ? selectedCenterY : tempY;
+            int tempX = newWidth / 2;
+            int tempY = newHeight / 2;
+
+
+            int newCenterX = 0;
+            int newCenterY = 0;
+            if (((selectedCenterX - tempX) >= 0) && ((selectedCenterX + tempX) < width))
+            {
+                newCenterX = selectedCenterX;
+            }
+            else
+            {
+                if ((selectedCenterX - tempX) < 0)
+                {
+                    newCenterX = tempX;
+                }
+
+                if ((selectedCenterX + tempX) >= width)
+                {
+                    newCenterX = width - tempX;
+                }
+            }
+
+            if (((selectedCenterY - tempY) >= 0) && ((selectedCenterY + tempY) < height))
+            {
+                newCenterY = selectedCenterY;
+            }
+            else
+            {
+                if ((selectedCenterY - tempY) < 0)
+                {
+                    newCenterY = tempY;
+                }
+
+                if ((selectedCenterY + tempY) >= height)
+                {
+                    newCenterY = height - tempY;
+                }
+            }
 
             // create a new image data array
             _imageData = new pixel[newHeight][];
 
             // populate the array
-            int topLeftX = newCenterX - tempX;
-            int topLeftY = newCenterY - tempY;
+            int tempTlx = newCenterX - tempX;
+            int tempTly = newCenterY - tempY;
+            int maxTlx = width - newWidth;
+            int maxTly = height - newHeight;
+            int topLeftX = (tempTlx <= maxTlx) ? tempTlx : maxTlx;
+            int topLeftY = (tempTly <= maxTly) ? tempTly : maxTly;
+
+            ///////////////////////////////// NOTE TO SELF - REVIEW THIS (ABOVE) MESS WHEN AWAKE //////////////////////////////
 
             for (int i = 0; i < newHeight; i++)
             {
