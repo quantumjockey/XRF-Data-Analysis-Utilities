@@ -6,27 +6,38 @@
     </UserControl.Resources>
     <DockPanel>
 
-        <StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
-            <StackPanel Orientation="Horizontal">
-                <Label Margin="0,0,-8,0">Element:</Label>
-                <Label Content="{Binding Path=Header}" FontWeight="Bold"/>
+        <DockPanel DockPanel.Dock="Top">
+            
+            <StackPanel DockPanel.Dock="Left" Margin="5" Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <Label Margin="0,0,-8,0">Element:</Label>
+                    <Label Content="{Binding Path=Header}" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Range:</Label>
+                    <Label Content="{Binding Path=MinValue}" Margin="-8,0,-8,0"/>
+                    <Label>-</Label>
+                    <Label Content="{Binding Path=MaxValue}" Margin="-8,0,-8,0"/>
+                    <Label>cts</Label>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Zoom:</Label>
+                    <Label Content="{Binding Path=Zoom, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" Margin="-8,0,-8,0"/>
+                    <Label FontWeight="Bold">x</Label>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label>Range:</Label>
-                <Label Content="{Binding Path=MinValue}" Margin="-8,0,-8,0"/>
-                <Label>-</Label>
-                <Label Content="{Binding Path=MaxValue}" Margin="-8,0,-8,0"/>
-                <Label>cts</Label>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label>Zoom:</Label>
-                <Label Content="{Binding Path=Zoom, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" Margin="-8,0,-8,0"/>
-                <Label FontWeight="Bold">x</Label>
-            </StackPanel>
-        </StackPanel>
+
+            <Border BorderBrush="LightGray" BorderThickness="1" DockPanel.Dock="Right" Margin="3">
+                <StackPanel Orientation="Horizontal" Margin="2">
+                    <Label FontSize="10" VerticalAlignment="Center">Render to Scale:</Label>
+                    <CheckBox IsChecked="{Binding Path=RenderToScale, UpdateSourceTrigger=PropertyChanged}" Margin="-3,0,0,0" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+        </DockPanel>
 
         <StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
-            <Grid>
+            <Grid VerticalAlignment="Center">
                 <Border BorderBrush="Gray" BorderThickness="2" Margin="65,5,5,25" HorizontalAlignment="Right" VerticalAlignment="Top">
                     <ContentControl Content="{Binding Path=RenderedImage, UpdateSourceTrigger=PropertyChanged}" 
                                 RenderOptions.BitmapScalingMode="NearestNeighbor" SnapsToDevicePixels="True"/>
@@ -50,5 +61,6 @@
                 </StackPanel>
             </StackPanel>
         </StackPanel>
+
     </DockPanel>
 </UserControl>

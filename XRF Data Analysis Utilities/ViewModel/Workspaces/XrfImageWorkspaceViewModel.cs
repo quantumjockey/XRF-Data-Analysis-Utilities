@@ -35,6 +35,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         // Workspace-Specific
         private Canvas _renderedImage;
+        private bool _renderToScale;
         private string _selectedPixelTag;
 
         #endregion
@@ -61,6 +62,20 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
         }
 
+        public bool RenderToScale
+        {
+            get
+            {
+                return _renderToScale;
+            }
+            set
+            {
+                _renderToScale = value;
+                RefreshImage();
+                OnPropertyChanged("RenderToScale");
+            }
+        }
+
         public string SelectedPixelTag
         {
             get
@@ -84,6 +99,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         {
             Header = _elementName;
             InitializeDataMapping();
+            RenderToScale = true;
         }
 
         #endregion
@@ -123,10 +139,23 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             int imageRows = imageGrid.Length;
             int imageColumns = imageGrid[0].Length;
 
-            double pixelScaleY = imageSize / imageRows;
-            double pixelScaleX = imageSize / imageColumns;
+            double pixelScaleX, pixelScaleY;
 
-            _effectiveImage.Height = _effectiveImage.Width = imageSize;
+            if (RenderToScale)
+            {
+                int scaleDivisor = (imageRows > imageColumns) ? imageRows : imageColumns;
+                pixelScaleY = pixelScaleX = imageSize / scaleDivisor;
+
+                _effectiveImage.Height = (imageRows < imageColumns) ? (imageSize * imageRows / imageColumns) : imageSize;
+                _effectiveImage.Width = (imageRows < imageColumns) ? imageSize : (imageSize * imageColumns / imageRows);
+            }
+            else
+            {
+                pixelScaleY = imageSize / imageRows;
+                pixelScaleX = imageSize / imageColumns;
+
+                _effectiveImage.Height = _effectiveImage.Width = imageSize;
+            }
 
             AddPixel(0, 0, pixelScaleX, pixelScaleY, ref _effectiveImage, ref imageGrid[0][0], maxR, maxG, maxB);
 
@@ -153,6 +182,15 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Event Handling
 
 
+        void ColorRamp_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (RenderedImage != null)
+            {
+                RefreshImage();
+            }
+        }
+
+
         void Graphic_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Rectangle pix = sender as Rectangle;
@@ -177,15 +215,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             if (SelectedPixelTag == pix.Tag.ToString())
             {
                 ZoomOut(SelectedPixelTag);
-                RefreshImage();
-            }
-        }
-
-
-        void ColorRamp_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            if (RenderedImage != null)
-            {
                 RefreshImage();
             }
         }

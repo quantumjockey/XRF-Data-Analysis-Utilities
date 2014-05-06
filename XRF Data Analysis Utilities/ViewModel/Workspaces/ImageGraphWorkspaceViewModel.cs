@@ -134,6 +134,45 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Supporting Methods
 
 
+        private void GetDataMaxima()
+        {
+            for (int i = 0; i < _baseImageData.Length; i++)
+            {
+                for (int j = 0; j < _baseImageData[i].Length; j++)
+                {
+                    if (i == 0 && j == 0)
+                    {
+                        MaxValue = MinValue = _baseImageData[i][j].Counts;
+                    }
+                    else
+                    {
+                        int counts = _baseImageData[i][j].Counts;
+
+                        if (counts > MaxValue)
+                        {
+                            MaxValue = counts;
+                        }
+
+                        if (counts < MinValue)
+                        {
+                            MinValue = counts;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        private void GetReferenceCoordinates()
+        {
+            int yBound = _imageData.Length - 1;
+            int xBound = _imageData[0].Length - 1;
+            Ymax = _imageData[0][0].Goal;
+            Origin = _imageData[yBound][0].Goal;
+            Xmax = _imageData[yBound][xBound].Goal;
+        }
+
+
         private void IsolateImageGridUnderZoom(string selectedTag)
         {
             int selectedCenterX, selectedCenterY;
@@ -224,45 +263,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
                 }
             }
 
-        }
-
-
-        private void GetDataMaxima()
-        {
-            for (int i = 0; i < _baseImageData.Length; i++)
-            {
-                for (int j = 0; j < _baseImageData[i].Length; j++)
-                {
-                    if (i == 0 && j == 0)
-                    {
-                        MaxValue = MinValue = _baseImageData[i][j].Counts;
-                    }
-                    else
-                    {
-                        int counts = _baseImageData[i][j].Counts;
-
-                        if (counts > MaxValue)
-                        {
-                            MaxValue = counts;
-                        }
-
-                        if (counts < MinValue)
-                        {
-                            MinValue = counts;
-                        }
-                    }
-                }
-            }
-        }
-
-
-        private void GetReferenceCoordinates()
-        {
-            int yBound = _imageData.Length - 1;
-            int xBound = _imageData[0].Length - 1;
-            Ymax = _imageData[0][0].Goal;
-            Origin = _imageData[yBound][0].Goal;
-            Xmax = _imageData[yBound][xBound].Goal;
         }
 
         #endregion
