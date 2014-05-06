@@ -165,7 +165,8 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             Rectangle pix = sender as Rectangle;
             if (SelectedPixelTag == pix.Tag.ToString())
             {
-                ZoomIn();
+                ZoomIn(SelectedPixelTag);
+                RefreshImage();
             }
         }
 
@@ -175,7 +176,8 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             Rectangle pix = sender as Rectangle;
             if (SelectedPixelTag == pix.Tag.ToString())
             {
-                ZoomOut();
+                ZoomOut(SelectedPixelTag);
+                RefreshImage();
             }
         }
 

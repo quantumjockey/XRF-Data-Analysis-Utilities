@@ -191,8 +191,9 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
         {
             return "XRF_Image_" + _data.Name
                 + "_" + _data.MinCounts + "-" + _data.MaxCounts
-                + "cnts_rendered_UTC" + DateTime.UtcNow.ToString("HH:mm:ss").Replace(' ', '_').Replace('/', '-').Replace(':', '.')
-                + "_offset" + ((selected.ColorRamp.Offset / 10.0) - 0.5);
+                + "cnts_rendered_at_" + selected.Zoom + "x_zoom" 
+                + "_UTC" + DateTime.UtcNow.ToString("HH:mm:ss").Replace(' ', '_').Replace('/', '-').Replace(':', '.')
+                + "_offset_" + (selected.ColorRamp.Offset / 10.0);
         }
 
         private MemoryStream GenerateTiffFromCanvas(Canvas imageData, int dpi, double scale)

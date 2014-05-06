@@ -17,6 +17,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Generic Fields
 
         // Workspace-Specific
+        private pixel[][] _baseImageData;
         protected pixel[][] _imageData;
 
         // data context
@@ -25,7 +26,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         private Point _yMax;
 
         // for zoom
-        private double _zoom;
+        private int _zoom;
 
         #endregion
 
@@ -76,7 +77,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
         }
 
-        public double Zoom
+        public int Zoom
         {
             get
             {
@@ -96,10 +97,10 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         public ImageGraphWorkspaceViewModel(pixel[][] _data)
         {
-            _imageData = _data;
+            _baseImageData = _imageData = _data;
             GetDataMaxima();
             GetReferenceCoordinates();
-            Zoom = 1.0;
+            Zoom = 1;
         }
 
         #endregion
@@ -107,14 +108,24 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Public Methods
 
-        public void ZoomIn()
+        public void ZoomIn(string _selectedTag)
         {
-
+            int input = (int)Zoom * 2;
+            int maxWidth = _baseImageData[0].Length;
+            if (input <= maxWidth)
+            {
+                Zoom = input;
+                IsolateImageGridUnderZoom(_selectedTag);
+                GetReferenceCoordinates();
+            }
         }
 
-        public void ZoomOut()
+        public void ZoomOut(string _selectedTag)
         {
-
+            int input = (int)Zoom / 2;
+            Zoom = (input >= 1) ? input : 1;
+            IsolateImageGridUnderZoom(_selectedTag);
+            GetReferenceCoordinates();
         }
 
         #endregion
@@ -123,19 +134,70 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Supporting Methods
 
 
+        private void IsolateImageGridUnderZoom(string selectedTag)
+        {
+            int selectedCenterX, selectedCenterY;
+            int height = _baseImageData.Length;
+            int width = _baseImageData[0].Length;
+            selectedCenterX = selectedCenterY = 0;
+
+            // search for new approximate center indicated by zoom
+            for (int i = 0; i < _baseImageData.Length; i++)
+            {
+                for (int j = 0; j < _baseImageData[i].Length; j++)
+                {
+                    if (selectedTag == _baseImageData[i][j].Tag)
+                    {
+                        selectedCenterY = i;
+                        selectedCenterX = j;
+                    }
+                }
+            }
+
+            // get new dimensions
+            int heightTemp = height / (int)Zoom;
+            int widthTemp = width / (int)Zoom;
+            int newHeight = (heightTemp >= 1) ? heightTemp : 1;
+            int newWidth = (widthTemp >= 1) ? widthTemp : 1;
+
+            // determine new center
+            int tempX = (newWidth / 2);
+            int tempY = (newHeight / 2);
+            int newCenterX = ((selectedCenterX - tempX) >= 0) && ((selectedCenterX + tempX) < width) ? selectedCenterX : tempX;
+            int newCenterY = ((selectedCenterY - tempY) >= 0) && ((selectedCenterY + tempY) < height) ? selectedCenterY : tempY;
+
+            // create a new image data array
+            _imageData = new pixel[newHeight][];
+
+            // populate the array
+            int topLeftX = newCenterX - tempX;
+            int topLeftY = newCenterY - tempY;
+
+            for (int i = 0; i < newHeight; i++)
+            {
+                _imageData[i] = new pixel[newWidth];
+                for (int j = 0; j < newWidth; j++)
+                {
+                    _imageData[i][j] = _baseImageData[topLeftY + i][topLeftX + j];
+                }
+            }
+
+        }
+
+
         private void GetDataMaxima()
         {
-            for (int i = 0; i < _imageData.Length; i++)
+            for (int i = 0; i < _baseImageData.Length; i++)
             {
-                for (int j = 0; j < _imageData[0].Length; j++)
+                for (int j = 0; j < _baseImageData[i].Length; j++)
                 {
                     if (i == 0 && j == 0)
                     {
-                        MaxValue = MinValue = _imageData[i][j].Counts;
+                        MaxValue = MinValue = _baseImageData[i][j].Counts;
                     }
                     else
                     {
-                        int counts = _imageData[i][j].Counts;
+                        int counts = _baseImageData[i][j].Counts;
 
                         if (counts > MaxValue)
                         {
