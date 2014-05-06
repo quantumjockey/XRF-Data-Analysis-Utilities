@@ -50,6 +50,12 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
         }
 
+        public XrfImageWorkspaceViewModel ImageGraph
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         ////////////////////////////////////////
@@ -58,6 +64,8 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         public SingleElementWorkspaceViewModel(string _elementName, ref xrfSample _sample)
         {
             ElementData = _sample.GetElementData(_elementName);
+            ImageGraph = new XrfImageWorkspaceViewModel(_elementName, ElementData.ImageGridData);
+            ImageGraph.PropertyChanged += ImageGraph_PropertyChanged;
             ListAllPixelObjectsForGridDisplay(ref _sample);
         }
 
@@ -87,6 +95,21 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
                 {
                     SelectedPixel = CompletePixelsList[i];
                 }
+            }
+        }
+
+        #endregion
+
+        ////////////////////////////////////////
+        #region Supporting Methods
+
+
+        void ImageGraph_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            string _tag = (sender as XrfImageWorkspaceViewModel).SelectedPixelTag;
+            if (!String.IsNullOrEmpty(_tag))
+            {
+                SelectPixelByTag(_tag);
             }
         }
 

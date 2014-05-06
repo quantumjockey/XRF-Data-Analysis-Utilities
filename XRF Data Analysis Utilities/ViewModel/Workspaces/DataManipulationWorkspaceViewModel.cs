@@ -18,7 +18,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Generic Fields
 
         // Workspace-specific
-        private XrfImageWorkspaceViewModel _selectedXRFImage;
+        private SingleElementWorkspaceViewModel _selectedElement;
 
         #endregion
 
@@ -31,20 +31,20 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             set;
         }
 
-        public XrfImageWorkspaceViewModel SelectedXRFImage
+        public SingleElementWorkspaceViewModel SelectedElement
         {
             get
             {
-                return _selectedXRFImage;
+                return _selectedElement;
             }
             set
             {
-                _selectedXRFImage = value;
-                OnPropertyChanged("SelectedXRFImage");
+                _selectedElement = value;
+                OnPropertyChanged("SelectedElement");
             }
         }
 
-        public WorkspaceViewModelCollection XRFImages
+        public WorkspaceViewModelCollection AvailableElements
         {
             get;
             set;
@@ -58,7 +58,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         public DataManipulationWorkspaceViewModel(string header, ref xrfSample sample)
         {
             base.Header = header;
-            XRFImages = new WorkspaceViewModelCollection();
+            AvailableElements = new WorkspaceViewModelCollection();
             SampleData = sample;
             PopulateImagesList(ref sample);
         }
@@ -71,9 +71,9 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         private void PopulateImagesList(ref xrfSample sample)
         {
-            if (XRFImages.Count > 0)
+            if (AvailableElements.Count > 0)
             {
-                XRFImages.Clear();
+                AvailableElements.Clear();
             }
 
             List<string> labelData = new List<string>(sample.Labels);
@@ -89,12 +89,12 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
             foreach (string item in elements)
             {
-                XRFImages.Add(new XrfImageWorkspaceViewModel(item, ref sample));
+                AvailableElements.Add(new SingleElementWorkspaceViewModel(item, ref sample));
             }
 
-            if (XRFImages.Count > 0)
+            if (AvailableElements.Count > 0)
             {
-                SelectedXRFImage = XRFImages[0] as XrfImageWorkspaceViewModel;
+                SelectedElement = AvailableElements[0] as SingleElementWorkspaceViewModel;
             }
         }
 

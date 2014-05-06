@@ -4,8 +4,8 @@
     <UserControl.Resources>
         <ResourceDictionary Source="DataManipulationWorkspaceResources.xaml"/>
     </UserControl.Resources>
-    <TabControl ItemsSource="{Binding Path=XRFImages, UpdateSourceTrigger=PropertyChanged}" 
-                SelectedItem="{Binding Path=SelectedXRFImage, UpdateSourceTrigger=PropertyChanged}">
+    <TabControl ItemsSource="{Binding Path=AvailableElements, UpdateSourceTrigger=PropertyChanged}" 
+                SelectedItem="{Binding Path=SelectedElement, UpdateSourceTrigger=PropertyChanged}">
         <TabControl.ItemTemplate>
             <DataTemplate>
                 <ContentPresenter Content="{Binding Path=ElementData.Name}" Margin="2" VerticalAlignment="Center"/>

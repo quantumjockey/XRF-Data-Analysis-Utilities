@@ -4,11 +4,7 @@
                     xmlns:vww="clr-namespace:TheseColorsDontRun.View.Workspaces;assembly=TheseColorsDontRun">
 
     <DataTemplate DataType="{x:Type vmw:ColorRampWorkspaceViewModel}">
-        <vww:ColorRampWorkspace />
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vmw:RgbLimiterWorkspaceViewModel}">
-        <vww:RgbLimiterWorkspace />
+        <vww:WideVerticalColorRampWorkspace />
     </DataTemplate>
 
 </ResourceDictionary>

@@ -4,63 +4,51 @@
     <UserControl.Resources>
         <ResourceDictionary Source="XrfImageWorkspaceResources.xaml"/>
     </UserControl.Resources>
-    <Border Background="White" BorderBrush="Black" BorderThickness="1" Padding="4">
-        <DockPanel>
+    <DockPanel>
 
-            <Border BorderBrush="Gray" BorderThickness="1" DockPanel.Dock="Left">
-                <StackPanel Margin="5" Orientation="Horizontal">
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Horizontal">
-                                <Label Margin="0,0,-8,0">Element:</Label>
-                                <Label Content="{Binding Path=ElementData.Name}" FontWeight="Bold"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <Label>Range:</Label>
-                                <Label Content="{Binding Path=ElementData.MinCounts}" Margin="-8,0,-8,0"/>
-                                <Label>-</Label>
-                                <Label Content="{Binding Path=ElementData.MaxCounts}" Margin="-8,0,-8,0"/>
-                                <Label>cts</Label>
-                            </StackPanel>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Border BorderBrush="Gray" BorderThickness="2" Margin="4">
-                                <ContentControl Content="{Binding Path=RenderedImage, UpdateSourceTrigger=PropertyChanged}" RenderOptions.BitmapScalingMode="NearestNeighbor" SnapsToDevicePixels="True"/>
-                            </Border>
-                            <StackPanel Margin="4">
-                                <Label Content="{Binding Path=ElementData.MaxCounts}" HorizontalAlignment="Left"/>
-                                <ContentControl Content="{Binding Path=ColorRamp, UpdateSourceTrigger=PropertyChanged}"/>
-                                <Label Content="{Binding Path=ElementData.MinCounts}"  HorizontalAlignment="Left"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="0,0,-8,0">Element:</Label>
+                <Label Content="{Binding Path=Header}" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Range:</Label>
+                <Label Content="{Binding Path=MinValue}" Margin="-8,0,-8,0"/>
+                <Label>-</Label>
+                <Label Content="{Binding Path=MaxValue}" Margin="-8,0,-8,0"/>
+                <Label>cts</Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label>Zoom:</Label>
+                <Label Content="{Binding Path=Zoom, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" Margin="-8,0,-8,0"/>
+                <Label FontWeight="Bold">x</Label>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
+            <Grid>
+                <Border BorderBrush="Gray" BorderThickness="2" Margin="65,5,5,25" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <ContentControl Content="{Binding Path=RenderedImage, UpdateSourceTrigger=PropertyChanged}" 
+                                RenderOptions.BitmapScalingMode="NearestNeighbor" SnapsToDevicePixels="True"/>
+                </Border>
+                <Label Content="{Binding Path=Ymax, UpdateSourceTrigger=PropertyChanged}" 
+                       FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="{Binding Path=Origin, UpdateSourceTrigger=PropertyChanged}" 
+                       FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                <Label Content="{Binding Path=Xmax, UpdateSourceTrigger=PropertyChanged}" 
+                       FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            </Grid>
+            <StackPanel Margin="4" VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Label FontWeight="Bold">Max:</Label>
+                    <Label Content="{Binding Path=MaxValue}" Margin="-8,0,0,0"/>
                 </StackPanel>
-            </Border>
-
-            <Border BorderBrush="Gray" BorderThickness="1" DockPanel.Dock="Right">
-                <DockPanel Margin="5">
-                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                        <Label FontWeight="Bold">Tabulated Pixel Data</Label>
-                        <Label Margin="10,0,0,0">Total Pixels:</Label>
-                        <Label Content="{Binding Path=CompletePixelsList.Count}" Margin="-8,0,0,0"/>
-                    </StackPanel>
-                    <DataGrid AutoGenerateColumns="True" 
-                  AlternatingRowBackground="LightGray"
-                  CanUserAddRows="False"
-                  CanUserDeleteRows="False"
-                  CanUserReorderColumns="False"
-                  CanUserResizeColumns="False"
-                      CanUserResizeRows="False" 
-                              DockPanel.Dock="Top"
-                              FontSize="15"
-                              Height="Auto"
-                      ItemsSource="{Binding Path=CompletePixelsList}"
-                      SelectedItem="{Binding Path=SelectedPixel, UpdateSourceTrigger=PropertyChanged}"
-                              SelectionChanged="DataGrid_SelectionChanged">
-                    </DataGrid>
-                </DockPanel>
-            </Border>
-
-        </DockPanel>
-    </Border>
+                <ContentControl Content="{Binding Path=ColorRamp, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Label FontWeight="Bold">Min:</Label>
+                    <Label Content="{Binding Path=MinValue}" Margin="-8,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
 </UserControl>

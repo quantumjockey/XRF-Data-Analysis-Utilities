@@ -16,13 +16,21 @@ using System.Windows.Shapes;
 namespace XRF_Data_Analysis_Utilities.View.Workspaces
 {
     /// <summary>
-    /// Interaction logic for XrfImageWorkspace.xaml
+    /// Interaction logic for SingleElementWorkspace.xaml
     /// </summary>
-    public partial class XrfImageWorkspace : UserControl
+    public partial class SingleElementWorkspace : UserControl
     {
-        public XrfImageWorkspace()
+        public SingleElementWorkspace()
         {
             InitializeComponent();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((sender as DataGrid).SelectedItem != null)
+            {
+                (sender as DataGrid).ScrollIntoView((sender as DataGrid).SelectedItem);
+            }
         }
     }
 }
