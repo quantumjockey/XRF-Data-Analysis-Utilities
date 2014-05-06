@@ -57,7 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\xrfPixel.cs" />
     <Compile Include="ViewModel\Windows\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\DataManipulationWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\Workspaces\SingleElementAnalysisWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\ImageGraphWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\XrfImageWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\SampleWorkspaceViewModel.cs" />
@@ -71,11 +71,11 @@
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Workspaces\DataManipulationWorkspace.xaml.cs">
-      <DependentUpon>DataManipulationWorkspace.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Workspaces\SampleWorkspace.xaml.cs">
       <DependentUpon>SampleWorkspace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Workspaces\SingleElementAnalysisWorkspace.xaml.cs">
+      <DependentUpon>SingleElementAnalysisWorkspace.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Workspaces\SingleElementWorkspace.xaml.cs">
       <DependentUpon>SingleElementWorkspace.xaml</DependentUpon>
@@ -140,11 +140,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Workspaces\DataManipulationWorkspace.xaml">
+    <Page Include="View\Workspaces\SingleElementAnalysisWorkspaceResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Workspaces\DataManipulationWorkspaceResources.xaml">
+    <Page Include="View\Workspaces\SingleElementAnalysisWorkspace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

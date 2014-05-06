@@ -12,7 +12,7 @@ using XRF_Data_Analysis_Utilities.ViewModel.Workspaces;
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 {
-    public class DataManipulationWorkspaceViewModel : WorkspaceViewModel
+    public class SingleElementAnalysisWorkspaceViewModel : WorkspaceViewModel
     {
         ////////////////////////////////////////
         #region Generic Fields
@@ -55,7 +55,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Constructor
 
-        public DataManipulationWorkspaceViewModel(string header, ref xrfSample sample)
+        public SingleElementAnalysisWorkspaceViewModel(string header, ref xrfSample sample)
         {
             base.Header = header;
             AvailableElements = new WorkspaceViewModelCollection();

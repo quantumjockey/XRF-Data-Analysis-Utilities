@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace XRF_Data_Analysis_Utilities.View.Workspaces
 {
     /// <summary>
-    /// Interaction logic for DataManipulationWorkspace.xaml
+    /// Interaction logic for SingleElementAnalysisWorkspace.xaml
     /// </summary>
-    public partial class DataManipulationWorkspace : UserControl
+    public partial class SingleElementAnalysisWorkspace : UserControl
     {
-        public DataManipulationWorkspace()
+        public SingleElementAnalysisWorkspace()
         {
             InitializeComponent();
         }
