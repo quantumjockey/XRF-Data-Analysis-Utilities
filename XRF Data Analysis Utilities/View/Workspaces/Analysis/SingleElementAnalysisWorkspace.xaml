@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="XRF_Data_Analysis_Utilities.View.Workspaces.SingleElementAnalysisWorkspace"
+﻿<UserControl x:Class="XRF_Data_Analysis_Utilities.View.Workspaces.Analysis.SingleElementAnalysisWorkspace"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <UserControl.Resources>

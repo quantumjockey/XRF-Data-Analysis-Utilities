@@ -30,8 +30,8 @@
         </StackPanel>
 
         <TabControl DockPanel.Dock="Bottom" 
-                    ItemsSource="{Binding Path=ImageWorkspaces, UpdateSourceTrigger=PropertyChanged}" 
-                    SelectedItem="{Binding Path=SelectedImageWorkspace, UpdateSourceTrigger=PropertyChanged}"
+                    ItemsSource="{Binding Path=ImageAnalysisWorkspaces, UpdateSourceTrigger=PropertyChanged}" 
+                    SelectedItem="{Binding Path=SelectedImageAnalysisWorkspace, UpdateSourceTrigger=PropertyChanged}"
                     TabStripPlacement="Bottom">
             <TabControl.ItemTemplate>
                 <DataTemplate>

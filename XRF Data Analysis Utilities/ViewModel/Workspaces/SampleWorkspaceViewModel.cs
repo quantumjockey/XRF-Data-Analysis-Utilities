@@ -5,6 +5,7 @@ using System;
 using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model;
 using XRF_Data_Analysis_Utilities.ViewModel.Workspaces;
+using XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis;
 
 #endregion
 ///////////////////////////////////////
@@ -17,7 +18,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Generic Fields
 
         // workspace-related
-        private IWorkspaceViewModel _selectedImageWorkspace;
+        private IAnalysisWorkspaceViewModel _selectedImageAnalysisWorkspace;
 
         #endregion
 
@@ -30,20 +31,20 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             set;
         }
 
-        public IWorkspaceViewModel SelectedImageWorkspace
+        public IAnalysisWorkspaceViewModel SelectedImageAnalysisWorkspace
         {
             get
             {
-                return _selectedImageWorkspace;
+                return _selectedImageAnalysisWorkspace;
             }
             set
             {
-                _selectedImageWorkspace = value;
-                OnPropertyChanged("SelectedImageWorkspace");
+                _selectedImageAnalysisWorkspace = value;
+                OnPropertyChanged("SelectedImageAnalysisWorkspace");
             }
         }
 
-        public WorkspaceViewModelCollection ImageWorkspaces
+        public WorkspaceViewModelCollection ImageAnalysisWorkspaces
         {
             get;
             set;
@@ -57,7 +58,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         public SampleWorkspaceViewModel(string header, ref xrfSample sample)
         {
             base.Header = header;
-            ImageWorkspaces = new WorkspaceViewModelCollection();
+            ImageAnalysisWorkspaces = new WorkspaceViewModelCollection();
             InitializeDataManipulationWorkspaces(ref sample);
             SampleData = sample;
         }
@@ -69,8 +70,9 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         private void InitializeDataManipulationWorkspaces(ref xrfSample _sample)
         {
-            ImageWorkspaces.Add(new SingleElementAnalysisWorkspaceViewModel("Single-Element Analysis", ref _sample));
-            SelectedImageWorkspace = ImageWorkspaces[0];
+            ImageAnalysisWorkspaces.Add(new SingleElementAnalysisWorkspaceViewModel("Single-Element Analysis", ref _sample));
+            ImageAnalysisWorkspaces.Add(new MultipleElementAnalysisWorkspaceViewModel("Multiple-Element Analysis", ref _sample));
+            SelectedImageAnalysisWorkspace = ImageAnalysisWorkspaces[0] as IAnalysisWorkspaceViewModel;
         }
 
         #endregion

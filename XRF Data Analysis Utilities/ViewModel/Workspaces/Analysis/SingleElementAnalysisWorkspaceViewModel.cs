@@ -10,9 +10,9 @@ using XRF_Data_Analysis_Utilities.ViewModel.Workspaces;
 #endregion
 ///////////////////////////////////////
 
-namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
+namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
 {
-    public class SingleElementAnalysisWorkspaceViewModel : WorkspaceViewModel
+    public class SingleElementAnalysisWorkspaceViewModel : AnalysisWorkspaceViewModel
     {
         ////////////////////////////////////////
         #region Generic Fields
@@ -25,7 +25,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Properties and Indexers
 
-        public xrfSample SampleData
+        public WorkspaceViewModelCollection AvailableElements
         {
             get;
             set;
@@ -44,23 +44,17 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
         }
 
-        public WorkspaceViewModelCollection AvailableElements
-        {
-            get;
-            set;
-        }
-
         #endregion
 
         ////////////////////////////////////////
         #region Constructor
 
+
         public SingleElementAnalysisWorkspaceViewModel(string header, ref xrfSample sample)
+            : base(header, ref sample)
         {
-            base.Header = header;
             AvailableElements = new WorkspaceViewModelCollection();
-            SampleData = sample;
-            PopulateImagesList(ref sample);
+            PopulateElementWorkspaces(ref sample);
         }
 
         #endregion
@@ -69,27 +63,16 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Supporting Methods
 
 
-        private void PopulateImagesList(ref xrfSample sample)
+        private void PopulateElementWorkspaces(ref xrfSample sample)
         {
             if (AvailableElements.Count > 0)
             {
                 AvailableElements.Clear();
             }
 
-            List<string> labelData = new List<string>(sample.Labels);
-            int startIndex = labelData.IndexOf("Deadtime (%)");
-            int endIndex = labelData.IndexOf("Full Counts");
-
-            List<string> elements = new List<string>();
-
-            for (int i = startIndex + 1; i < endIndex; i++)
+            foreach (elementData item in Elements)
             {
-                elements.Add(sample.Labels[i]);
-            }
-
-            foreach (string item in elements)
-            {
-                AvailableElements.Add(new SingleElementWorkspaceViewModel(item, ref sample));
+                AvailableElements.Add(new SingleElementWorkspaceViewModel(item));
             }
 
             if (AvailableElements.Count > 0)

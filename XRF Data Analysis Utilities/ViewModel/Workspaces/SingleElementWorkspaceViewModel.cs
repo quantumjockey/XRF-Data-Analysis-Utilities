@@ -61,12 +61,12 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Constructor
 
-        public SingleElementWorkspaceViewModel(string _elementName, ref xrfSample _sample)
+        public SingleElementWorkspaceViewModel(elementData _data)
         {
-            ElementData = _sample.GetElementData(_elementName);
-            ImageGraph = new XrfImageWorkspaceViewModel(_elementName, ElementData.ImageGridData);
+            ElementData = _data;
+            ImageGraph = new XrfImageWorkspaceViewModel(ElementData.Name, ElementData.ImageGridData);
             ImageGraph.PropertyChanged += ImageGraph_PropertyChanged;
-            ListAllPixelObjectsForGridDisplay(ref _sample);
+            ListAllPixelObjectsForGridDisplay();
         }
 
         #endregion
@@ -75,7 +75,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Supporting Methods
 
 
-        private void ListAllPixelObjectsForGridDisplay(ref xrfSample sample)
+        private void ListAllPixelObjectsForGridDisplay()
         {
             CompletePixelsList = new ObservableCollection<pixel>();
             foreach (pixel[] row in ElementData.ImageGridData)

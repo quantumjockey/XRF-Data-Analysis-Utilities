@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace XRF_Data_Analysis_Utilities.View.Workspaces
+namespace XRF_Data_Analysis_Utilities.View.Workspaces.Analysis
 {
     /// <summary>
     /// Interaction logic for SingleElementAnalysisWorkspace.xaml

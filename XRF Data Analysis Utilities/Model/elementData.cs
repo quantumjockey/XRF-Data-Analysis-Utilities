@@ -40,21 +40,13 @@ namespace XRF_Data_Analysis_Utilities.Model
         ////////////////////////////////////////
         #region Supporting Methods
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        private double CalculateTemperature(int value)
+
+        private double CalculateGradientTemperature(int value)
         {
             return (double)(value - MinCounts) / (double)(MaxCounts - MinCounts);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="elementIndex"></param>
-        /// <param name="sample"></param>
+
         private void DetermineMaxima(int beamHeight, int beamWidth, int index, double[][][] sortedData)
         {
             MaxCounts = 0;
@@ -79,14 +71,7 @@ namespace XRF_Data_Analysis_Utilities.Model
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="beamHeight"></param>
-        /// <param name="beamWidth"></param>
-        /// <param name="index"></param>
-        /// <param name="sortedData"></param>
-        /// <returns></returns>
+
         private pixel[][] ExtractElementRelatedPixelData(int beamHeight, int beamWidth, int index, double[][][] sortedData)
         {
             pixel[][] pixelData = new pixel[beamHeight][];
@@ -102,7 +87,7 @@ namespace XRF_Data_Analysis_Utilities.Model
                     double xGoal = row[0];
                     double yGoal = row[1];
                     int counts = (int)row[index];
-                    double temperature = CalculateTemperature(counts);
+                    double temperature = CalculateGradientTemperature(counts);
 
                     pixelData[i][j] = new pixel(xActual, yActual, xGoal, yGoal, counts, temperature);
                 }
