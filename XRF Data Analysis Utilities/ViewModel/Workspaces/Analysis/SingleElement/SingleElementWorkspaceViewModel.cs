@@ -65,7 +65,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         {
             ElementData = _data;
             ImageGraph = new XrfImageWorkspaceViewModel(ElementData.Name, ElementData.ImageGridData);
-            ImageGraph.PropertyChanged += ImageGraph_PropertyChanged;
+            ImageGraph.ImageFrame.PropertyChanged += ImageFrame_PropertyChanged;
             ListAllPixelObjectsForGridDisplay();
         }
 
@@ -104,9 +104,9 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Supporting Methods
 
 
-        void ImageGraph_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        void ImageFrame_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            string _tag = (sender as XrfImageWorkspaceViewModel).ImageFrame.SelectedPixelTag;
+            string _tag = (sender as DataRenderingWorkspaceViewModel).SelectedPixelTag;
             if (!String.IsNullOrEmpty(_tag))
             {
                 SelectPixelByTag(_tag);

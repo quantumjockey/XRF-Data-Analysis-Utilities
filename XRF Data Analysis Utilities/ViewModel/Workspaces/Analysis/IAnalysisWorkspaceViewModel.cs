@@ -16,6 +16,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
         ObservableCollection<elementData> Elements { get; set; }
 
         // Method signatures
-        IXrfImageViewModel GetSelectedImage();
+        IImageGraphWorkspace GetSelectedData();
+        DataRenderingWorkspaceViewModel GetSelectedImage();
     }
 }

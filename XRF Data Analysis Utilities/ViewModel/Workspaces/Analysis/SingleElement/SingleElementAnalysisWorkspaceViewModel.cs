@@ -59,9 +59,14 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
         ////////////////////////////////////////
         #region Public Methods
 
-        public override IXrfImageViewModel GetSelectedImage()
+        public override IImageGraphWorkspace GetSelectedData()
         {
             return this.SelectedElement.ImageGraph;
+        }
+
+        public override DataRenderingWorkspaceViewModel GetSelectedImage()
+        {
+            return this.SelectedElement.ImageGraph.ImageFrame;
         }
 
         #endregion

@@ -140,7 +140,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
 
         private void ExportCanvasToImage()
         {
-            ExportImageToFile.FileName = GenerateImageDestinationFilename(_selectedSample.SelectedImageAnalysisWorkspace.GetSelectedImage());
+            ExportImageToFile.FileName = GenerateImageDestinationFilename(_selectedSample.SelectedImageAnalysisWorkspace.GetSelectedData());
             ExportImageToFile.ShowDialog();
         }
 
@@ -164,7 +164,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
 
         void ExportImageToFile_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MemoryStream fileDataStream = GenerateTiffFromCanvas(_selectedSample.SelectedImageAnalysisWorkspace.GetSelectedImage().ImageFrame.RenderedImage, 96, 1.0);
+            MemoryStream fileDataStream = GenerateTiffFromCanvas(_selectedSample.SelectedImageAnalysisWorkspace.GetSelectedImage().RenderedImage, 96, 1.0);
             WriteStreamToFile(fileDataStream, ExportImageToFile.FileName);
             OpenFileInExplorer(ExportImageToFile.FileName);
         }
@@ -187,7 +187,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
             return "XRF_Image_" + _selected.Header + "_" + _selected.MinValue + "-" + _selected.MaxValue + "cnts"
                 + "_rendered_at_" + _selected.Zoom + "x_zoom"
                 + "_UTC" + DateTime.UtcNow.ToString("HH:mm:ss").Replace(' ', '_').Replace('/', '-').Replace(':', '.');
-                //+ "_offset_" + (_selected.ColorRamp.Offset / 10.0);
         }
 
         private MemoryStream GenerateTiffFromCanvas(Canvas imageData, int dpi, double scale)

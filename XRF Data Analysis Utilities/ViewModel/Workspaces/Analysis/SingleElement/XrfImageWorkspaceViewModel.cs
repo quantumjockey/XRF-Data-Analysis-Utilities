@@ -17,8 +17,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Constants
 
-        const int _imageSize = 480;
-        const int _maxChannelValue = 255;
+        const int _defaultImageSize = 480;
 
         #endregion
 
@@ -27,7 +26,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         // Workspace-Specific
         private DataRenderingWorkspaceViewModel _imageFrame;
-        private string _selectedPixelTag;
 
         #endregion
 
@@ -47,19 +45,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
         }
 
-        public string SelectedPixelTag
-        {
-            get
-            {
-                return _selectedPixelTag;
-            }
-            set
-            {
-                _selectedPixelTag = value;
-                OnPropertyChanged("SelectedPixelTag");
-            }
-        }
-
         #endregion
 
         ////////////////////////////////////////
@@ -70,9 +55,8 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         {
             Header = _elementName;
             InitializeDataMapping(new Color[] { Colors.White, Colors.Blue, Colors.Red, Colors.Yellow });
-            ImageFrame = new DataRenderingWorkspaceViewModel(_imageSize, (x) => LeftMouseClickAction(x), (y) => RightMouseClickAction(y), (temp, mr, mg, mb) => ColorFillAction(temp, mr, mg, mb));
+            ImageFrame = new DataRenderingWorkspaceViewModel(_defaultImageSize, (x) => LeftMouseClickAction(x), (y) => RightMouseClickAction(y), (temp, mr, mg, mb) => ColorFillAction(temp, mr, mg, mb));
             ImageFrame.RefreshImage(ImageData);
-            ImageFrame.PropertyChanged += ImageFrame_PropertyChanged;
         }
 
         #endregion
@@ -92,20 +76,20 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Mouse-Click Actions
 
-        private void LeftMouseClickAction(object sender)
+
+        private void LeftMouseClickAction(Rectangle _pix)
         {
-            Rectangle pix = sender as Rectangle;
-            if (ImageFrame.SelectedPixelTag == pix.Tag.ToString())
+            if (ImageFrame.SelectedPixelTag == _pix.Tag.ToString())
             {
                 ZoomIn(ImageFrame.SelectedPixelTag);
                 ImageFrame.RefreshImage(ImageData);
             }
         }
 
-        private void RightMouseClickAction(object sender)
+
+        private void RightMouseClickAction(Rectangle _pix)
         {
-            Rectangle pix = sender as Rectangle;
-            if (ImageFrame.SelectedPixelTag == pix.Tag.ToString())
+            if (ImageFrame.SelectedPixelTag == _pix.Tag.ToString())
             {
                 ZoomOut(ImageFrame.SelectedPixelTag);
                 ImageFrame.RefreshImage(ImageData);
@@ -116,6 +100,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         ////////////////////////////////////////
         #region Color Fill Action
+
 
         private Color ColorFillAction(double temperature, int maxR, int maxB, int maxG)
         {
@@ -134,12 +119,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             {
                 ImageFrame.RefreshImage(ImageData);
             }
-        }
-
-
-        void ImageFrame_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            SelectedPixelTag = ImageFrame.SelectedPixelTag;
         }
 
         #endregion

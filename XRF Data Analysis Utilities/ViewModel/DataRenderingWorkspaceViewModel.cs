@@ -35,8 +35,8 @@ namespace XRF_Data_Analysis_Utilities.ViewModel
         private string _selectedPixelTag;
 
         // Mouse-related
-        private Action<object> _mouseLeftAction;
-        private Action<object> _mouseRightAction;
+        private Action<Rectangle> _mouseLeftAction;
+        private Action<Rectangle> _mouseRightAction;
 
         // Color-related
         private Func<double, int, int, int, Color> _generateColorAction;
@@ -91,7 +91,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel
         ////////////////////////////////////////
         #region Constructor
 
-        public DataRenderingWorkspaceViewModel(int _size, Action<object> mouseLeftAction, Action<object> mouseRightAction, 
+        public DataRenderingWorkspaceViewModel(int _size, Action<Rectangle> mouseLeftAction, Action<Rectangle> mouseRightAction, 
             Func<double, int, int, int, Color> generateColorAction)
         {
             _generateColorAction = generateColorAction;
@@ -193,13 +193,15 @@ namespace XRF_Data_Analysis_Utilities.ViewModel
 
         void Graphic_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            _mouseLeftAction(sender);
+            Rectangle pix = sender as Rectangle;
+            _mouseLeftAction(pix);
         }
 
 
         void Graphic_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            _mouseRightAction(sender);
+            Rectangle pix = sender as Rectangle;
+            _mouseRightAction(pix);
         }
 
         #endregion
