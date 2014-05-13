@@ -12,7 +12,7 @@ using XRF_Data_Analysis_Utilities.Model.Structures;
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 {
-    public class XrfImageWorkspaceViewModel : ImageGraphWrapperWorkspaceViewModel, IXrfImageViewModel
+    public class XrfImageWorkspaceViewModel : ImageDataWorkspaceViewModel, IXrfImageViewModel
     {
         ////////////////////////////////////////
         #region Constants
@@ -26,6 +26,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         // Workspace-Specific
         private DataRenderingWorkspaceViewModel _imageFrame;
+        private RampWrapperWorkspaceViewModel _rampContainer;
 
         #endregion
 
@@ -45,6 +46,19 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
         }
 
+        public RampWrapperWorkspaceViewModel RampContainer
+        {
+            get
+            {
+                return _rampContainer;
+            }
+            set
+            {
+                _rampContainer = value;
+                OnPropertyChanged("RampContainer");
+            }
+        }
+
         #endregion
 
         ////////////////////////////////////////
@@ -54,21 +68,9 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             : base(_data)
         {
             Header = _elementName;
-            InitializeDataMapping(new Color[] { Colors.White, Colors.Blue, Colors.Red, Colors.Yellow });
+            RampContainer = new RampWrapperWorkspaceViewModel(new Color[] { Colors.White, Colors.Blue, Colors.Red, Colors.Yellow }, (x) => ColorRampUpdateAction());
             ImageFrame = new DataRenderingWorkspaceViewModel(_defaultImageSize, (x) => LeftMouseClickAction(x), (y) => RightMouseClickAction(y), (temp, mr, mg, mb) => ColorFillAction(temp, mr, mg, mb));
             ImageFrame.RefreshImage(ImageData);
-        }
-
-        #endregion
-
-        ////////////////////////////////////////
-        #region Supporting Methods
-
-
-        private void InitializeDataMapping(Color[] rampColors)
-        {
-            ColorRamp = new ColorRampWorkspaceViewModel(true, rampColors);
-            ColorRamp.PropertyChanged += ColorRamp_PropertyChanged;
         }
 
         #endregion
@@ -101,19 +103,17 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Color Fill Action
 
-
         private Color ColorFillAction(double temperature, int maxR, int maxB, int maxG)
         {
-            return ColorRamp.Ramp.MatchOffsetToColor(temperature, maxR, maxG, maxB, false);
+            return RampContainer.ColorRamp.Ramp.MatchOffsetToColor(temperature, maxR, maxG, maxB, false);
         }
 
         #endregion
 
         ////////////////////////////////////////
-        #region Event Handling
+        #region Color Ramp Change Action
 
-
-        void ColorRamp_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void ColorRampUpdateAction()
         {
             if (ImageFrame.RenderedImage != null)
             {

@@ -8,7 +8,7 @@ using WpfHelper.ViewModel;
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 {
-    public interface IXrfImageViewModel : IImageGraphWrapperWorkspace, IViewModel
+    public interface IXrfImageViewModel : IViewModel
     {
         // Property signatures
         DataRenderingWorkspaceViewModel ImageFrame { get; set; }

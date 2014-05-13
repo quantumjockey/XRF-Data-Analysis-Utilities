@@ -10,7 +10,7 @@ using XRF_Data_Analysis_Utilities.Model.Structures;
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 {
-    public abstract class ImageGraphWorkspaceViewModel : WorkspaceViewModel, IImageGraphWorkspace
+    public abstract class ImageDataWorkspaceViewModel : WorkspaceViewModel, IImageDataWorkspace
     {
         ////////////////////////////////////////
         #region Generic Fields
@@ -99,7 +99,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Constructor
 
-        public ImageGraphWorkspaceViewModel(pixel[][] _data)
+        public ImageDataWorkspaceViewModel(pixel[][] _data)
         {
             _baseImageData = ImageData = _data;
             GetDataMaxima();

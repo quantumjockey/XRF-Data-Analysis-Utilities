@@ -10,7 +10,7 @@ using XRF_Data_Analysis_Utilities.Model.Structures;
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 {
-    public interface IImageGraphWorkspace : IWorkspaceViewModel, IViewModel
+    public interface IImageDataWorkspace : IWorkspaceViewModel, IViewModel
     {
         // Property signatures
         pixel[][] ImageData { get; set; }

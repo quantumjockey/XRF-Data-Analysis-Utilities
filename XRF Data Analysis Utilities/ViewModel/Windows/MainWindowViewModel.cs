@@ -182,7 +182,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
         ////////////////////////////////////////
         #region Private Methods
 
-        private string GenerateImageDestinationFilename(IImageGraphWorkspace _selected)
+        private string GenerateImageDestinationFilename(IImageDataWorkspace _selected)
         {
             return "XRF_Image_" + _selected.Header + "_" + _selected.MinValue + "-" + _selected.MaxValue + "cnts"
                 + "_rendered_at_" + _selected.Zoom + "x_zoom"

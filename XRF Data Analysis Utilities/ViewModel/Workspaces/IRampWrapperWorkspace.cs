@@ -8,7 +8,7 @@ using TheseColorsDontRun.ViewModel.Workspaces;
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 {
-    public interface IImageGraphWrapperWorkspace : IImageGraphWorkspace
+    public interface IRampWrapperWorkspace
     {
         // Property signatures
         IColorRampWorkspaceViewModel ColorRamp { get; set; }

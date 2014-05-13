@@ -60,14 +60,14 @@
     </ApplicationDefinition>
     <Compile Include="Model\xrfPixel.cs" />
     <Compile Include="ViewModel\DataRenderingWorkspaceViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\ImageGraphWrapperWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\Workspaces\RampWrapperWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Windows\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\AnalysisWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\IAnalysisWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\SingleElement\SingleElementAnalysisWorkspaceViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\IImageGraphWorkspace.cs" />
-    <Compile Include="ViewModel\Workspaces\IImageGraphWrapperWorkspace.cs" />
-    <Compile Include="ViewModel\Workspaces\ImageGraphWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\Workspaces\IImageDataWorkspace.cs" />
+    <Compile Include="ViewModel\Workspaces\IRampWrapperWorkspace.cs" />
+    <Compile Include="ViewModel\Workspaces\ImageDataWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\IXrfImageViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\SingleElement\XrfImageWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\SampleWorkspaceViewModel.cs" />
@@ -78,6 +78,7 @@
     </Compile>
     <Compile Include="Files\DumpFileHandler.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\SingleElement\SingleElementWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\Workspaces\TestWorkspace.cs" />
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -89,9 +90,6 @@
     </Compile>
     <Compile Include="View\Workspaces\SingleElementWorkspace.xaml.cs">
       <DependentUpon>SingleElementWorkspace.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Workspaces\XrfImageLayerWorkspace.xaml.cs">
-      <DependentUpon>XrfImageLayerWorkspace.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Workspaces\XrfImageWorkspace.xaml.cs">
       <DependentUpon>XrfImageWorkspace.xaml</DependentUpon>
@@ -166,14 +164,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Workspaces\SingleElementWorkspaceResources.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Workspaces\XrfImageLayerWorkspace.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Workspaces\XrfImageLayerWorkspaceResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

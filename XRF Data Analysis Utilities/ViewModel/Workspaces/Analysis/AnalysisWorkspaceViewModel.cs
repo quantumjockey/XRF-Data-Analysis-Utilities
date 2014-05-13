@@ -47,7 +47,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
         ////////////////////////////////////////
         #region Public Methods
 
-        public virtual IImageGraphWorkspace GetSelectedData()
+        public virtual IImageDataWorkspace GetSelectedData()
         {
             //must be overriden within each workspace
             throw new NotImplementedException();

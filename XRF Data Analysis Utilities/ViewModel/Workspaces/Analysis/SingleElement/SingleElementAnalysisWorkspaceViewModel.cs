@@ -59,7 +59,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
         ////////////////////////////////////////
         #region Public Methods
 
-        public override IImageGraphWorkspace GetSelectedData()
+        public override IImageDataWorkspace GetSelectedData()
         {
             return this.SelectedElement.ImageGraph;
         }

@@ -54,7 +54,7 @@
                     <Label FontWeight="Bold">Max:</Label>
                     <Label Content="{Binding Path=MaxValue}" Margin="-8,0,0,0"/>
                 </StackPanel>
-                <ContentControl Content="{Binding Path=ColorRamp, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
+                <ContentControl Content="{Binding Path=RampContainer.ColorRamp, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                     <Label FontWeight="Bold">Min:</Label>
                     <Label Content="{Binding Path=MinValue}" Margin="-8,0,0,0"/>
