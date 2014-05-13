@@ -106,7 +106,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         void ImageGraph_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            string _tag = (sender as XrfImageWorkspaceViewModel).SelectedPixelTag;
+            string _tag = (sender as XrfImageWorkspaceViewModel).ImageFrame.SelectedPixelTag;
             if (!String.IsNullOrEmpty(_tag))
             {
                 SelectPixelByTag(_tag);

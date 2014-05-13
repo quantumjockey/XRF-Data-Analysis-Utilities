@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Xml.Serialization;
 using XRF_Data_Analysis_Utilities.Model;
 
 #endregion

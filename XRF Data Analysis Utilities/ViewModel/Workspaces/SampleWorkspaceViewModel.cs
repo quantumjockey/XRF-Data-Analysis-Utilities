@@ -1,10 +1,8 @@
 ﻿///////////////////////////////////////
 #region Namespace Directives
 
-using System;
 using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model;
-using XRF_Data_Analysis_Utilities.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis;
 
 #endregion
@@ -71,7 +69,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         private void InitializeDataManipulationWorkspaces(ref xrfSample _sample)
         {
             ImageAnalysisWorkspaces.Add(new SingleElementAnalysisWorkspaceViewModel("Single-Element Analysis", ref _sample));
-            ImageAnalysisWorkspaces.Add(new MultipleElementAnalysisWorkspaceViewModel("Multiple-Element Analysis", ref _sample));
+            //ImageAnalysisWorkspaces.Add(new MultipleElementAnalysisWorkspaceViewModel("Multiple-Element Analysis", ref _sample));
             SelectedImageAnalysisWorkspace = ImageAnalysisWorkspaces[0] as IAnalysisWorkspaceViewModel;
         }
 

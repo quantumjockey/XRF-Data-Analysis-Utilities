@@ -1,7 +1,6 @@
 ﻿///////////////////////////////////////
 #region Namespace Directives
 
-using System;
 using System.Windows;
 using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model.Structures;
@@ -11,14 +10,13 @@ using XRF_Data_Analysis_Utilities.Model.Structures;
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 {
-    public class ImageGraphWorkspaceViewModel : WorkspaceViewModel
+    public abstract class ImageGraphWorkspaceViewModel : WorkspaceViewModel, IImageGraphWorkspace
     {
         ////////////////////////////////////////
         #region Generic Fields
 
         // Workspace-Specific
         private pixel[][] _baseImageData;
-        protected pixel[][] _imageData;
 
         // data context
         private Point _origin;
@@ -32,6 +30,12 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         ////////////////////////////////////////
         #region Image Metadata
+
+        public pixel[][] ImageData
+        {
+            get;
+            set;
+        }
 
         // For color ramp slider
         public int MaxValue { get; set; }
@@ -97,7 +101,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         public ImageGraphWorkspaceViewModel(pixel[][] _data)
         {
-            _baseImageData = _imageData = _data;
+            _baseImageData = ImageData = _data;
             GetDataMaxima();
             GetReferenceCoordinates();
             Zoom = 1;
@@ -165,11 +169,11 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         private void GetReferenceCoordinates()
         {
-            int yBound = _imageData.Length - 1;
-            int xBound = _imageData[0].Length - 1;
-            Ymax = _imageData[0][0].Goal;
-            Origin = _imageData[yBound][0].Goal;
-            Xmax = _imageData[yBound][xBound].Goal;
+            int yBound = ImageData.Length - 1;
+            int xBound = ImageData[0].Length - 1;
+            Ymax = ImageData[0][0].Goal;
+            Origin = ImageData[yBound][0].Goal;
+            Xmax = ImageData[yBound][xBound].Goal;
         }
 
 
@@ -242,7 +246,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
 
             // create a new image data array
-            _imageData = new pixel[newHeight][];
+            ImageData = new pixel[newHeight][];
 
             // populate the array
             int tempTlx = newCenterX - tempX;
@@ -256,10 +260,10 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
             for (int i = 0; i < newHeight; i++)
             {
-                _imageData[i] = new pixel[newWidth];
+                ImageData[i] = new pixel[newWidth];
                 for (int j = 0; j < newWidth; j++)
                 {
-                    _imageData[i][j] = _baseImageData[topLeftY + i][topLeftX + j];
+                    ImageData[i][j] = _baseImageData[topLeftY + i][topLeftX + j];
                 }
             }
 

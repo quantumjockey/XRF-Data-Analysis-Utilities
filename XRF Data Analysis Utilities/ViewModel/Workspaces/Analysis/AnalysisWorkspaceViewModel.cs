@@ -45,6 +45,17 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
         #endregion
 
         ////////////////////////////////////////
+        #region Public Methods
+
+        public virtual IXrfImageViewModel GetSelectedImage()
+        {
+            //must be overriden within each workspace
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        ////////////////////////////////////////
         #region Supporting Methods
 
 

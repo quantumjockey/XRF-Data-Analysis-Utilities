@@ -30,7 +30,7 @@
             <Border BorderBrush="LightGray" BorderThickness="1" DockPanel.Dock="Right" Margin="3">
                 <StackPanel Orientation="Horizontal" Margin="2">
                     <Label FontSize="10" VerticalAlignment="Center">Render to Scale:</Label>
-                    <CheckBox IsChecked="{Binding Path=RenderToScale, UpdateSourceTrigger=PropertyChanged}" Margin="-3,0,0,0" VerticalAlignment="Center"/>
+                    <CheckBox IsChecked="{Binding Path=ImageFrame.RenderToScale, UpdateSourceTrigger=PropertyChanged}" Margin="-3,0,0,0" VerticalAlignment="Center"/>
                 </StackPanel>
             </Border>
 
@@ -39,7 +39,7 @@
         <StackPanel DockPanel.Dock="Top" Margin="5" Orientation="Horizontal">
             <Grid VerticalAlignment="Center">
                 <Border BorderBrush="Gray" BorderThickness="2" Margin="65,5,5,25" HorizontalAlignment="Right" VerticalAlignment="Top">
-                    <ContentControl Content="{Binding Path=RenderedImage, UpdateSourceTrigger=PropertyChanged}" 
+                    <ContentControl Content="{Binding Path=ImageFrame.RenderedImage, UpdateSourceTrigger=PropertyChanged}" 
                                 RenderOptions.BitmapScalingMode="NearestNeighbor" SnapsToDevicePixels="True"/>
                 </Border>
                 <Label Content="{Binding Path=Ymax, UpdateSourceTrigger=PropertyChanged}" 

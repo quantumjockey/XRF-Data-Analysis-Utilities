@@ -2,30 +2,22 @@
 #region Namespace Directives
 
 using System;
-using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
-using TheseColorsDontRun.Extensions;
-using TheseColorsDontRun.ViewModel.Workspaces;
-using WpfHelper.ViewModel;
 using WpfHelper.ViewModel.Workspaces;
-using XRF_Data_Analysis_Utilities.Model;
 using XRF_Data_Analysis_Utilities.Model.Structures;
 
 #endregion
 ///////////////////////////////////////
 
-namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
+namespace XRF_Data_Analysis_Utilities.ViewModel
 {
-    public class XrfImageWorkspaceViewModel : ImageGraphWorkspaceViewModel
+    public class DataRenderingWorkspaceViewModel : WorkspaceViewModel
     {
         ////////////////////////////////////////
         #region Constants
 
-        const double _imageSize = 480.0;
         const int _maxChannelValue = 255;
 
         #endregion
@@ -34,20 +26,25 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Generic Fields
 
         // Workspace-Specific
+        private pixel[][] _imageBuffer;
+        private int _imageSize;
         private Canvas _renderedImage;
         private bool _renderToScale;
+
+        // Pixel selection
         private string _selectedPixelTag;
+
+        // Mouse-related
+        private Action<object> _mouseLeftAction;
+        private Action<object> _mouseRightAction;
+
+        // Color-related
+        private Func<double, int, int, int, Color> _generateColorAction;
 
         #endregion
 
         ////////////////////////////////////////
         #region Properties
-
-        public ColorRampWorkspaceViewModel ColorRamp
-        {
-            get;
-            set;
-        }
 
         public Canvas RenderedImage
         {
@@ -71,7 +68,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             set
             {
                 _renderToScale = value;
-                RefreshImage();
+                RefreshImage(_imageBuffer);
                 OnPropertyChanged("RenderToScale");
             }
         }
@@ -94,12 +91,35 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Constructor
 
-        public XrfImageWorkspaceViewModel(string _elementName, pixel[][] _data)
-            : base(_data)
+        public DataRenderingWorkspaceViewModel(int _size, Action<object> mouseLeftAction, Action<object> mouseRightAction, 
+            Func<double, int, int, int, Color> generateColorAction)
         {
-            Header = _elementName;
-            InitializeDataMapping();
+            _generateColorAction = generateColorAction;
+            _mouseLeftAction = mouseLeftAction;
+            _mouseRightAction = mouseRightAction;
+            _imageSize = _size;
             RenderToScale = true;
+        }
+
+        #endregion
+
+        ////////////////////////////////////////
+        #region Public Methods
+
+
+        public void Clear()
+        {
+            RenderedImage.Children.Clear();
+        }
+
+
+        public void RefreshImage(pixel[][] imageGrid)
+        {
+            if (imageGrid != null)
+            {
+                RenderedImage = RenderImage(imageGrid, _imageSize, _maxChannelValue, _maxChannelValue, _maxChannelValue);
+                _imageBuffer = imageGrid;
+            }
         }
 
         #endregion
@@ -113,22 +133,11 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             PixelViewModel xrfPix = new PixelViewModel(_data, xScale, yScale);
             Canvas.SetTop(xrfPix.Graphic, y);
             Canvas.SetLeft(xrfPix.Graphic, x);
-            xrfPix.Graphic.Fill = new SolidColorBrush(ColorRamp.Ramp.MatchOffsetToColor(_data.Temperature, _maxR, _maxG, _maxB, false));
-            xrfPix.Graphic.MouseDown += Graphic_MouseDown;
+            xrfPix.Graphic.Fill = new SolidColorBrush(_generateColorAction(_data.Temperature, _maxR, _maxG, _maxB));
+            xrfPix.Graphic.MouseEnter += Graphic_MouseEnter;
             xrfPix.Graphic.MouseLeftButtonDown += Graphic_MouseLeftButtonDown;
             xrfPix.Graphic.MouseRightButtonDown += Graphic_MouseRightButtonDown;
             _renderedImage.Children.Add(xrfPix.Graphic);
-        }
-
-
-        private void InitializeDataMapping()
-        {
-            Color[] rampColors = new Color[]{ Colors.White, Colors.Blue, Colors.Red, Colors.Yellow };
-
-            ColorRamp = new ColorRampWorkspaceViewModel(true, rampColors);
-            ColorRamp.PropertyChanged += ColorRamp_PropertyChanged;
-
-            RefreshImage();
         }
 
 
@@ -170,28 +179,12 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             return _effectiveImage;
         }
 
-
-        private void RefreshImage()
-        {
-            RenderedImage = RenderImage(_imageData, _imageSize, _maxChannelValue, _maxChannelValue, _maxChannelValue);
-        }
-
         #endregion
 
         ////////////////////////////////////////
         #region Event Handling
 
-
-        void ColorRamp_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            if (RenderedImage != null)
-            {
-                RefreshImage();
-            }
-        }
-
-
-        void Graphic_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        void Graphic_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
             Rectangle pix = sender as Rectangle;
             SelectedPixelTag = pix.Tag.ToString();
@@ -200,23 +193,13 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         void Graphic_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Rectangle pix = sender as Rectangle;
-            if (SelectedPixelTag == pix.Tag.ToString())
-            {
-                ZoomIn(SelectedPixelTag);
-                RefreshImage();
-            }
+            _mouseLeftAction(sender);
         }
 
 
         void Graphic_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Rectangle pix = sender as Rectangle;
-            if (SelectedPixelTag == pix.Tag.ToString())
-            {
-                ZoomOut(SelectedPixelTag);
-                RefreshImage();
-            }
+            _mouseRightAction(sender);
         }
 
         #endregion

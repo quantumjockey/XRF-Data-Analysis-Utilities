@@ -2,12 +2,7 @@
 #region Namespace Directives
 
 using System;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
-using System.Windows;
-using System.Windows.Media;
 using System.Windows.Shapes;
-using XRF_Data_Analysis_Utilities.Model;
 using XRF_Data_Analysis_Utilities.Model.Structures;
 
 #endregion

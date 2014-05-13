@@ -1,11 +1,8 @@
 ﻿///////////////////////////////////////
 #region Namespace Directives
 
-using System;
-using System.Collections.Generic;
 using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model;
-using XRF_Data_Analysis_Utilities.ViewModel.Workspaces;
 
 #endregion
 ///////////////////////////////////////
@@ -55,6 +52,16 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
         {
             AvailableElements = new WorkspaceViewModelCollection();
             PopulateElementWorkspaces(ref sample);
+        }
+
+        #endregion
+
+        ////////////////////////////////////////
+        #region Public Methods
+
+        public override IXrfImageViewModel GetSelectedImage()
+        {
+            return this.SelectedElement.ImageGraph;
         }
 
         #endregion

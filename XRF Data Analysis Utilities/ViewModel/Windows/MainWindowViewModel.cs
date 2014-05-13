@@ -3,22 +3,18 @@
 
 using CompUhaul.Dialogs;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media.Imaging;
-using WpfHelper.PropertyChanged;
 using WpfHelper.ViewModel.Controls;
 using WpfHelper.ViewModel.Windows;
 using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model;
 using XRF_Data_Analysis_Utilities.Files;
 using XRF_Data_Analysis_Utilities.ViewModel.Workspaces;
-using XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis;
 
 #endregion
 ///////////////////////////////////////
@@ -74,7 +70,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
             set
             {
                 _selectedSample = value;
-                if (_selectedSample != null && _selectedSample.SelectedImageAnalysisWorkspace != null && (_selectedSample.SelectedImageAnalysisWorkspace as SingleElementAnalysisWorkspaceViewModel).SelectedElement != null)
+                if (_selectedSample != null && _selectedSample.SelectedImageAnalysisWorkspace != null && _selectedSample.SelectedImageAnalysisWorkspace.GetSelectedImage() != null)
                 {
                     CanExport = true;
                 }
@@ -144,9 +140,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
 
         private void ExportCanvasToImage()
         {
-            ExportImageToFile.FileName = GenerateImageDestinationFilename(
-                (_selectedSample.SelectedImageAnalysisWorkspace as SingleElementAnalysisWorkspaceViewModel).SelectedElement.ImageGraph, 
-                (_selectedSample.SelectedImageAnalysisWorkspace as SingleElementAnalysisWorkspaceViewModel).SelectedElement.ElementData);
+            ExportImageToFile.FileName = GenerateImageDestinationFilename(_selectedSample.SelectedImageAnalysisWorkspace.GetSelectedImage());
             ExportImageToFile.ShowDialog();
         }
 
@@ -170,7 +164,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
 
         void ExportImageToFile_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MemoryStream fileDataStream = GenerateTiffFromCanvas((_selectedSample.SelectedImageAnalysisWorkspace as SingleElementAnalysisWorkspaceViewModel).SelectedElement.ImageGraph.RenderedImage, 96, 1.0);
+            MemoryStream fileDataStream = GenerateTiffFromCanvas(_selectedSample.SelectedImageAnalysisWorkspace.GetSelectedImage().ImageFrame.RenderedImage, 96, 1.0);
             WriteStreamToFile(fileDataStream, ExportImageToFile.FileName);
             OpenFileInExplorer(ExportImageToFile.FileName);
         }
@@ -188,13 +182,12 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
         ////////////////////////////////////////
         #region Private Methods
 
-        private string GenerateImageDestinationFilename(XrfImageWorkspaceViewModel selected, elementData _data)
+        private string GenerateImageDestinationFilename(IImageGraphWorkspace _selected)
         {
-            return "XRF_Image_" + _data.Name
-                + "_" + _data.MinCounts + "-" + _data.MaxCounts
-                + "cnts_rendered_at_" + selected.Zoom + "x_zoom" 
-                + "_UTC" + DateTime.UtcNow.ToString("HH:mm:ss").Replace(' ', '_').Replace('/', '-').Replace(':', '.')
-                + "_offset_" + (selected.ColorRamp.Offset / 10.0);
+            return "XRF_Image_" + _selected.Header + "_" + _selected.MinValue + "-" + _selected.MaxValue + "cnts"
+                + "_rendered_at_" + _selected.Zoom + "x_zoom"
+                + "_UTC" + DateTime.UtcNow.ToString("HH:mm:ss").Replace(' ', '_').Replace('/', '-').Replace(':', '.');
+                //+ "_offset_" + (_selected.ColorRamp.Offset / 10.0);
         }
 
         private MemoryStream GenerateTiffFromCanvas(Canvas imageData, int dpi, double scale)

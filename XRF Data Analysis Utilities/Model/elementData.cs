@@ -1,7 +1,6 @@
 ﻿///////////////////////////////////////
 #region Namespace Directives
 
-using System;
 using XRF_Data_Analysis_Utilities.Model.Structures;
 
 #endregion

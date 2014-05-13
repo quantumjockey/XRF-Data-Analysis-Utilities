@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"               
+                    xmlns:vmw="clr-namespace:TheseColorsDontRun.ViewModel.Workspaces;assembly=TheseColorsDontRun"
+                    xmlns:vww="clr-namespace:TheseColorsDontRun.View.Workspaces;assembly=TheseColorsDontRun">
+
+    <DataTemplate DataType="{x:Type vmw:HueToTransparencyColorRampWorkspaceViewModel}">
+        <vww:WideVerticalColorRampWorkspace />
+    </DataTemplate>
+
+</ResourceDictionary>
