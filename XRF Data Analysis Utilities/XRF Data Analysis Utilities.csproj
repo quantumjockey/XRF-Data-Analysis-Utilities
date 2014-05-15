@@ -78,7 +78,7 @@
     </Compile>
     <Compile Include="Files\DumpFileHandler.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\SingleElement\SingleElementWorkspaceViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\TestWorkspace.cs" />
+    <Compile Include="ViewModel\Workspaces\XrfImageWorkspaceViewModelBase.cs" />
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

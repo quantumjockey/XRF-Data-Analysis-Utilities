@@ -12,5 +12,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
     {
         // Property signatures
         DataRenderingWorkspaceViewModel ImageFrame { get; set; }
+        ImageDataWorkspaceViewModel ImageSource { get; set; }
+        RampWrapperWorkspaceViewModel RampContainer { get; set; }
     }
 }

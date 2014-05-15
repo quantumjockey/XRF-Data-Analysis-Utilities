@@ -137,7 +137,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Supporting Methods
 
-
         private void GetDataMaxima()
         {
             for (int i = 0; i < _baseImageData.Length; i++)
