@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="XRF_Data_Analysis_Utilities.View.Workspaces.ImageDataWorkspace"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <StackPanel Background="White"  Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal">
+            <Label Margin="0,0,-8,0">Element:</Label>
+            <Label Content="{Binding Path=Header}" FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Range:</Label>
+            <Label Content="{Binding Path=MinValue}" Margin="-8,0,-8,0"/>
+            <Label>-</Label>
+            <Label Content="{Binding Path=MaxValue}" Margin="-8,0,-8,0"/>
+            <Label>cts</Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Zoom:</Label>
+            <Label Content="{Binding Path=Zoom, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" Margin="-8,0,-8,0"/>
+            <Label FontWeight="Bold">x</Label>
+        </StackPanel>
+    </StackPanel>
+    
+</UserControl>

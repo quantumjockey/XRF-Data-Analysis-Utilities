@@ -84,6 +84,9 @@
     <Compile Include="View\Workspaces\Analysis\SingleElementAnalysisWorkspace.xaml.cs">
       <DependentUpon>SingleElementAnalysisWorkspace.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Workspaces\ImageDataWorkspace.xaml.cs">
+      <DependentUpon>ImageDataWorkspace.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Workspaces\SampleWorkspace.xaml.cs">
       <DependentUpon>SampleWorkspace.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Workspaces\Analysis\SingleElementAnalysisWorkspaceResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Workspaces\ImageDataWorkspace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

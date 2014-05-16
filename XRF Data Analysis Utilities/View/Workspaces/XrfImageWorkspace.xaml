@@ -8,24 +8,7 @@
 
         <DockPanel DockPanel.Dock="Top">
             
-            <StackPanel DockPanel.Dock="Left" Margin="5" Orientation="Horizontal">
-                <StackPanel Orientation="Horizontal">
-                    <Label Margin="0,0,-8,0">Element:</Label>
-                    <Label Content="{Binding Path=Header}" FontWeight="Bold"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label>Range:</Label>
-                    <Label Content="{Binding Path=ImageSource.MinValue}" Margin="-8,0,-8,0"/>
-                    <Label>-</Label>
-                    <Label Content="{Binding Path=ImageSource.MaxValue}" Margin="-8,0,-8,0"/>
-                    <Label>cts</Label>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label>Zoom:</Label>
-                    <Label Content="{Binding Path=ImageSource.Zoom, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" Margin="-8,0,-8,0"/>
-                    <Label FontWeight="Bold">x</Label>
-                </StackPanel>
-            </StackPanel>
+            <ContentControl Content="{Binding Path=ImageSource, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Left" Margin="5" />
 
             <Border BorderBrush="LightGray" BorderThickness="1" DockPanel.Dock="Right" Margin="3">
                 <StackPanel Orientation="Horizontal" Margin="2">
