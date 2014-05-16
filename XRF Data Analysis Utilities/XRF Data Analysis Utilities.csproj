@@ -69,7 +69,6 @@
     <Compile Include="ViewModel\Workspaces\IRampWrapperWorkspace.cs" />
     <Compile Include="ViewModel\Workspaces\ImageDataWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\IXrfImageViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\Analysis\SingleElement\XrfImageWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\SampleWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\PixelViewModel.cs" />
     <Compile Include="App.xaml.cs">
@@ -78,7 +77,7 @@
     </Compile>
     <Compile Include="Files\DumpFileHandler.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\SingleElement\SingleElementWorkspaceViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\XrfImageWorkspaceViewModelBase.cs" />
+    <Compile Include="ViewModel\Workspaces\XrfImageWorkspaceViewModel.cs" />
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

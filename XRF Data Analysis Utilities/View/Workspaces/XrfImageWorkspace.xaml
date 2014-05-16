@@ -15,14 +15,14 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label>Range:</Label>
-                    <Label Content="{Binding Path=MinValue}" Margin="-8,0,-8,0"/>
+                    <Label Content="{Binding Path=ImageSource.MinValue}" Margin="-8,0,-8,0"/>
                     <Label>-</Label>
-                    <Label Content="{Binding Path=MaxValue}" Margin="-8,0,-8,0"/>
+                    <Label Content="{Binding Path=ImageSource.MaxValue}" Margin="-8,0,-8,0"/>
                     <Label>cts</Label>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label>Zoom:</Label>
-                    <Label Content="{Binding Path=Zoom, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" Margin="-8,0,-8,0"/>
+                    <Label Content="{Binding Path=ImageSource.Zoom, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" Margin="-8,0,-8,0"/>
                     <Label FontWeight="Bold">x</Label>
                 </StackPanel>
             </StackPanel>
@@ -42,22 +42,22 @@
                     <ContentControl Content="{Binding Path=ImageFrame.RenderedImage, UpdateSourceTrigger=PropertyChanged}" 
                                 RenderOptions.BitmapScalingMode="NearestNeighbor" SnapsToDevicePixels="True"/>
                 </Border>
-                <Label Content="{Binding Path=Ymax, UpdateSourceTrigger=PropertyChanged}" 
+                <Label Content="{Binding Path=ImageSource.Ymax, UpdateSourceTrigger=PropertyChanged}" 
                        FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Label Content="{Binding Path=Origin, UpdateSourceTrigger=PropertyChanged}" 
+                <Label Content="{Binding Path=ImageSource.Origin, UpdateSourceTrigger=PropertyChanged}" 
                        FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-                <Label Content="{Binding Path=Xmax, UpdateSourceTrigger=PropertyChanged}" 
+                <Label Content="{Binding Path=ImageSource.Xmax, UpdateSourceTrigger=PropertyChanged}" 
                        FontSize="10" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
             </Grid>
             <StackPanel Margin="4" VerticalAlignment="Center">
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                     <Label FontWeight="Bold">Max:</Label>
-                    <Label Content="{Binding Path=MaxValue}" Margin="-8,0,0,0"/>
+                    <Label Content="{Binding Path=ImageSource.MaxValue}" Margin="-8,0,0,0"/>
                 </StackPanel>
                 <ContentControl Content="{Binding Path=RampContainer.ColorRamp, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                     <Label FontWeight="Bold">Min:</Label>
-                    <Label Content="{Binding Path=MinValue}" Margin="-8,0,0,0"/>
+                    <Label Content="{Binding Path=ImageSource.MinValue}" Margin="-8,0,0,0"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

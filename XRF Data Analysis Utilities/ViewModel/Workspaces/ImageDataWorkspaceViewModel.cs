@@ -10,7 +10,7 @@ using XRF_Data_Analysis_Utilities.Model.Structures;
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 {
-    public abstract class ImageDataWorkspaceViewModel : WorkspaceViewModel, IImageDataWorkspace
+    public class ImageDataWorkspaceViewModel : WorkspaceViewModel, IImageDataWorkspace
     {
         ////////////////////////////////////////
         #region Generic Fields
@@ -98,6 +98,12 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         ////////////////////////////////////////
         #region Constructor
+
+        public ImageDataWorkspaceViewModel(string header, pixel[][] _data)
+            : this(_data)
+        {
+            Header = header;
+        }
 
         public ImageDataWorkspaceViewModel(pixel[][] _data)
         {

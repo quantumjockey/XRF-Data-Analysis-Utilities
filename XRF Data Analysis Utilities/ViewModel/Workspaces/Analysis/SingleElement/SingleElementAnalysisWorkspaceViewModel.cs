@@ -61,7 +61,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
 
         public override IImageDataWorkspace GetSelectedData()
         {
-            return this.SelectedElement.ImageGraph;
+            return this.SelectedElement.ImageGraph.ImageSource;
         }
 
         public override DataRenderingWorkspaceViewModel GetSelectedImage()

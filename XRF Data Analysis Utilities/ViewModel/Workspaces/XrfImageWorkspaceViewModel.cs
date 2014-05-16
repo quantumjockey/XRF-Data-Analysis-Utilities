@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using TheseColorsDontRun.Extensions;
 using TheseColorsDontRun.ViewModel.Workspaces;
+using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model.Structures;
 
 #endregion
@@ -12,7 +13,7 @@ using XRF_Data_Analysis_Utilities.Model.Structures;
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 {
-    public class XrfImageWorkspaceViewModel : ImageDataWorkspaceViewModel, IXrfImageViewModel
+    public class XrfImageWorkspaceViewModel : WorkspaceViewModel, IXrfImageViewModel
     {
         ////////////////////////////////////////
         #region Constants
@@ -26,6 +27,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         // Workspace-Specific
         private DataRenderingWorkspaceViewModel _imageFrame;
+        private ImageDataWorkspaceViewModel _imageSource;
         private RampWrapperWorkspaceViewModel _rampContainer;
 
         #endregion
@@ -43,6 +45,19 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             {
                 _imageFrame = value;
                 OnPropertyChanged("ImageFrame");
+            }
+        }
+
+        public ImageDataWorkspaceViewModel ImageSource
+        {
+            get
+            {
+                return _imageSource;
+            }
+            set
+            {
+                _imageSource = value;
+                OnPropertyChanged("ImageSource");
             }
         }
 
@@ -65,12 +80,12 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Constructor
 
         public XrfImageWorkspaceViewModel(string _elementName, pixel[][] _data)
-            : base(_data)
         {
             Header = _elementName;
+            ImageSource = new ImageDataWorkspaceViewModel(_elementName, _data);
             RampContainer = new RampWrapperWorkspaceViewModel(new Color[] { Colors.White, Colors.Blue, Colors.Red, Colors.Yellow }, (x) => ColorRampUpdateAction());
             ImageFrame = new DataRenderingWorkspaceViewModel(_defaultImageSize, (x) => LeftMouseClickAction(x), (y) => RightMouseClickAction(y), (temp, mr, mg, mb) => ColorFillAction(temp, mr, mg, mb));
-            ImageFrame.RefreshImage(ImageData);
+            ImageFrame.RefreshImage(ImageSource.ImageData);
         }
 
         #endregion
@@ -83,8 +98,8 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         {
             if (ImageFrame.SelectedPixelTag == _pix.Tag.ToString())
             {
-                ZoomIn(ImageFrame.SelectedPixelTag);
-                ImageFrame.RefreshImage(ImageData);
+                ImageSource.ZoomIn(ImageFrame.SelectedPixelTag);
+                ImageFrame.RefreshImage(ImageSource.ImageData);
             }
         }
 
@@ -93,8 +108,8 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         {
             if (ImageFrame.SelectedPixelTag == _pix.Tag.ToString())
             {
-                ZoomOut(ImageFrame.SelectedPixelTag);
-                ImageFrame.RefreshImage(ImageData);
+                ImageSource.ZoomOut(ImageFrame.SelectedPixelTag);
+                ImageFrame.RefreshImage(ImageSource.ImageData);
             }
         }
 
@@ -117,7 +132,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         {
             if (ImageFrame.RenderedImage != null)
             {
-                ImageFrame.RefreshImage(ImageData);
+                ImageFrame.RefreshImage(ImageSource.ImageData);
             }
         }
 
