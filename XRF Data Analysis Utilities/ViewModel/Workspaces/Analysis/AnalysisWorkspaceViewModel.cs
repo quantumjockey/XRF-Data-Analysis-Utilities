@@ -53,7 +53,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
             throw new NotImplementedException();
         }
 
-        public virtual DataRenderingWorkspaceViewModel GetSelectedImage()
+        public virtual DataRenderingViewModel GetSelectedImage()
         {
             //must be overriden within each workspace
             throw new NotImplementedException();

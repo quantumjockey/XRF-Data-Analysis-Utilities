@@ -17,6 +17,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
 
         // Method signatures
         IImageDataWorkspace GetSelectedData();
-        DataRenderingWorkspaceViewModel GetSelectedImage();
+        DataRenderingViewModel GetSelectedImage();
     }
 }

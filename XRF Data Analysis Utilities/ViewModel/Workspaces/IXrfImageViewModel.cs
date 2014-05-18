@@ -11,7 +11,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
     public interface IXrfImageViewModel : IViewModel
     {
         // Property signatures
-        DataRenderingWorkspaceViewModel ImageFrame { get; set; }
+        DataRenderingViewModel ImageFrame { get; set; }
         ImageDataWorkspaceViewModel ImageSource { get; set; }
         RampWrapperWorkspaceViewModel RampContainer { get; set; }
     }

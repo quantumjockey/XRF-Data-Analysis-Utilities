@@ -19,6 +19,12 @@ namespace XRF_Data_Analysis_Utilities.Files
 
         public static xrfSample GetSampleData(string _fullPath)
         {
+            if (String.IsNullOrEmpty(_fullPath) || String.IsNullOrWhiteSpace(_fullPath))
+                throw new ArgumentException("Path has invalid format. Please specify path using a valid format.");
+
+            if (!File.Exists(_fullPath))
+                throw new ArgumentException("Path does not exist.");
+
             string fileContent = ReadContentFromFile(_fullPath);
             xrfSample sample = ParseFileData(fileContent);
             return sample;

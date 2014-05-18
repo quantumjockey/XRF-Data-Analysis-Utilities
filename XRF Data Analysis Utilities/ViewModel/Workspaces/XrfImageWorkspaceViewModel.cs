@@ -6,7 +6,7 @@ using System.Windows.Shapes;
 using TheseColorsDontRun.Extensions;
 using TheseColorsDontRun.ViewModel.Workspaces;
 using WpfHelper.ViewModel.Workspaces;
-using XRF_Data_Analysis_Utilities.Model.Structures;
+using XRF_Data_Analysis_Utilities.Model.Components;
 
 #endregion
 ///////////////////////////////////////
@@ -26,7 +26,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Generic Fields
 
         // Workspace-Specific
-        private DataRenderingWorkspaceViewModel _imageFrame;
+        private DataRenderingViewModel _imageFrame;
         private ImageDataWorkspaceViewModel _imageSource;
         private RampWrapperWorkspaceViewModel _rampContainer;
 
@@ -35,7 +35,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Properties
 
-        public DataRenderingWorkspaceViewModel ImageFrame
+        public DataRenderingViewModel ImageFrame
         {
             get
             {
@@ -84,7 +84,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             Header = _elementName;
             ImageSource = new ImageDataWorkspaceViewModel(_elementName, _data);
             RampContainer = new RampWrapperWorkspaceViewModel(new Color[] { Colors.White, Colors.Blue, Colors.Red, Colors.Yellow }, (x) => ColorRampUpdateAction());
-            ImageFrame = new DataRenderingWorkspaceViewModel(_defaultImageSize, (x) => LeftMouseClickAction(x), (y) => RightMouseClickAction(y), (temp, mr, mg, mb) => ColorFillAction(temp, mr, mg, mb));
+            ImageFrame = new DataRenderingViewModel(_defaultImageSize, (x) => LeftMouseClickAction(x), (y) => RightMouseClickAction(y), (temp, mr, mg, mb) => ColorFillAction(temp, mr, mg, mb));
             ImageFrame.RefreshImage(ImageSource.ImageData);
         }
 

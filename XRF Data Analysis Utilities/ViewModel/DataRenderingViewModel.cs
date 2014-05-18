@@ -7,14 +7,14 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using WpfHelper.ViewModel.Workspaces;
-using XRF_Data_Analysis_Utilities.Model.Structures;
+using XRF_Data_Analysis_Utilities.Model.Components;
 
 #endregion
 ///////////////////////////////////////
 
 namespace XRF_Data_Analysis_Utilities.ViewModel
 {
-    public class DataRenderingWorkspaceViewModel : WorkspaceViewModel
+    public class DataRenderingViewModel : WorkspaceViewModel
     {
         ////////////////////////////////////////
         #region Constants
@@ -92,7 +92,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel
         ////////////////////////////////////////
         #region Constructor
 
-        public DataRenderingWorkspaceViewModel(int _size, Action<Rectangle> mouseLeftAction, Action<Rectangle> mouseRightAction, 
+        public DataRenderingViewModel(int _size, Action<Rectangle> mouseLeftAction, Action<Rectangle> mouseRightAction, 
             Func<double, int, int, int, Color> generateColorAction)
         {
             _generateColorAction = generateColorAction;

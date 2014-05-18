@@ -3,7 +3,7 @@
 
 using System.Windows;
 using WpfHelper.ViewModel.Workspaces;
-using XRF_Data_Analysis_Utilities.Model.Structures;
+using XRF_Data_Analysis_Utilities.Model.Components;
 
 #endregion
 ///////////////////////////////////////

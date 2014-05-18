@@ -7,9 +7,9 @@ using System.Windows;
 #endregion
 ///////////////////////////////////////
 
-namespace XRF_Data_Analysis_Utilities.Model.Structures
+namespace XRF_Data_Analysis_Utilities.Model.Components
 {
-    public struct pixel
+    public class pixel
     {
         ////////////////////////////////////////
         #region Coordinate
@@ -56,7 +56,6 @@ namespace XRF_Data_Analysis_Utilities.Model.Structures
 
 
         public pixel(double _xActual, double _yActual, double _xGoal, double _yGoal, int _counts, double _temperature)
-            : this()
         {
             this.Actual = new Point(_xActual, _yActual);
             this.Goal = new Point(_xGoal, _yGoal);
