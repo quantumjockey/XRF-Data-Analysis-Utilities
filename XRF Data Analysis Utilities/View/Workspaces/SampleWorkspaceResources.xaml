@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:vmw="clr-namespace:XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis"
+                    xmlns:vmw="clr-namespace:XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElement"
                     xmlns:vww="clr-namespace:XRF_Data_Analysis_Utilities.View.Workspaces.Analysis">
 
     <DataTemplate DataType="{x:Type vmw:SingleElementAnalysisWorkspaceViewModel}">

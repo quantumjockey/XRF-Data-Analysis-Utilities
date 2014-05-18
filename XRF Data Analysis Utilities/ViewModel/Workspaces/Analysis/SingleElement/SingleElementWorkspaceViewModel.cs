@@ -10,7 +10,7 @@ using XRF_Data_Analysis_Utilities.Model.Structures;
 #endregion
 ///////////////////////////////////////
 
-namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
+namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElement
 {
     public class SingleElementWorkspaceViewModel : WorkspaceViewModel
     {
