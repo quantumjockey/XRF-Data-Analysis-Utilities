@@ -8,7 +8,7 @@ using XRF_Data_Analysis_Utilities.Model.Components;
 #endregion
 ///////////////////////////////////////
 
-namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
+namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces
 {
     public interface IImageDataWorkspace : IWorkspaceViewModel, IViewModel
     {

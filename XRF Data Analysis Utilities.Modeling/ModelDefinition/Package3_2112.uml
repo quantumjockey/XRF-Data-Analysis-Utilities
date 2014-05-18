@@ -10,7 +10,76 @@
         name="MainWindowViewModel"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="b27f5e82-4e5c-4d94-b69e-940f1104de6d"
+            name="CanExport"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="afaa1115-261e-474b-91d3-108bcd310844"
+            name="Samples"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="e73d8953-547d-4625-9f97-96ca0cdb5085"
+            name="SelectedSample"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="6f260e00-682e-4fe9-9a23-81feebd64312"
+            name="Title"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="97dd1e95-c808-4133-986c-326266e8fc5f"
+            name="OpenFile"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="710e46be-9899-4e95-90b5-2e9762d3afe0"
+            name="ExitProgram"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="163c0949-c49b-4135-a6a6-f3e08d2aaf74"
+            name="ExportImage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
 </package>

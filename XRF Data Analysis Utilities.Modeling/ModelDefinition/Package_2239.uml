@@ -1,27 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams"
   dslVersion="1.0.0.0"
-  Id="35f2dd6f-2645-4eca-99e4-3ffe3d9f1e49"
-  name="Files" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  Id="fb1f6167-88ed-4ae4-b12d-561eab2b7334"
+  name="Interfaces" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <packagedElements>
     <packageHasNamedElement>
-      <class
-        Id="88be5516-483e-4e07-9475-99948240192f"
-        name="DumpFileHandler"
+      <Interface
+        Id="8143bba8-5056-43f8-889d-b17def34d176"
+        name="IAnalysisWorkspaceViewModel"
         isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <ownedOperationsInternal>
-          <operation
-            Id="ebef872e-3b0b-4b51-80be-875f83648a47"
-            name="GetSampleData"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
-      </class>
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

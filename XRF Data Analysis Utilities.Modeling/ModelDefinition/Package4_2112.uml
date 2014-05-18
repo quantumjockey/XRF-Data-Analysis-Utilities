@@ -16,7 +16,98 @@
         name="ImageDataWorkspaceViewModel"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="0f3ae2bf-149f-4ce5-8d56-e04aa6a87fba"
+            name="ImageData"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="f29232cd-f786-4592-92a1-94db02ad1297"
+            name="MaxValue"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="d3ba9bd8-5697-4630-8595-acec0ec7a203"
+            name="MinValue"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="b82ba55f-1c13-4bb4-b4cd-ecf7d55b4cfc"
+            name="Origin"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="b18f9526-20d8-47d5-a2a9-e36ac4c78077"
+            name="Xmax"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="111b47d8-314a-4c82-bce2-3f309b78c509"
+            name="Ymax"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="430dcceb-c679-4bf9-8a0f-5bf76acec1e5"
+            name="Zoom"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="5cede076-c72e-4208-9680-0d1320d2e816"
+            name="ZoomIn"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="d03b0d13-3f74-4ea9-9a27-ec6f477cd8be"
+            name="ZoomOut"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -24,7 +115,30 @@
         name="RampWrapperWorkspaceViewModel"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="27eecdca-10b7-479a-99af-77fd906669fc"
+            name="ColorRamp"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="6ece6e1a-c627-4ad3-aca2-6de205f2528c"
+            name="RampChanged"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -32,7 +146,40 @@
         name="SampleWorkspaceViewModel"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="5b095303-bd26-4b96-85a0-0f2bc8ffb31f"
+            name="SampleData"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="5333ff89-e1e6-4ded-9edb-114ca2809746"
+            name="SelectedImageAnalysisWorkspace"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="44aa06e1-43b1-4f1a-83fc-da498850e154"
+            name="ImageAnalysisWorkspaces"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
@@ -40,28 +187,168 @@
         name="XrfImageWorkspaceViewModel"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="08a10329-ddd0-4af6-b5c4-460c7d14d764"
+            name="ImageFrame"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="8a33f6e2-bda6-4400-893a-1df9ad0c8415"
+            name="ImageSource"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="a34f36eb-ddb4-41fb-9ffb-b861f2ab9e3a"
+            name="RampContainer"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <Interface
-        Id="9888ad44-2c48-4685-89ed-cb2d8a283add"
-        name="IImageDataWorkspace"
-        isAbstract="false"
-        isLeaf="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <Interface
-        Id="d8df839d-9cd1-4420-99e8-a8f5ba4dec9a"
-        name="IRampWrapperWorkspace"
-        isAbstract="false"
-        isLeaf="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <Interface
-        Id="29d89b6f-281d-493c-a2db-0fd608a78e87"
+        Id="1159938d-e0c2-4189-b0c7-0c026080d27c"
         name="IXrfImageViewModel"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="11c81db9-511b-45a3-af74-247baafac586"
+            name="ImageSource"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="f0f9ae03-aec0-425a-a4cf-352caa6b9e90"
+            name="ImageFrame"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="751f22ae-79c0-4147-8c50-ec6dc774c8c2"
+            name="RampContainer"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributes>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="8dd2b5ce-ef4c-463d-9fef-7a386b161e34"
+        name="IImageDataWorkspace"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="40785431-5dac-4a8a-aee6-112bd7f3655f"
+            name="ImageData"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="f69279eb-bc40-46e8-8d69-3e4ba81c9031"
+            name="MaxValue"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="c13ec73e-cedc-4ec9-90cd-62430fdd654e"
+            name="MinValue"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="164a3500-9ed1-4b7a-aaf9-b7cfc40a9836"
+            name="Zoom"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributes>
+        <ownedOperations>
+          <operation
+            Id="3ff46232-b9c9-4cf6-8575-12d4eb1e61b9"
+            name="ZoomIn"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="9feb3fb3-183a-4e51-851a-fe28328afcc8"
+            name="ZoomOut"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="1fb378bc-1036-4197-b671-b3e978339496"
+        name="IRampWrapperWorkspace"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="c1bd6306-8d01-44b7-9356-489f42ac3b58"
+            name="ColorRamp"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributes>
+      </Interface>
     </packageHasNamedElement>
   </packagedElements>
 </package>

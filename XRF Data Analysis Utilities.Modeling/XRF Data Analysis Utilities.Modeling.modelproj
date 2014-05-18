@@ -26,6 +26,9 @@
     <Content Include="ModelDefinition\Package1_2112.uml">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="ModelDefinition\Package1_2250.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ModelDefinition\Package2_2112.uml">
       <SubType>Content</SubType>
     </Content>
@@ -45,6 +48,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\Package_2112.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_2250.uml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="ModelDefinition\XRF Data Analysis Utilities.Modeling.uml">

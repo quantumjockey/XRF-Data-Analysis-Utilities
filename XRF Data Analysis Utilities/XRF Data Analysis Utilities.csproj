@@ -65,10 +65,10 @@
     <Compile Include="ViewModel\Workspaces\Analysis\AnalysisWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\IAnalysisWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\SingleElement\SingleElementAnalysisWorkspaceViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\IImageDataWorkspace.cs" />
-    <Compile Include="ViewModel\Workspaces\IRampWrapperWorkspace.cs" />
+    <Compile Include="ViewModel\Workspaces\Interfaces\IImageDataWorkspace.cs" />
+    <Compile Include="ViewModel\Workspaces\Interfaces\IRampWrapperWorkspace.cs" />
     <Compile Include="ViewModel\Workspaces\ImageDataWorkspaceViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\IXrfImageViewModel.cs" />
+    <Compile Include="ViewModel\Workspaces\Interfaces\IXrfImageViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\SampleWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\PixelViewModel.cs" />
     <Compile Include="App.xaml.cs">

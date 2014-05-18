@@ -16,14 +16,96 @@
         name="AnalysisWorkspaceViewModel"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="41eaa622-13d8-4fee-bfb0-ef4d45065c60"
+            name="Elements"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="305c9d66-997f-4395-85ac-9ab70e9218bd"
+            name="SampleData"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="9d3c6736-12dc-41e0-bbf5-46daeaa1570a"
+            name="GetSelectedData"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="51081704-8180-4ea5-85de-634ecb03e7f6"
+            name="GetSelectedImage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <Interface
-        Id="8143bba8-5056-43f8-889d-b17def34d176"
+        Id="7a4d6e6d-bd2e-45fa-ae4c-5e65cde432d7"
         name="IAnalysisWorkspaceViewModel"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="991facf8-06d9-4a2c-a9a2-29b6ecae3da9"
+            name="SampleData"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="685ca3e9-fed0-4e74-a8d1-c416a3044ab8"
+            name="Elements"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributes>
+        <ownedOperations>
+          <operation
+            Id="c1cf2813-fad8-4325-84c7-7d01ee116ce2"
+            name="GetSelectedData"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="a7ca28e9-dad9-4d1e-a0c8-1264d1dab653"
+            name="GetSelectedImage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
     </packageHasNamedElement>
   </packagedElements>
 </package>

@@ -101,7 +101,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
         #endregion
 
         ////////////////////////////////////////
-        #region Supporting Methods
+        #region Event Handlers
 
 
         void ImageFrame_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)

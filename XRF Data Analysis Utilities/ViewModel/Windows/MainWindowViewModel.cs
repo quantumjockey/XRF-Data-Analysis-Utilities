@@ -15,6 +15,7 @@ using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model;
 using XRF_Data_Analysis_Utilities.Files;
 using XRF_Data_Analysis_Utilities.ViewModel.Workspaces;
+using XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces;
 
 #endregion
 ///////////////////////////////////////

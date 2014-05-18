@@ -6,7 +6,7 @@ using TheseColorsDontRun.ViewModel.Workspaces;
 #endregion
 ///////////////////////////////////////
 
-namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
+namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces
 {
     public interface IRampWrapperWorkspace
     {

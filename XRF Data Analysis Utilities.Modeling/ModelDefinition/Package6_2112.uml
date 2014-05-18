@@ -10,15 +10,81 @@
         name="SingleElementAnalysisWorkspaceViewModel"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="26d8023b-2b2e-4a72-8f34-ac7264d5fc19"
+            name="AvailableElements"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="cb5b0f42-df32-4905-a915-5c50f265f001"
+            name="SelectedElement"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
         Id="3e7d42cf-2490-4685-95e7-4bfc314148e7"
-        name="SingleElementWorkspacceViewModel"
+        name="SingleElementWorkspaceViewModel"
         isAbstract="false"
         isLeaf="false"
-        isActiveClass="false" />
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="55a7a4e3-53c6-4f56-89dc-d8cb5200399a"
+            name="CompletePixelsList"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="78fb4878-1a60-4e62-a83d-af54dfdcf3fa"
+            name="ElementData"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="f166f1de-a87e-41ac-a33c-d5fd9e750eec"
+            name="SelectedPixel"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="86ee032e-2678-4d08-a8fb-427db856c701"
+            name="ImageGraph"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
 </package>

@@ -6,6 +6,7 @@ using System.Windows.Media;
 using TheseColorsDontRun.ViewModel.Workspaces;
 using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model.Components;
+using XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces;
 
 #endregion
 ///////////////////////////////////////
@@ -23,7 +24,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             set;
         }
 
-        Action<object> RampChanged
+        public Action<object> RampChanged
         {
             get;
             set;

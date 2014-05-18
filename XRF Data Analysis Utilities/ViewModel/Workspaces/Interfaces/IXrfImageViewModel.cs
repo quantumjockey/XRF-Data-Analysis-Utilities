@@ -6,7 +6,7 @@ using WpfHelper.ViewModel;
 #endregion
 ///////////////////////////////////////
 
-namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
+namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces
 {
     public interface IXrfImageViewModel : IViewModel
     {
