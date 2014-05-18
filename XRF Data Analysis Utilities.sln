@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheseColorsDontRun", "..\..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xrf Data Analysis Utilities.Test", "Xrf Data Analysis Utilities.Test\Xrf Data Analysis Utilities.Test.csproj", "{A88C2160-2886-452D-9BB0-E90CBA86004C}"
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "XRF Data Analysis Utilities.Modeling", "XRF Data Analysis Utilities.Modeling\XRF Data Analysis Utilities.Modeling.modelproj", "{DFF26D12-E673-492F-845F-8348C8496EF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{A88C2160-2886-452D-9BB0-E90CBA86004C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A88C2160-2886-452D-9BB0-E90CBA86004C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A88C2160-2886-452D-9BB0-E90CBA86004C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF26D12-E673-492F-845F-8348C8496EF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF26D12-E673-492F-845F-8348C8496EF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF26D12-E673-492F-845F-8348C8496EF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF26D12-E673-492F-845F-8348C8496EF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams"
+  dslVersion="1.0.0.0"
+  Id="63268bcf-a8ff-4c97-89bd-d72d6fcb8fa0"
+  name="Workspaces" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="4d5387bd-57d8-4747-9c20-76a8e664c892"
+        LastKnownName="Analysis"
+        LastKnownLocation="Package5_2112.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="efb98ac4-a1a7-4e9c-9f8a-a9554697bbac"
+        name="ImageDataWorkspaceViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="73f9a2a3-3ed6-4463-9c32-3b5cb70e39cf"
+        name="RampWrapperWorkspaceViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="83f8cde4-4615-4e07-90c0-51399d45b350"
+        name="SampleWorkspaceViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b688365e-449c-4636-9531-8a7537158277"
+        name="XrfImageWorkspaceViewModel"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="9888ad44-2c48-4685-89ed-cb2d8a283add"
+        name="IImageDataWorkspace"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="d8df839d-9cd1-4420-99e8-a8f5ba4dec9a"
+        name="IRampWrapperWorkspace"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="29d89b6f-281d-493c-a2db-0fd608a78e87"
+        name="IXrfImageViewModel"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
