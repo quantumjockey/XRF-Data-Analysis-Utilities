@@ -2,6 +2,7 @@
 #region Namespace Directives
 
 using System;
+using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
@@ -115,10 +116,32 @@ namespace XRF_Data_Analysis_Utilities.ViewModel
 
         public void RefreshImage(pixel[][] imageGrid)
         {
+            if (RenderedImage != null)
+            {
+                Clear();
+            }
+
             if (imageGrid != null)
             {
                 RenderedImage = RenderImage(imageGrid, _imageSize, _maxChannelValue, _maxChannelValue, _maxChannelValue);
                 _imageBuffer = imageGrid;
+            }
+        }
+
+        public void RefreshImage(List<pixel[][]> imageCollection)
+        {
+            if (RenderedImage != null)
+            {
+                Clear();
+            }
+
+            foreach (pixel[][] imageGrid in imageCollection)
+            {
+                if (imageGrid != null)
+                {
+                    RenderedImage = RenderImage(imageGrid, _imageSize, _maxChannelValue, _maxChannelValue, _maxChannelValue);
+                    _imageBuffer = imageGrid;
+                }
             }
         }
 
