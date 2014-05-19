@@ -57,7 +57,7 @@ namespace XRF_Data_Analysis_Utilities.Model.Components
         #endregion
 
         ////////////////////////////////////////
-        #region Constructor
+        #region Supporting Methods
 
         private string GenerateDescription()
         {
