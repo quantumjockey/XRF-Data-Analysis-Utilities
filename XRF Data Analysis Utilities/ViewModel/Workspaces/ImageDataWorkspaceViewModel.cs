@@ -17,7 +17,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         #region Generic Fields
 
         // Workspace-Specific
-        private pixel[][] _baseImageData;
+        private xrfPixel[][] _baseImageData;
 
         // data context
         private Point _origin;
@@ -32,7 +32,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Image Metadata
 
-        public pixel[][] ImageData
+        public xrfPixel[][] ImageData
         {
             get;
             set;
@@ -100,13 +100,13 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Constructor
 
-        public ImageDataWorkspaceViewModel(string header, pixel[][] _data)
+        public ImageDataWorkspaceViewModel(string header, xrfPixel[][] _data)
             : this(_data)
         {
             Header = header;
         }
 
-        public ImageDataWorkspaceViewModel(pixel[][] _data)
+        public ImageDataWorkspaceViewModel(xrfPixel[][] _data)
         {
             _baseImageData = ImageData = _data;
             GetDataMaxima();
@@ -252,7 +252,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
             }
 
             // create a new image data array
-            ImageData = new pixel[newHeight][];
+            ImageData = new xrfPixel[newHeight][];
 
             // populate the array
             int tempTlx = newCenterX - tempX;
@@ -266,7 +266,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
             for (int i = 0; i < newHeight; i++)
             {
-                ImageData[i] = new pixel[newWidth];
+                ImageData[i] = new xrfPixel[newWidth];
                 for (int j = 0; j < newWidth; j++)
                 {
                     ImageData[i][j] = _baseImageData[topLeftY + i][topLeftX + j];

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace XRF_Data_Analysis_Utilities.Model
 {
-    public class xrfPixel
+    public class xrfPixelData
     {
         ////////////////////////////////////////
         #region Properties
@@ -61,7 +61,7 @@ namespace XRF_Data_Analysis_Utilities.Model
         #region Constructor
 
 
-        public xrfPixel(double[] data, string[] labels,string tag)
+        public xrfPixelData(double[] data, string[] labels,string tag)
         {
             ExtractElementCounts(new List<double>(data), new List<string>(labels));
             ExtractMotorData(new List<double>(data), new List<string>(labels));

@@ -81,7 +81,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Constructor
 
-        public XrfImageWorkspaceViewModel(string _elementName, pixel[][] _data)
+        public XrfImageWorkspaceViewModel(string _elementName, xrfPixel[][] _data)
         {
             Header = _elementName;
             ImageSource = new ImageDataWorkspaceViewModel(_elementName, _data);

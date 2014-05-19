@@ -13,7 +13,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces
     public interface IImageDataWorkspace : IWorkspaceViewModel, IViewModel
     {
         // Property signatures
-        pixel[][] ImageData { get; set; }
+        xrfPixel[][] ImageData { get; set; }
         int MaxValue { get; set; }
         int MinValue { get; set; }
         int Zoom { get; set; }

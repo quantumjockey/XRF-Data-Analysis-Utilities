@@ -58,7 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\xrfPixel.cs" />
+    <Compile Include="Model\xrfPixelData.cs" />
     <Compile Include="ViewModel\Workspaces\RampWrapperWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Windows\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\AnalysisWorkspaceViewModel.cs" />
@@ -99,7 +99,7 @@
     <Compile Include="Model\elementData.cs" />
     <Compile Include="Model\Components\motorGroup.cs" />
     <Compile Include="Model\Components\motorSettings.cs" />
-    <Compile Include="Model\Components\pixel.cs" />
+    <Compile Include="Model\Components\xrfPixel.cs" />
     <Compile Include="Model\xrfSample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -14,7 +14,7 @@ namespace XRF_Data_Analysis_Utilities.Model
         ////////////////////////////////////////
         #region Properties
 
-        public pixel[][] ImageGridData { get; set; }
+        public xrfPixel[][] ImageGridData { get; set; }
 
         public int MaxCounts { get; set; }
 
@@ -72,13 +72,13 @@ namespace XRF_Data_Analysis_Utilities.Model
         }
 
 
-        private pixel[][] ExtractElementRelatedPixelData(int beamHeight, int beamWidth, int index, double[][][] sortedData)
+        private xrfPixel[][] ExtractElementRelatedPixelData(int beamHeight, int beamWidth, int index, double[][][] sortedData)
         {
-            pixel[][] pixelData = new pixel[beamHeight][];
+            xrfPixel[][] pixelData = new xrfPixel[beamHeight][];
 
             for (int i = 0; i < beamHeight; i++)
             {
-                pixelData[i] = new pixel[beamWidth];
+                pixelData[i] = new xrfPixel[beamWidth];
                 for (int j = 0; j < beamWidth; j++)
                 {
                     double[] row = sortedData[i][j];
@@ -89,7 +89,7 @@ namespace XRF_Data_Analysis_Utilities.Model
                     int counts = (int)row[index];
                     double temperature = CalculateGradientTemperature(counts);
 
-                    pixelData[i][j] = new pixel(xActual, yActual, xGoal, yGoal, counts, temperature);
+                    pixelData[i][j] = new xrfPixel(xActual, yActual, xGoal, yGoal, counts, temperature);
                 }
             }
 

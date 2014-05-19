@@ -19,14 +19,14 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
         #region Generic Fields
 
         // Workspace-Specific
-        private pixel _selectedPixel;
+        private xrfPixel _selectedPixel;
 
         #endregion
 
         ////////////////////////////////////////
         #region Properties
 
-        public ObservableCollection<pixel> CompletePixelsList
+        public ObservableCollection<xrfPixel> CompletePixelsList
         {
             get;
             set;
@@ -38,7 +38,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
             set;
         }
 
-        public pixel SelectedPixel
+        public xrfPixel SelectedPixel
         {
             get
             {
@@ -78,10 +78,10 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
 
         private void ListAllPixelObjectsForGridDisplay()
         {
-            CompletePixelsList = new ObservableCollection<pixel>();
-            foreach (pixel[] row in ElementData.ImageGridData)
+            CompletePixelsList = new ObservableCollection<xrfPixel>();
+            foreach (xrfPixel[] row in ElementData.ImageGridData)
             {
-                foreach (pixel column in row)
+                foreach (xrfPixel column in row)
                 {
                     CompletePixelsList.Add(column);
                 }

@@ -21,7 +21,7 @@ namespace XRF_Data_Analysis_Utilities.Model
 
         public string[] Labels { get; set; }
 
-        public xrfPixel[][] PixelData { get; set; }
+        public xrfPixelData[][] PixelData { get; set; }
 
         public double[][][] RawPixelData { get; set; }
 
@@ -66,20 +66,20 @@ namespace XRF_Data_Analysis_Utilities.Model
         #region Supporting Methods
 
 
-        private xrfPixel[][] ConvertRawDataToObjects(string[] labels, double[][][] rawData)
+        private xrfPixelData[][] ConvertRawDataToObjects(string[] labels, double[][][] rawData)
         {
             int height = rawData.Length;
             int width = rawData[0].Length;
 
-            xrfPixel[][] convertedData = new xrfPixel[height][];
+            xrfPixelData[][] convertedData = new xrfPixelData[height][];
 
             for (int i = 0; i < height; i++)
             {
-                convertedData[i] = new xrfPixel[width];
+                convertedData[i] = new xrfPixelData[width];
 
                 for (int j = 0; j < width; j++)
                 {
-                    convertedData[i][j] = new xrfPixel(rawData[i][j], labels, Guid.NewGuid().ToString());
+                    convertedData[i][j] = new xrfPixelData(rawData[i][j], labels, Guid.NewGuid().ToString());
                 }
             }
 

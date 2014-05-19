@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace XRF_Data_Analysis_Utilities.Model.Components
 {
-    public class pixel : pixelBase
+    public class xrfPixel : pixel
     {
         ////////////////////////////////////////
         #region Coordinate
@@ -46,7 +46,7 @@ namespace XRF_Data_Analysis_Utilities.Model.Components
         #region Constructor
 
 
-        public pixel(double _xActual, double _yActual, double _xGoal, double _yGoal, int _counts, double _temperature)
+        public xrfPixel(double _xActual, double _yActual, double _xGoal, double _yGoal, int _counts, double _temperature)
             : base(_xGoal, _yGoal, _temperature, String.Empty)
         {
             this.Actual = new Point(_xActual, _yActual);
