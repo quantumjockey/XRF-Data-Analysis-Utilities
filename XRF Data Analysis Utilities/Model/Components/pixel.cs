@@ -56,12 +56,16 @@ namespace XRF_Data_Analysis_Utilities.Model.Components
 
         #endregion
 
+        ////////////////////////////////////////
+        #region Constructor
 
         private string GenerateDescription()
         {
-            return "Counts: " + Counts
-                + Environment.NewLine + "xGoal: " + Goal.X + " | yGoal: " + Goal.Y
-                + Environment.NewLine + "xActual: " + Actual.X + " | yActual: " + Actual.Y;
+            return "Counts: " + this.Counts
+                + Environment.NewLine + "xGoal: " + this.Goal.X + " | yGoal: " + this.Goal.Y
+                + Environment.NewLine + "xActual: " + this.Actual.X + " | yActual: " + this.Actual.Y;
         }
+
+        #endregion
     }
 }
