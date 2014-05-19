@@ -1,6 +1,7 @@
 ﻿///////////////////////////////////////
 #region Namespace Directives
 
+using LookinSharp.WPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -54,7 +55,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
             throw new NotImplementedException();
         }
 
-        public virtual DataRenderingViewModel GetSelectedImage()
+        public virtual ImageGraphViewModel GetSelectedImage()
         {
             //must be overriden within each workspace
             throw new NotImplementedException();

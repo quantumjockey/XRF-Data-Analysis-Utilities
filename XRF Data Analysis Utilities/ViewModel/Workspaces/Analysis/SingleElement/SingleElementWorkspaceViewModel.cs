@@ -1,6 +1,7 @@
 ﻿///////////////////////////////////////
 #region Namespace Directives
 
+using LookinSharp.WPF.ViewModel;
 using System;
 using System.Collections.ObjectModel;
 using WpfHelper.ViewModel.Workspaces;
@@ -106,7 +107,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
 
         void ImageFrame_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            string _tag = (sender as DataRenderingViewModel).SelectedPixelTag;
+            string _tag = (sender as ImageGraphViewModel).SelectedPixelTag;
             if (!String.IsNullOrEmpty(_tag))
             {
                 SelectPixelByTag(_tag);

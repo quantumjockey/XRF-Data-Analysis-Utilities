@@ -1,6 +1,7 @@
 ﻿///////////////////////////////////////
 #region Namespace Directives
 
+using LookinSharp.WPF.ViewModel;
 using WpfHelper.ViewModel.Workspaces;
 using XRF_Data_Analysis_Utilities.Model;
 using XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces;
@@ -65,7 +66,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
             return this.SelectedElement.ImageGraph.ImageSource;
         }
 
-        public override DataRenderingViewModel GetSelectedImage()
+        public override ImageGraphViewModel GetSelectedImage()
         {
             return this.SelectedElement.ImageGraph.ImageFrame;
         }

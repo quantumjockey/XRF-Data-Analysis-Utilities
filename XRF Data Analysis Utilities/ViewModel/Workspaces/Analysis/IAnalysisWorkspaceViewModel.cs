@@ -1,6 +1,7 @@
 ﻿///////////////////////////////////////
 #region Namespace Directives
 
+using LookinSharp.WPF.ViewModel;
 using System.Collections.ObjectModel;
 using XRF_Data_Analysis_Utilities.Model;
 using XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces;
@@ -18,6 +19,6 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
 
         // Method signatures
         IImageDataWorkspace GetSelectedData();
-        DataRenderingViewModel GetSelectedImage();
+        ImageGraphViewModel GetSelectedImage();
     }
 }

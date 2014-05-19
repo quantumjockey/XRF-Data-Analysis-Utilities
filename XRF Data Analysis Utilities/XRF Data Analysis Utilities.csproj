@@ -59,7 +59,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\xrfPixel.cs" />
-    <Compile Include="ViewModel\DataRenderingViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\RampWrapperWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Windows\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\AnalysisWorkspaceViewModel.cs" />
@@ -70,7 +69,6 @@
     <Compile Include="ViewModel\Workspaces\ImageDataWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Interfaces\IXrfImageViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\SampleWorkspaceViewModel.cs" />
-    <Compile Include="ViewModel\PixelViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -133,6 +131,10 @@
     <ProjectReference Include="..\..\..\..\Visual C# Application Source\Libraries\CompUhaul\CompUhaul\CompUhaul.csproj">
       <Project>{3995f027-97c3-4b83-8a64-ddd36e1a43a2}</Project>
       <Name>CompUhaul</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Visual C# Application Source\Libraries\LookinSharp\LookinSharp\LookinSharp.csproj">
+      <Project>{10e4593a-92db-43b3-9ca1-6029f01b8572}</Project>
+      <Name>LookinSharp</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\Visual C# Application Source\Libraries\TheseColorsDontRun\TheseColorsDontRun\TheseColorsDontRun.csproj">
       <Project>{f6d15a69-9342-463a-82cc-8b5186deac60}</Project>

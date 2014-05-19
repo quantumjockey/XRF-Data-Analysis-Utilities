@@ -1,6 +1,7 @@
 ﻿///////////////////////////////////////
 #region Namespace Directives
 
+using LookinSharp.WPF.Model;
 using System;
 using System.Windows;
 
@@ -9,7 +10,7 @@ using System.Windows;
 
 namespace XRF_Data_Analysis_Utilities.Model.Components
 {
-    public class pixel
+    public class pixel : pixelBase
     {
         ////////////////////////////////////////
         #region Coordinate
@@ -22,8 +23,10 @@ namespace XRF_Data_Analysis_Utilities.Model.Components
 
         public Point Goal
         {
-            get;
-            private set;
+            get
+            {
+                return base.Coordinate;
+            }
         }
 
         #endregion
@@ -37,18 +40,6 @@ namespace XRF_Data_Analysis_Utilities.Model.Components
             private set;
         }
 
-        public double Temperature
-        {
-            get;
-            private set;
-        }
-
-        public string Tag
-        {
-            get;
-            private set;
-        }
-
         #endregion
 
         ////////////////////////////////////////
@@ -56,14 +47,21 @@ namespace XRF_Data_Analysis_Utilities.Model.Components
 
 
         public pixel(double _xActual, double _yActual, double _xGoal, double _yGoal, int _counts, double _temperature)
+            : base(_xGoal, _yGoal, _temperature, String.Empty)
         {
             this.Actual = new Point(_xActual, _yActual);
-            this.Goal = new Point(_xGoal, _yGoal);
             this.Counts = _counts;
-            this.Temperature = _temperature;
-            this.Tag = Guid.NewGuid().ToString();
+            this.Description = GenerateDescription();
         }
 
         #endregion
+
+
+        private string GenerateDescription()
+        {
+            return "Counts: " + Counts
+                + Environment.NewLine + "xGoal: " + Goal.X + " | yGoal: " + Goal.Y
+                + Environment.NewLine + "xActual: " + Actual.X + " | yActual: " + Actual.Y;
+        }
     }
 }
