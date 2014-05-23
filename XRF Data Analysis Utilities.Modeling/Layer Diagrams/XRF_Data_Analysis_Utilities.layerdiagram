@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="61bc78a9-4787-444f-b6a2-fe716a86733b" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="05328ba8-7c3e-49fb-9b9d-19a178739a13" name="Comment1">
+      <body>Required for all ViewModels.</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="0ce17528-cbb2-4d94-9433-66e094a1ec42" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+    <comment Id="f76b5649-0b17-4819-b800-8e0e84ee76f6" name="Comment2">
+      <body>Should be used to generate fileSystem components. (Possibly add a ~FileHandler base class?)</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="c3d5a265-64c5-4499-821c-6456af01c8a2" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+    <comment Id="c2374db0-5fbd-4fcc-9900-f2174421de78" name="Comment3">
+      <body>Implementing an architecture where layers are called from within layers was not a good idea. Establish a complete architectural spec before any continued implementation/further refactoring is attempted.</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="74d0fa95-b1a1-49dd-8652-35a8f55545e5" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+    <comment Id="5520ce53-2976-4c49-98d5-11ddbf25d423" name="Comment4">
+      <body>Ported data rendering components here.</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="7763252e-5dd7-48b5-bb32-460d0c7a5d3e" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+    <comment Id="01797022-865d-4de0-9ef3-8adad5e98fa1" name="Comment5">
+      <body>The efficiency of the color ramp-to-floating point value conversion requires optimization. (Is this due to external presence?)</body>
+      <layerElements>
+        <linkFromCommentToLayerElement>
+          <layerMoniker Id="d37c0575-0f9c-444f-bf3e-16b51b11700d" />
+        </linkFromCommentToLayerElement>
+      </layerElements>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="74d0fa95-b1a1-49dd-8652-35a8f55545e5" name="XRF Data Analysis Utilities">
+      <childLayers>
+        <layer Id="5520ec68-0814-491e-bf44-56dfeb82b478" name="Files">
+          <references>
+            <reference Id="1eddbfb4-2403-4cfe-9c8c-be7faedd89c6" name="Files">
+              <ArtifactNode Label="Files" Category="CodeSchema_ProjectItem" Id="(Assembly=../../XRF%2520Data%2520Analysis%2520Utilities/XRF%2520Data%2520Analysis%2520Utilities.csproj File=../../XRF%2520Data%2520Analysis%2520Utilities/Files/)">
+                <Category Ref="ProjectFolder" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.Files Type=DumpFileHandler)" Label="DumpFileHandler" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="b25fc8e8-f816-4ad8-ba8e-ab7ce0f56587" name="Model">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="2173719d-ee0f-480e-b149-8a7a8a26c0ce" direction="Forward">
+              <layerMoniker Id="7763252e-5dd7-48b5-bb32-460d0c7a5d3e" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="9f901cde-e360-4480-b337-1a8e3ca6487a" name="Model">
+              <ArtifactNode Label="Model" Category="CodeSchema_ProjectItem" Id="(Assembly=../../XRF%2520Data%2520Analysis%2520Utilities/XRF%2520Data%2520Analysis%2520Utilities.csproj File=../../XRF%2520Data%2520Analysis%2520Utilities/Model/)">
+                <Category Ref="ProjectFolder" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.Model.Components Type=motorGroup)" Label="motorGroup" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.Model.Components Type=motorSettings)" Label="motorSettings" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.Model.Components Type=xrfPixel)" Label="xrfPixel" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.Model Type=elementData)" Label="elementData" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.Model Type=xrfPixelData)" Label="xrfPixelData" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.Model Type=xrfSample)" Label="xrfSample" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="574ffe99-efe6-4119-91f5-0f7345ffd1ce" name="View">
+          <childLayers>
+            <layer Id="1125b234-1420-475c-8621-9d5cc130bbf8" name="Windows">
+              <references>
+                <reference Id="4fc148aa-ad6c-4cb1-8191-79dcfc6b0e6e" name="Windows">
+                  <ArtifactNode Label="Windows" Category="CodeSchema_ProjectItem" Id="(Assembly=../../XRF%2520Data%2520Analysis%2520Utilities/XRF%2520Data%2520Analysis%2520Utilities.csproj File=../../XRF%2520Data%2520Analysis%2520Utilities/View/Windows/)">
+                    <Category Ref="ProjectFolder" />
+                  </ArtifactNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Windows Type=MainWindow)" Label="MainWindow" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+            <layer Id="10badb32-0b33-40ae-adbd-aa14ad009075" name="Workspaces">
+              <references>
+                <reference Id="256b1871-2515-42c0-bf32-866e078e0049" name="Workspaces">
+                  <ArtifactNode Label="Workspaces" Category="CodeSchema_ProjectItem" Id="(Assembly=../../XRF%2520Data%2520Analysis%2520Utilities/XRF%2520Data%2520Analysis%2520Utilities.csproj File=../../XRF%2520Data%2520Analysis%2520Utilities/View/Workspaces/)">
+                    <Category Ref="ProjectFolder" />
+                  </ArtifactNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Workspaces.Analysis Type=SingleElementAnalysisWorkspace)" Label="SingleElementAnalysisWorkspace" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Workspaces Type=ImageDataWorkspace)" Label="ImageDataWorkspace" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Workspaces Type=SampleWorkspace)" Label="SampleWorkspace" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Workspaces Type=SingleElementWorkspace)" Label="SingleElementWorkspace" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Workspaces Type=XrfImageWorkspace)" Label="XrfImageWorkspace" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+          </childLayers>
+          <references>
+            <reference Id="a1bba7c1-66e3-4d5c-873b-f9cf85b09681" name="View">
+              <ArtifactNode Label="View" Category="CodeSchema_ProjectItem" Id="(Assembly=../../XRF%2520Data%2520Analysis%2520Utilities/XRF%2520Data%2520Analysis%2520Utilities.csproj File=../../XRF%2520Data%2520Analysis%2520Utilities/View/)">
+                <Category Ref="ProjectFolder" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Windows Type=MainWindow)" Label="MainWindow" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Workspaces.Analysis Type=SingleElementAnalysisWorkspace)" Label="SingleElementAnalysisWorkspace" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Workspaces Type=ImageDataWorkspace)" Label="ImageDataWorkspace" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Workspaces Type=SampleWorkspace)" Label="SampleWorkspace" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Workspaces Type=SingleElementWorkspace)" Label="SingleElementWorkspace" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Workspaces Type=XrfImageWorkspace)" Label="XrfImageWorkspace" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="440aa9b5-a720-4320-bce9-314b0661fe65" name="Windows">
+              <ArtifactNode Label="Windows" Category="CodeSchema_ProjectItem" Id="(Assembly=../../XRF%2520Data%2520Analysis%2520Utilities/XRF%2520Data%2520Analysis%2520Utilities.csproj File=../../XRF%2520Data%2520Analysis%2520Utilities/View/Windows/)">
+                <Category Ref="ProjectFolder" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.View.Windows Type=MainWindow)" Label="MainWindow" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="3857de57-1b0c-466d-ba28-7bddcd2c41a3" name="ViewModel">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="f22da6b7-5b0a-4eea-a18c-5bf1056dd57c" direction="Forward">
+              <layerMoniker Id="c3d5a265-64c5-4499-821c-6456af01c8a2" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="18c24cf2-09f6-44f8-9f0a-d806cdb77167" direction="Forward">
+              <layerMoniker Id="0ce17528-cbb2-4d94-9433-66e094a1ec42" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <childLayers>
+            <layer Id="04ce6966-946d-4214-88df-b854ca09dcf0" name="Windows">
+              <references>
+                <reference Id="1be9f925-7620-4ad6-9290-a3fd158465cf" name="Windows">
+                  <ArtifactNode Label="Windows" Category="CodeSchema_ProjectItem" Id="(Assembly=../../XRF%2520Data%2520Analysis%2520Utilities/XRF%2520Data%2520Analysis%2520Utilities.csproj File=../../XRF%2520Data%2520Analysis%2520Utilities/ViewModel/Windows/)">
+                    <Category Ref="ProjectFolder" />
+                  </ArtifactNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Windows Type=MainWindowViewModel)" Label="MainWindowViewModel" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+            <layer Id="da2c3441-527f-4d92-8f5f-792437983710" name="Workspaces">
+              <dependencyToLayers>
+                <dependencyFromLayerToLayer Id="2f0e6f69-5383-419c-9b57-e369239e539c" direction="Forward">
+                  <layerMoniker Id="d37c0575-0f9c-444f-bf3e-16b51b11700d" />
+                </dependencyFromLayerToLayer>
+                <dependencyFromLayerToLayer Id="bc9b48d7-1c40-4f60-b5a9-d5ec2cfb1efd" direction="Forward">
+                  <layerMoniker Id="7763252e-5dd7-48b5-bb32-460d0c7a5d3e" />
+                </dependencyFromLayerToLayer>
+              </dependencyToLayers>
+              <references>
+                <reference Id="ad181055-0412-4305-8bd2-c316d1dd78f1" name="Workspaces">
+                  <ArtifactNode Label="Workspaces" Category="CodeSchema_ProjectItem" Id="(Assembly=../../XRF%2520Data%2520Analysis%2520Utilities/XRF%2520Data%2520Analysis%2520Utilities.csproj File=../../XRF%2520Data%2520Analysis%2520Utilities/ViewModel/Workspaces/)">
+                    <Category Ref="ProjectFolder" />
+                  </ArtifactNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis Type=AnalysisWorkspaceViewModel)" Label="AnalysisWorkspaceViewModel" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis Type=IAnalysisWorkspaceViewModel)" Label="IAnalysisWorkspaceViewModel" Category="CodeSchema_Interface">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElement Type=SingleElementAnalysisWorkspaceViewModel)" Label="SingleElementAnalysisWorkspaceViewModel" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElement Type=SingleElementWorkspaceViewModel)" Label="SingleElementWorkspaceViewModel" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces Type=ImageDataWorkspaceViewModel)" Label="ImageDataWorkspaceViewModel" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces Type=IImageDataWorkspace)" Label="IImageDataWorkspace" Category="CodeSchema_Interface">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces Type=IRampWrapperWorkspace)" Label="IRampWrapperWorkspace" Category="CodeSchema_Interface">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces Type=IXrfImageViewModel)" Label="IXrfImageViewModel" Category="CodeSchema_Interface">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces Type=RampWrapperWorkspaceViewModel)" Label="RampWrapperWorkspaceViewModel" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces Type=SampleWorkspaceViewModel)" Label="SampleWorkspaceViewModel" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                  <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces Type=XrfImageWorkspaceViewModel)" Label="XrfImageWorkspaceViewModel" Category="CodeSchema_Class">
+                    <LinkCategory Ref="Represents" />
+                  </ExpandedNode>
+                </reference>
+              </references>
+            </layer>
+          </childLayers>
+          <references>
+            <reference Id="d489da04-b81f-4171-b68d-203c78afc8ec" name="ViewModel">
+              <ArtifactNode Label="ViewModel" Category="CodeSchema_ProjectItem" Id="(Assembly=../../XRF%2520Data%2520Analysis%2520Utilities/XRF%2520Data%2520Analysis%2520Utilities.csproj File=../../XRF%2520Data%2520Analysis%2520Utilities/ViewModel/)">
+                <Category Ref="ProjectFolder" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Windows Type=MainWindowViewModel)" Label="MainWindowViewModel" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis Type=AnalysisWorkspaceViewModel)" Label="AnalysisWorkspaceViewModel" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis Type=IAnalysisWorkspaceViewModel)" Label="IAnalysisWorkspaceViewModel" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElement Type=SingleElementAnalysisWorkspaceViewModel)" Label="SingleElementAnalysisWorkspaceViewModel" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElement Type=SingleElementWorkspaceViewModel)" Label="SingleElementWorkspaceViewModel" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces Type=ImageDataWorkspaceViewModel)" Label="ImageDataWorkspaceViewModel" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces Type=IImageDataWorkspace)" Label="IImageDataWorkspace" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces Type=IRampWrapperWorkspace)" Label="IRampWrapperWorkspace" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces Type=IXrfImageViewModel)" Label="IXrfImageViewModel" Category="CodeSchema_Interface">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces Type=RampWrapperWorkspaceViewModel)" Label="RampWrapperWorkspaceViewModel" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces Type=SampleWorkspaceViewModel)" Label="SampleWorkspaceViewModel" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+              <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot; Namespace=XRF_Data_Analysis_Utilities.ViewModel.Workspaces Type=XrfImageWorkspaceViewModel)" Label="XrfImageWorkspaceViewModel" Category="CodeSchema_Class">
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+      <references>
+        <reference Id="1a200079-7bbd-4c8a-ae0c-44c252969e17" name="XRF Data Analysis Utilities">
+          <ArtifactNode Label="XRF Data Analysis Utilities" Category="CodeSchema_Project" Id="(Assembly=../../XRF%2520Data%2520Analysis%2520Utilities/XRF%2520Data%2520Analysis%2520Utilities.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=&quot;XRF Data Analysis Utilities&quot;)" Label="XRF Data Analysis Utilities.exe" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.exe" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="0ce17528-cbb2-4d94-9433-66e094a1ec42" name="WpfHelper">
+      <references>
+        <reference Id="62380102-d5e2-41fd-8b87-f4b6e7962919" name="WpfHelper">
+          <ArtifactNode Label="WpfHelper" Category="CodeSchema_Project" Id="(Assembly=../../../../../Visual%2520C%2523%2520Application%2520Source/Libraries/WpfHelper/WpfHelper/WpfHelper.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=WpfHelper)" Label="WpfHelper.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="d37c0575-0f9c-444f-bf3e-16b51b11700d" name="TheseColorsDontRun">
+      <references>
+        <reference Id="f63cb5e3-749a-4f2d-8b8a-be8b7fb1ee3e" name="TheseColorsDontRun">
+          <ArtifactNode Label="TheseColorsDontRun" Category="CodeSchema_Project" Id="(Assembly=../../../../../Visual%2520C%2523%2520Application%2520Source/Libraries/TheseColorsDontRun/TheseColorsDontRun/TheseColorsDontRun.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=TheseColorsDontRun)" Label="TheseColorsDontRun.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="7763252e-5dd7-48b5-bb32-460d0c7a5d3e" name="LookinSharp">
+      <references>
+        <reference Id="75eefb46-b0c7-4394-8f9f-8a7cd997fbe3" name="LookinSharp">
+          <ArtifactNode Label="LookinSharp" Category="CodeSchema_Project" Id="(Assembly=../../../../../Visual%2520C%2523%2520Application%2520Source/Libraries/LookinSharp/LookinSharp/LookinSharp.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=LookinSharp)" Label="LookinSharp.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="c3d5a265-64c5-4499-821c-6456af01c8a2" name="CompUhaul">
+      <references>
+        <reference Id="62db4651-772f-4919-8cb4-3bd216b1c1dd" name="CompUhaul">
+          <ArtifactNode Label="CompUhaul" Category="CodeSchema_Project" Id="(Assembly=../../../../../Visual%2520C%2523%2520Application%2520Source/Libraries/CompUhaul/CompUhaul/CompUhaul.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=CompUhaul)" Label="CompUhaul.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

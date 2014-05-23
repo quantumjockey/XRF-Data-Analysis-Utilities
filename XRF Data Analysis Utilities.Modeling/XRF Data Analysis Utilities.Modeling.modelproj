@@ -56,5 +56,41 @@
     <Content Include="ModelDefinition\XRF Data Analysis Utilities.Modeling.uml">
       <SubType>Content</SubType>
     </Content>
+    <Folder Include="Layer Diagrams" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Visual C# Application Source\Libraries\CompUhaul\CompUhaul\CompUhaul.csproj">
+      <Name>CompUhaul</Name>
+      <Project>{3995f027-97c3-4b83-8a64-ddd36e1a43a2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Visual C# Application Source\Libraries\LookinSharp\LookinSharp\LookinSharp.csproj">
+      <Name>LookinSharp</Name>
+      <Project>{10e4593a-92db-43b3-9ca1-6029f01b8572}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Visual C# Application Source\Libraries\TheseColorsDontRun\TheseColorsDontRun\TheseColorsDontRun.csproj">
+      <Name>TheseColorsDontRun</Name>
+      <Project>{f6d15a69-9342-463a-82cc-8b5186deac60}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Visual C# Application Source\Libraries\WpfHelper\WpfHelper\WpfHelper.csproj">
+      <Name>WpfHelper</Name>
+      <Project>{473a9def-8948-42a0-b127-aab5bcbc5790}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\XRF Data Analysis Utilities\XRF Data Analysis Utilities.csproj">
+      <Name>XRF Data Analysis Utilities</Name>
+      <Project>{7197bd94-9584-404d-8065-a433ad3dc387}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="Layer Diagrams\XRF_Data_Analysis_Utilities.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Layer Diagrams\XRF_Data_Analysis_Utilities.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Layer Diagrams\XRF_Data_Analysis_Utilities.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Layer Diagrams\XRF_Data_Analysis_Utilities.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Layer Diagrams\XRF_Data_Analysis_Utilities.layerdiagram</DependentUpon>
+    </Validate>
   </ItemGroup>
 </Project>
