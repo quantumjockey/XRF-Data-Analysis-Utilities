@@ -19,7 +19,7 @@ namespace XRF_Data_Analysis_Utilities.Files
 
         public static xrfSample GetSampleData(string _fullPath)
         {
-            path dataFile = new path(_fullPath);
+            filePath dataFile = new filePath(_fullPath);
 
             if (!dataFile.Exists)
                 throw new ArgumentException("Path does not exist.");
