@@ -1,6 +1,7 @@
 ﻿///////////////////////////////////////
 #region Namespace Directives
 
+using CompUhaul.Paths;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,16 +17,14 @@ namespace XRF_Data_Analysis_Utilities.Files
         ////////////////////////////////////////
         #region Data Retrieval
 
-
         public static xrfSample GetSampleData(string _fullPath)
         {
-            if (String.IsNullOrEmpty(_fullPath) || String.IsNullOrWhiteSpace(_fullPath))
-                throw new ArgumentException("Path has invalid format. Please specify path using a valid format.");
+            path dataFile = new path(_fullPath);
 
-            if (!File.Exists(_fullPath))
+            if (!dataFile.Exists)
                 throw new ArgumentException("Path does not exist.");
 
-            string fileContent = ReadContentFromFile(_fullPath);
+            string fileContent = ReadContentFromFile(dataFile.FullPath);
             xrfSample sample = ParseFileData(fileContent);
             return sample;
         }
