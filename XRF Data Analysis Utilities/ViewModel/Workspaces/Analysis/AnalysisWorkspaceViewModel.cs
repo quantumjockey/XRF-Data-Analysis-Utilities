@@ -19,17 +19,9 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
         ////////////////////////////////////////
         #region Properties and Indexers
 
-        public xrfSample SampleData
-        {
-            get;
-            set;
-        }
+        public xrfSample SampleData { get; set; }
 
-        public ObservableCollection<elementData> Elements
-        {
-            get;
-            set;
-        }
+        public ObservableCollection<elementData> Elements { get; set; }
 
         #endregion
 
@@ -74,9 +66,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis
             int endIndex = labelData.IndexOf("Full Counts");
 
             for (int i = startIndex + 1; i < endIndex; i++)
-            {
                 Elements.Add(sample.GetElementData(sample.Labels[i]));
-            }
         }
 
         #endregion

@@ -32,11 +32,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Image Metadata
 
-        public xrfPixel[][] ImageData
-        {
-            get;
-            set;
-        }
+        public xrfPixel[][] ImageData { get; set; }
 
         // For color ramp slider
         public int MaxValue { get; set; }
@@ -159,14 +155,10 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
                         int counts = _baseImageData[i][j].Counts;
 
                         if (counts > MaxValue)
-                        {
                             MaxValue = counts;
-                        }
 
                         if (counts < MinValue)
-                        {
                             MinValue = counts;
-                        }
                     }
                 }
             }

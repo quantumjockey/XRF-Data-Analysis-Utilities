@@ -91,9 +91,7 @@ namespace XRF_Data_Analysis_Utilities.Files
             foreach (string[] item in rawData)
             {
                 if (item.Length < arrayLengthBoundary)
-                {
                     metaData.Add(item);
-                }
             }
 
             return metaData.ToArray();
@@ -107,9 +105,7 @@ namespace XRF_Data_Analysis_Utilities.Files
             foreach (string[] item in rawData)
             {
                 if (item.Length > arrayLengthBoundary)
-                {
                     pixelData.Add(item);
-                }
             }
 
             return pixelData.ToArray();
@@ -123,9 +119,7 @@ namespace XRF_Data_Analysis_Utilities.Files
             foreach (string component in dataColumns)
             {
                 if (component != String.Empty)
-                {
                     filteredSet.Add(component);
-                }
             }
 
             return filteredSet.ToArray();
@@ -171,9 +165,7 @@ namespace XRF_Data_Analysis_Utilities.Files
             foreach (string item in linesInFile)
             {
                 if (item != String.Empty && item != "0")
-                {
                     filteredData.Add(item);
-                }
             }
 
             return filteredData.ToArray();
@@ -189,9 +181,7 @@ namespace XRF_Data_Analysis_Utilities.Files
                 string[] set = item.Split(':', '\t');
 
                 for (int i = 0; i < set.Length; i++)
-                {
                     set[i] = set[i].Trim();
-                }
 
                 dataParsingVehicle.Add(FilterDataCellContent(set));
             }

@@ -80,23 +80,15 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
         {
             CompletePixelsList = new ObservableCollection<xrfPixel>();
             foreach (xrfPixel[] row in ElementData.ImageGridData)
-            {
                 foreach (xrfPixel column in row)
-                {
                     CompletePixelsList.Add(column);
-                }
-            }
         }
 
         protected void SelectPixelByTag(string tag)
         {
             for (int i = 0; i < CompletePixelsList.Count; i++)
-            {
                 if (tag == CompletePixelsList[i].Tag)
-                {
                     SelectedPixel = CompletePixelsList[i];
-                }
-            }
         }
 
         #endregion
@@ -109,9 +101,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
         {
             string _tag = (sender as ImageGraphViewModel).SelectedPixelTag;
             if (!String.IsNullOrEmpty(_tag))
-            {
                 SelectPixelByTag(_tag);
-            }
         }
 
         #endregion

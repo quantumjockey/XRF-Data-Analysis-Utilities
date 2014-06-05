@@ -133,9 +133,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         private void ColorRampUpdateAction()
         {
             if (ImageFrame.RenderedImage != null)
-            {
                 ImageFrame.RefreshImage(ImageSource.ImageData);
-            }
         }
 
         #endregion

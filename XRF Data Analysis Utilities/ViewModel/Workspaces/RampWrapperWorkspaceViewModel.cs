@@ -18,17 +18,9 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         ////////////////////////////////////////
         #region Generic Fields
 
-        public IColorRampWorkspaceViewModel ColorRamp
-        {
-            get;
-            set;
-        }
+        public IColorRampWorkspaceViewModel ColorRamp { get; set; }
 
-        public Action<object> RampChanged
-        {
-            get;
-            set;
-        }
+        public Action<object> RampChanged { get; set; }
 
         #endregion
 
@@ -51,9 +43,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
         {
             ColorRamp = new ColorRampWorkspaceViewModel(true, rampColors);
             if (RampChanged != null)
-            {
                 ColorRamp.PropertyChanged += ColorRamp_PropertyChanged;
-            }
         }
 
         #endregion

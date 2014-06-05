@@ -80,19 +80,13 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
         private void PopulateElementWorkspaces(ref xrfSample sample)
         {
             if (AvailableElements.Count > 0)
-            {
                 AvailableElements.Clear();
-            }
 
             foreach (elementData item in Elements)
-            {
                 AvailableElements.Add(new SingleElementWorkspaceViewModel(item));
-            }
 
             if (AvailableElements.Count > 0)
-            {
                 SelectedElement = AvailableElements[0] as SingleElementWorkspaceViewModel;
-            }
         }
 
         #endregion

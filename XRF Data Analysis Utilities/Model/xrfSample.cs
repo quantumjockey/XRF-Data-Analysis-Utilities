@@ -78,9 +78,7 @@ namespace XRF_Data_Analysis_Utilities.Model
                 convertedData[i] = new xrfPixelData[width];
 
                 for (int j = 0; j < width; j++)
-                {
                     convertedData[i][j] = new xrfPixelData(rawData[i][j], labels, Guid.NewGuid().ToString());
-                }
             }
 
             return convertedData;

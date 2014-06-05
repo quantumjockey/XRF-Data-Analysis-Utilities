@@ -59,14 +59,10 @@ namespace XRF_Data_Analysis_Utilities.Model
                     int counts = (int)sortedData[i][j][index];
 
                     if (counts > MaxCounts)
-                    {
                         MaxCounts = counts;
-                    }
 
                     if (counts < MinCounts)
-                    {
                         MinCounts = counts;
-                    }
                 }
             }
         }

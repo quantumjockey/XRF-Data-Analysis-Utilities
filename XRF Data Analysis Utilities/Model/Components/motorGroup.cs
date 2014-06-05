@@ -13,29 +13,13 @@ namespace XRF_Data_Analysis_Utilities.Model.Components
         ////////////////////////////////////////
         #region Members
 
-        public double DelayAfterMovement
-        {
-            get;
-            set;
-        }
+        public double DelayAfterMovement { get; set; }
 
-        public List<motorSettings> Devices
-        {
-            get;
-            set;
-        }
+        public List<motorSettings> Devices { get; set; }
 
-        public string Pattern
-        {
-            get;
-            set;
-        }
+        public string Pattern { get; set; }
 
-        public double StayAtEnd
-        {
-            get;
-            set;
-        }
+        public double StayAtEnd { get; set; }
 
         #endregion
 

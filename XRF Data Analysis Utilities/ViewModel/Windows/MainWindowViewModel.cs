@@ -72,13 +72,9 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
             {
                 _selectedSample = value;
                 if (_selectedSample != null && _selectedSample.SelectedImageAnalysisWorkspace != null && _selectedSample.SelectedImageAnalysisWorkspace.GetSelectedImage() != null)
-                {
                     CanExport = true;
-                }
                 else
-                {
                     CanExport = false;
-                }
                 OnPropertyChanged("SelectedSample");
             }
         }
@@ -101,23 +97,11 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
         ////////////////////////////////////////
         #region Actions
 
-        public CommandDrivenControlViewModel OpenFile
-        {
-            get;
-            set;
-        }
+        public CommandDrivenControlViewModel OpenFile { get; set; }
 
-        public CommandDrivenControlViewModel ExitProgram
-        {
-            get;
-            set;
-        }
+        public CommandDrivenControlViewModel ExitProgram { get; set; }
 
-        public CommandDrivenControlViewModel ExportImage
-        {
-            get;
-            set;
-        }
+        public CommandDrivenControlViewModel ExportImage { get; set; }
 
         #endregion
 
