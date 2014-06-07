@@ -28,8 +28,7 @@ namespace XRF_Data_Analysis_Utilities.Files
             if (!_dataFile.Exists)
                 throw new ArgumentException("Path does not exist.");
 
-            string fileContent = ReadContentFromFile(_dataFile.FullPath);
-            xrfSample sample = ParseFileData(fileContent);
+            xrfSample sample = ParseFileData(ReadTabularContentFromFile());
             return sample;
         }
 
@@ -39,13 +38,9 @@ namespace XRF_Data_Analysis_Utilities.Files
         #region Data Parsing
 
 
-        private xrfSample ParseFileData(string fileContent)
+        private xrfSample ParseFileData(string[][] columnsData)
         {
             int columnLengthCutOff = 4;
-
-            string[] linesInFile = SeparateFileDataByLine(fileContent);
-
-            string[][] columnsData = SeparateLineDataByColumn(linesInFile);
 
             string[][] metaData = ExtractMetaData(columnsData, columnLengthCutOff);
 
@@ -93,10 +88,8 @@ namespace XRF_Data_Analysis_Utilities.Files
             List<string[]> metaData = new List<string[]>();
 
             foreach (string[] item in rawData)
-            {
                 if (item.Length < arrayLengthBoundary)
                     metaData.Add(item);
-            }
 
             return metaData.ToArray();
         }
@@ -107,10 +100,8 @@ namespace XRF_Data_Analysis_Utilities.Files
             List<string[]> pixelData = new List<string[]>();
 
             foreach (string[] item in rawData)
-            {
                 if (item.Length > arrayLengthBoundary)
                     pixelData.Add(item);
-            }
 
             return pixelData.ToArray();
         }
