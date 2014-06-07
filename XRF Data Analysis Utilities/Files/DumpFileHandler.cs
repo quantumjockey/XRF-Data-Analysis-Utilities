@@ -1,10 +1,9 @@
 ﻿///////////////////////////////////////
 #region Namespace Directives
 
-using CompUhaul.Paths;
+using CompUhaul.Files.Handlers;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using XRF_Data_Analysis_Utilities.Model;
 
 #endregion
@@ -12,19 +11,24 @@ using XRF_Data_Analysis_Utilities.Model;
 
 namespace XRF_Data_Analysis_Utilities.Files
 {
-    public class DumpFileHandler
+    public class DumpFileHandler : TextFileHandler
     {
+        ////////////////////////////////////////
+        #region Constructor
+
+        public DumpFileHandler(string _fullPath) : base(_fullPath) { }
+
+        #endregion
+
         ////////////////////////////////////////
         #region Data Retrieval
 
-        public xrfSample GetSampleData(string _fullPath)
+        public xrfSample GetSampleData()
         {
-            filePath dataFile = new filePath(_fullPath);
-
-            if (!dataFile.Exists)
+            if (!_dataFile.Exists)
                 throw new ArgumentException("Path does not exist.");
 
-            string fileContent = ReadContentFromFile(dataFile.FullPath);
+            string fileContent = ReadContentFromFile(_dataFile.FullPath);
             xrfSample sample = ParseFileData(fileContent);
             return sample;
         }
@@ -112,81 +116,9 @@ namespace XRF_Data_Analysis_Utilities.Files
         }
 
 
-        private string[] FilterDataCellContent(string[] dataColumns)
-        {
-            List<string> filteredSet = new List<string>();
-
-            foreach (string component in dataColumns)
-            {
-                if (component != String.Empty)
-                    filteredSet.Add(component);
-            }
-
-            return filteredSet.ToArray();
-        }
-
-
         private xrfSample GenerateSampleObject(string[] _labels, string[][] _metaData, double[][] _pixelData)
         {
             return new xrfSample(_labels, _metaData, _pixelData);
-        }
-
-
-        private string ReadContentFromFile(string _filePath)
-        {
-            string _content = String.Empty;
-
-            try
-            {
-                if (File.Exists(_filePath))
-                {
-                    using (StreamReader FileReadObject = new StreamReader(_filePath))
-                    {
-                        _content = FileReadObject.ReadToEnd();
-                        FileReadObject.Close();
-                    }
-                }
-            }
-            catch
-            {
-                _content = String.Empty;
-            }
-
-            return _content;
-        }
-
-
-        private string[] SeparateFileDataByLine(string fileData)
-        {
-            string[] linesInFile = fileData.Split('\n', '\r');
-
-            List<string> filteredData = new List<string>();
-
-            foreach (string item in linesInFile)
-            {
-                if (item != String.Empty && item != "0")
-                    filteredData.Add(item);
-            }
-
-            return filteredData.ToArray();
-        }
-
-
-        private string[][] SeparateLineDataByColumn(string[] linesInFile)
-        {
-            List<string[]> dataParsingVehicle = new List<string[]>();
-
-            foreach (string item in linesInFile)
-            {
-                string[] set = item.Split(':', '\t');
-
-                for (int i = 0; i < set.Length; i++)
-                    set[i] = set[i].Trim();
-
-                dataParsingVehicle.Add(FilterDataCellContent(set));
-            }
-
-            return dataParsingVehicle.ToArray();
         }
 
         #endregion
