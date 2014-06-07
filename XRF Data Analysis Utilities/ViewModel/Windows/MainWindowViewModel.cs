@@ -157,7 +157,8 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Windows
 
         void OpenDumpFile_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            xrfSample sample = DumpFileHandler.GetSampleData(OpenDumpFile.FileName);
+            DumpFileHandler handler = new DumpFileHandler();
+            xrfSample sample = handler.GetSampleData(OpenDumpFile.FileName);
             Samples.Add(new SampleWorkspaceViewModel(OpenDumpFile.SafeFileName, ref sample));
             SelectedSample = Samples[Samples.Count - 1] as SampleWorkspaceViewModel;
         }

@@ -17,7 +17,7 @@ namespace XRF_Data_Analysis_Utilities.Files
         ////////////////////////////////////////
         #region Data Retrieval
 
-        public static xrfSample GetSampleData(string _fullPath)
+        public xrfSample GetSampleData(string _fullPath)
         {
             filePath dataFile = new filePath(_fullPath);
 
@@ -35,7 +35,7 @@ namespace XRF_Data_Analysis_Utilities.Files
         #region Data Parsing
 
 
-        private static xrfSample ParseFileData(string fileContent)
+        private xrfSample ParseFileData(string fileContent)
         {
             int columnLengthCutOff = 4;
 
@@ -62,7 +62,7 @@ namespace XRF_Data_Analysis_Utilities.Files
         #region Private Methods
 
 
-        private static double[][] ConvertPixelDataToDouble(string[][] rawData, int startIndex)
+        private double[][] ConvertPixelDataToDouble(string[][] rawData, int startIndex)
         {
             List<double[]> convertedData = new List<double[]>();
 
@@ -84,7 +84,7 @@ namespace XRF_Data_Analysis_Utilities.Files
         }
 
 
-        private static string[][] ExtractMetaData(string[][] rawData, int arrayLengthBoundary)
+        private string[][] ExtractMetaData(string[][] rawData, int arrayLengthBoundary)
         {
             List<string[]> metaData = new List<string[]>();
 
@@ -98,7 +98,7 @@ namespace XRF_Data_Analysis_Utilities.Files
         }
 
 
-        private static string[][] ExtractRawPixelData(string[][] rawData, int arrayLengthBoundary)
+        private string[][] ExtractRawPixelData(string[][] rawData, int arrayLengthBoundary)
         {
             List<string[]> pixelData = new List<string[]>();
 
@@ -112,7 +112,7 @@ namespace XRF_Data_Analysis_Utilities.Files
         }
 
 
-        private static string[] FilterDataCellContent(string[] dataColumns)
+        private string[] FilterDataCellContent(string[] dataColumns)
         {
             List<string> filteredSet = new List<string>();
 
@@ -126,13 +126,13 @@ namespace XRF_Data_Analysis_Utilities.Files
         }
 
 
-        private static xrfSample GenerateSampleObject(string[] _labels, string[][] _metaData, double[][] _pixelData)
+        private xrfSample GenerateSampleObject(string[] _labels, string[][] _metaData, double[][] _pixelData)
         {
             return new xrfSample(_labels, _metaData, _pixelData);
         }
 
 
-        private static string ReadContentFromFile(string _filePath)
+        private string ReadContentFromFile(string _filePath)
         {
             string _content = String.Empty;
 
@@ -156,7 +156,7 @@ namespace XRF_Data_Analysis_Utilities.Files
         }
 
 
-        private static string[] SeparateFileDataByLine(string fileData)
+        private string[] SeparateFileDataByLine(string fileData)
         {
             string[] linesInFile = fileData.Split('\n', '\r');
 
@@ -172,7 +172,7 @@ namespace XRF_Data_Analysis_Utilities.Files
         }
 
 
-        private static string[][] SeparateLineDataByColumn(string[] linesInFile)
+        private string[][] SeparateLineDataByColumn(string[] linesInFile)
         {
             List<string[]> dataParsingVehicle = new List<string[]>();
 

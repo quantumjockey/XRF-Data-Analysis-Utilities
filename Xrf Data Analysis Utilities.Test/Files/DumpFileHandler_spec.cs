@@ -69,22 +69,25 @@ namespace Xrf_Data_Analysis_Utilities.Test.Files
         [ExpectedException(typeof(ArgumentException))]
         public void GetSampleData_PathNullOrEmpty_InvalidArgumentException()
         {
-            DumpFileHandler.GetSampleData("");
-            DumpFileHandler.GetSampleData(null);
+            DumpFileHandler handler = new DumpFileHandler();
+            handler.GetSampleData("");
+            handler.GetSampleData(null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void GetSampleData_PathIsWhiteSpace_InvalidArgumentException()
         {
-            DumpFileHandler.GetSampleData("  ");
+            DumpFileHandler handler = new DumpFileHandler();
+            handler.GetSampleData("  ");
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void GetSampleData_PathInvalid_InvalidArgumentException()
         {
-            DumpFileHandler.GetSampleData(dummyPath);
+            DumpFileHandler handler = new DumpFileHandler();
+            handler.GetSampleData(dummyPath);
         }
 
 
