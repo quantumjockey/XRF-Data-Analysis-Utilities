@@ -11,13 +11,13 @@ using XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Interfaces;
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElement
 {
-    public class SingleElementAnalysisWorkspaceViewModel : AnalysisWorkspaceViewModel
+    public class SEAnalysisWorkspaceViewModel : AnalysisWorkspaceViewModel
     {
         ////////////////////////////////////////
         #region Generic Fields
 
         // Workspace-specific
-        private SingleElementWorkspaceViewModel _selectedElement;
+        private SEWorkspaceViewModel _selectedElement;
 
         #endregion
 
@@ -30,7 +30,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
             set;
         }
 
-        public SingleElementWorkspaceViewModel SelectedElement
+        public SEWorkspaceViewModel SelectedElement
         {
             get
             {
@@ -49,7 +49,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
         #region Constructor
 
 
-        public SingleElementAnalysisWorkspaceViewModel(string header, ref xrfSample sample)
+        public SEAnalysisWorkspaceViewModel(string header, ref xrfSample sample)
             : base(header, ref sample)
         {
             AvailableElements = new WorkspaceViewModelCollection();
@@ -83,10 +83,10 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
                 AvailableElements.Clear();
 
             foreach (elementData item in Elements)
-                AvailableElements.Add(new SingleElementWorkspaceViewModel(item));
+                AvailableElements.Add(new SEWorkspaceViewModel(item));
 
             if (AvailableElements.Count > 0)
-                SelectedElement = AvailableElements[0] as SingleElementWorkspaceViewModel;
+                SelectedElement = AvailableElements[0] as SEWorkspaceViewModel;
         }
 
         #endregion

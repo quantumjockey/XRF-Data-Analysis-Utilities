@@ -13,7 +13,7 @@ using XRF_Data_Analysis_Utilities.Model.Components;
 
 namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElement
 {
-    public class SingleElementWorkspaceViewModel : WorkspaceViewModel
+    public class SEWorkspaceViewModel : WorkspaceViewModel
     {
         ////////////////////////////////////////
         #region Generic Fields
@@ -62,7 +62,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElemen
         ////////////////////////////////////////
         #region Constructor
 
-        public SingleElementWorkspaceViewModel(elementData _data)
+        public SEWorkspaceViewModel(elementData _data)
         {
             ElementData = _data;
             ImageGraph = new XrfImageWorkspaceViewModel(ElementData.Name, ElementData.ImageGridData);

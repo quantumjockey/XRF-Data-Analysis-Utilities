@@ -63,7 +63,7 @@
     <Compile Include="ViewModel\Windows\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\AnalysisWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\IAnalysisWorkspaceViewModel.cs" />
-    <Compile Include="ViewModel\Workspaces\Analysis\SingleElement\SingleElementAnalysisWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\Workspaces\Analysis\SingleElement\SEAnalysisWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Interfaces\IImageDataWorkspace.cs" />
     <Compile Include="ViewModel\Workspaces\Interfaces\IRampWrapperWorkspace.cs" />
     <Compile Include="ViewModel\Workspaces\ImageDataWorkspaceViewModel.cs" />
@@ -74,7 +74,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Files\DumpFileHandler.cs" />
-    <Compile Include="ViewModel\Workspaces\Analysis\SingleElement\SingleElementWorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\Workspaces\Analysis\SingleElement\SEWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\XrfImageWorkspaceViewModel.cs" />
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

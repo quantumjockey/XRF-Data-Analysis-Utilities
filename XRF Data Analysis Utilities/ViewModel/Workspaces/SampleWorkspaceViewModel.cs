@@ -69,7 +69,7 @@ namespace XRF_Data_Analysis_Utilities.ViewModel.Workspaces
 
         private void InitializeDataManipulationWorkspaces(ref xrfSample _sample)
         {
-            ImageAnalysisWorkspaces.Add(new SingleElementAnalysisWorkspaceViewModel("Single-Element Analysis", ref _sample));
+            ImageAnalysisWorkspaces.Add(new SEAnalysisWorkspaceViewModel("Single-Element Analysis", ref _sample));
             SelectedImageAnalysisWorkspace = ImageAnalysisWorkspaces[0] as IAnalysisWorkspaceViewModel;
         }
 

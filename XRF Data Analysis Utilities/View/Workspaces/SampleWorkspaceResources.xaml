@@ -3,7 +3,7 @@
                     xmlns:vmw="clr-namespace:XRF_Data_Analysis_Utilities.ViewModel.Workspaces.Analysis.SingleElement"
                     xmlns:vww="clr-namespace:XRF_Data_Analysis_Utilities.View.Workspaces.Analysis">
 
-    <DataTemplate DataType="{x:Type vmw:SingleElementAnalysisWorkspaceViewModel}">
+    <DataTemplate DataType="{x:Type vmw:SEAnalysisWorkspaceViewModel}">
         <vww:SingleElementAnalysisWorkspace />
     </DataTemplate>
 
