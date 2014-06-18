@@ -59,6 +59,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\xrfPixelData.cs" />
+    <Compile Include="ViewModel\Workspaces\Analysis\MultipleElement\ElementMarkerViewModel.cs" />
+    <Compile Include="ViewModel\Workspaces\Analysis\MultipleElement\MEAnalysisWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\RampWrapperWorkspaceViewModel.cs" />
     <Compile Include="ViewModel\Windows\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\Workspaces\Analysis\AnalysisWorkspaceViewModel.cs" />
