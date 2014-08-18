@@ -81,6 +81,12 @@
     <Compile Include="View\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Workspaces\Analysis\MultipleElement\ElementMarker.xaml.cs">
+      <DependentUpon>ElementMarker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Workspaces\Analysis\MultipleElement\MEAnalysisWorkspace.xaml.cs">
+      <DependentUpon>MEAnalysisWorkspace.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Workspaces\Analysis\SingleElementAnalysisWorkspace.xaml.cs">
       <DependentUpon>SingleElementAnalysisWorkspace.xaml</DependentUpon>
     </Compile>
@@ -154,6 +160,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows\MainWindowResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Workspaces\Analysis\MultipleElement\ElementMarker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Workspaces\Analysis\MultipleElement\MEAnalysisWorkspace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
