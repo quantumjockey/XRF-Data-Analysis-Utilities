@@ -22,12 +22,34 @@ These can be cloned from their respective repositories (links included above). D
 Instructions
 ------------
 
-To get your machine ready for development with this repository:
+To get your machine ready for development with this repository, you have one of two options:
 
-1. Clone the repository to your machine.
-2. Navigate to the directory you cloned your repository to.
-3. Locate the Visual Studio 2012 solution file.
-3. Open the solution in Visual Studio (2012 or later)
+1. Develop using repositories for project dependencies.
+2. Develop using binaries for dependencies.
+
+If you want to use repositories for project dependencies:
+
+1. Download dependencies listed above via included links. Prepare each for development by following instructions in the README for each.
+2. Clone this repository to your machine.
+3. Navigate to the directory you cloned your repository to.
+4. Locate the Visual Studio 2012 solution file.
+5. Open the solution in Visual Studio (2012 or later)
+6. Change the referenced paths for each "missing" project to their respective repository clones.
+7. Build the project in Debug mode.
+
+If you want to use binaries for project dependencies:
+
+1. Download binaries for the above-listed dependencies via linked sites above.
+2. Place DLL binaries (and DLLs for their dependencies) in a common directory.
+3. Clone this repository to your machine.
+4. Navigate to the directory you cloned your repository to.
+5. Locate the Visual Studio 2012 solution file.
+6. Open the solution in Visual Studio (2012 or later)
+7. Refactor listed dependencies by removing existing project references from solution file.
+8. Add references for each DLL binary by right-clicking on the "References" folder within the solution and select "Add Reference..." to open Reference Manager.
+9. Locate all binaries via the "Browse..." option.
+10. When all binaries have been successfully located, be sure that they're all checked in the Reference Manager's center view and click "OK"
+11. Build the project in Debug mode.
 
 Viola! You're good to go!
 
