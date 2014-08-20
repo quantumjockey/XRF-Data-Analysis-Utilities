@@ -10,6 +10,19 @@ Summary
 
 (Description of product capabilities coming soon.)
 
+Dependencies
+------------
+
+The repository requires the following components:
+
+* [CompUhaul](https://github.com/quantumjockey/CompUhaul) - Foundation for internal file management framework.
+* [LookinSharp](https://github.com/quantumjockey/LookinSharp) - Rendering library for generating data visualizations.
+* [TheseColorsDontRun](https://github.com/quantumjockey/TheseColorsDontRun) - Color ramps for use with data visualization components.
+* [WpfHelper](https://github.com/quantumjockey/WpfHelper) - Foundation for MVVM implementation.
+
+These can be cloned from their respective repositories (links included above). DLL binaries for these libraries and their dependencies will be made available for download on both the [laboratory site](http://hipsec.unlv.edu/) and [Nicola's portfolio site](http://nicoladipalma.com/). Follow the instructions included in the README for each repository to ensure proper setup. Once cloned, the references to each must be corrected in the Visual Studio Solution file. A walk-through for this process is included below.
+		
+
 Notes
 -----
 
