@@ -19,13 +19,6 @@ The repository requires the following components:
 These can be cloned from their respective repositories (links included above). DLL binaries for these libraries and their dependencies will be made available for download on both the [laboratory site](http://hipsec.unlv.edu/) and [Nicola's portfolio site](http://nicoladipalma.com/). Follow the instructions included in the README for each repository to ensure proper setup. Once cloned, the references to each must be corrected in the Visual Studio Solution file. A walk-through for this process is included below.
 		
 
-Notes
------
-
-Code in this application has been composed in a self-documenting fashion and styled for readability where possible. XML documentation for use with VS Intellisense is limited since reuse of code not otherwise encapsulated in external libraries is unlikely at this time. Comments have been placed within source where readability is limited, and where functionality is a direct consequence of material esoteric to crystallography and materials science.
-
-The solution associated with this application, including unit tests and architectural models, was created, debugged, and deployed using [Visual Studio 2012 Ultimate with MSDN](http://en.wikipedia.org/wiki/Microsoft_Visual_Studio#Visual_Studio_2012) (link contains addtional references). The solution may not open properly if you try using an earlier or less feature-saturated version of Visual Studio. If a later version is used, be sure to check the cloned solution against original source code to ensure that compatiblity changes haven't significantly altered existing functionality.
-
 Instructions
 ------------
 
@@ -37,3 +30,11 @@ To get your machine ready for development with this repository:
 3. Open the solution in Visual Studio (2012 or later)
 
 Viola! You're good to go!
+
+
+Notes
+-----
+
+Code in this application has been composed in a self-documenting fashion and styled for readability where possible. XML documentation for use with VS Intellisense is limited since reuse of code not otherwise encapsulated in external libraries is unlikely at this time. Comments have been placed within source where readability is limited, and where functionality is a direct consequence of material esoteric to crystallography and materials science.
+
+The solution associated with this application, including unit tests and architectural models, was created, debugged, and deployed using [Visual Studio 2012 Ultimate with MSDN](http://en.wikipedia.org/wiki/Microsoft_Visual_Studio#Visual_Studio_2012) (link contains addtional references). The solution may not open properly if you try using an earlier or less feature-saturated version of Visual Studio. If a later version is used, be sure to check the cloned solution against original source code to ensure that compatiblity changes haven't significantly altered existing functionality.
